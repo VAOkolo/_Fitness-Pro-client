@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
-import AuthContext from '../context/AuthContext'
+import AuthContext from '../../context/AuthContext'
 
-const HomePage = () => {
+const Dashboard = () => {
     let [notes, setNotes] = useState([])
     let {authTokens, logoutUser} = useContext(AuthContext)
 
@@ -42,4 +42,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default Dashboard
