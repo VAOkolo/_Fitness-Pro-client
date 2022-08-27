@@ -10,21 +10,28 @@ import { Exercises, History, Home, Login, Register, Workout } from './Pages'
 function App() {
   return (
     <>
-      <Router>
-        <Fragment>
+
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path='/register' element={<Register />} />
+        </Routes>
+      </AuthProvider>
+
+      {/* <Router>
           <Header />
           <AuthProvider>
             <Routes>
               <Route exact path='/' element={<PrivateRoute />}>
-                <Route exact path='/' element={<Home />} />
+                <Route exact path='/home' element={<Home />} />
               </Route>
               <Route exact path='/login' element={<Login />} />
-              <Route exact path='/register' element={<Register/>}/>
+              <Route exact path='/register' element={<Register />} />
             </Routes>
           </AuthProvider>
           <Footer />
-        </Fragment>
-      </Router>
+      </Router> */}
     </>
   );
 }
