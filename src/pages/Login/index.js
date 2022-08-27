@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import AuthContext from '../../context/AuthContext'
 
 const Login = () => {
+    let {loginUser} = useContext(AuthContext)
     return (
         <div>
-            This is the Login Page! You might get stuck on this page. <br></br>Just click backup a few times to get back to landing page
+            <form onSubmit={loginUser}>
+                <input type="text" name="username" placeholder="Enter Username" />
+                <input type="password" name="password" placeholder="Enter Password" />
+                <input type="submit"/>
+            </form>
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
+import { Link } from 'react-router-dom'
 import AuthContext from '../../context/AuthContext'
 
 const Dashboard = () => {
@@ -31,6 +32,7 @@ const Dashboard = () => {
     return (
         <div>
             <p>You are logged to the home page!</p>
+            <Link to="/logout">Logout</Link>
 
 
             <ul>
