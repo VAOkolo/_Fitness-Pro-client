@@ -72,17 +72,17 @@ export default function RegisterForm() {
                     <p>{formErrors.username}</p>
                     <div className="field">
                         <label>Email</label>
-                        <input type="text" name="email" placeholder="Email" value={formValues.email} onChange={handleChange}/>
+                        <input type="text" name="email" placeholder="Email" value={formValues.email} onChange={handleChange} />
                     </div>
                     <p>{formErrors.email}</p>
                     <div className="field">
                         <label>Password</label>
-                        <input type="password" name="password" placeholder="Password" value={formValues.password} onChange={handleChange}/>
+                        <input type="password" name="password" placeholder="Password" value={formValues.password} onChange={handleChange} />
                     </div>
                     <p>{formErrors.password}</p>
                     <div className="field">
                         <label>Password</label>
-                        <input type="password" name="password2" placeholder="Confirm password" value={formValues.password2} onChange={handleChange}/>
+                        <input type="password" name="password2" placeholder="Confirm password" value={formValues.password2} onChange={handleChange} />
                     </div>
                     <p>{formErrors.password2}</p>
                     <button className="fluid ui button blue">Submit</button>
