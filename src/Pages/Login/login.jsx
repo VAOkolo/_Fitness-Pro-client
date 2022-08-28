@@ -4,9 +4,7 @@ import AuthContext from '../../Context/AuthContext'
 const Login = () => {
   let { loginUser, user } = useContext(AuthContext)
 
-  console.log(user)
   return (
-
     <div>
       <form onSubmit={loginUser}>
         <div className="form-group">

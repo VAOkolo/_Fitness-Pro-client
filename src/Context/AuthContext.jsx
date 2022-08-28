@@ -40,7 +40,18 @@ export const AuthProvider = ({ children }) => {
         setAuthTokens(null)
         setUser(null)
         localStorage.removeItem('authTokens')
-        navigate('/login')
+
+        // PERMISSION TO LOGIN AND REGISTER PAGE AND WARNING USER IN CASE OF A TRY TO BYPASS TO PAGES
+        const url = window.location.href
+        const path = '/' + url.substring(url.lastIndexOf("/") + 1, url.length)
+        if (path == '/login') {
+            navigate(path)
+        } else if (path == '/register') {
+            navigate(path)
+        } else {
+            console.log("Not authorized. Try again.")
+            navigate('/login')
+        }
     }
 
 

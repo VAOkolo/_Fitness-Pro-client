@@ -9,16 +9,16 @@ import { Exercises, History, Home, Login, Register, Workout } from './Pages'
 
 function App() {
   return (
-    <> 
-    <Router>
-      <AuthProvider>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path='/register' element={<Register />} />
-          <Route path="/home" element={<Home />} />
-        </Routes>
-      </AuthProvider>
-    </Router>
+    <>
+      <Router>
+        <AuthProvider>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path="/home" element={<Home />} />
+          </Routes>
+        </AuthProvider>
+      </Router>
       {/* <Router>
           <Header />
           <AuthProvider>
