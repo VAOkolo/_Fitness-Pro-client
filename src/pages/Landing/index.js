@@ -13,7 +13,7 @@ const Landing = () => {
             animate={{ opacity: 1}}
             exit={{ opacity: 0}}
             transition={{
-                delay: 1,
+                delay: 0.5,
                 default: {
                     duration: 0.3,
                 }

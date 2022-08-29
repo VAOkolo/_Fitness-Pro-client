@@ -21,12 +21,15 @@ const Navbar = () => {
         <img src={images.portfoliologo} alt="logo" />
       </div>
       <ul className="app__navbar-link">
-        {['home', 'signup', 'login'].map((item) => (
-          <li className="app__flex p-text" key={`link-${item}`}>
-            <div />
-            <a href={`#${item}`}>{item}</a>
-          </li>
-        ))}
+        <li class="app__flex p-text">
+          <a><Link to="/landing">Home</Link></a>
+        </li>
+        <li class="app__flex p-text">
+          <a><Link to="/register">Signup</Link></a>
+        </li>
+        <li class="app__flex p-text">
+          <a><Link to="/login">Login</Link></a>
+        </li>
       </ul>
 
       <div className="app__navbar-menu">

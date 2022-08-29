@@ -14,6 +14,9 @@ import Graph from '../../components/Graph'
 import './dashboard.css'
 
 const Dashboard = () => {
+    let [dashboard, setDashboard] = useState(false)
+    let [workout, setWorkout] = useState(false)
+    let [stats, setStats] = useState(false)
     let [notes, setNotes] = useState([])
     let {authTokens, logoutUser} = useContext(AuthContext)
 
@@ -36,8 +39,23 @@ const Dashboard = () => {
             setNotes(data)
         }else if(response.statusText === 'Unauthorized'){
             logoutUser()
-        }
-        
+        }     
+    }
+
+    const handleDash = () => {
+        setDashboard(true)
+        setWorkout(false)
+        setStats(false)
+    }
+    const handleWork = () => {
+        setWorkout(true)
+        setDashboard(false)
+        setStats(false)
+    }
+    const handleStats = () => {
+        setStats(true)
+        setDashboard(false)
+        setWorkout(false)
     }
 
     return (
@@ -57,15 +75,17 @@ const Dashboard = () => {
 
             </div>
             <div className='sidebar'>
-                <a href='#' className='active'>
+                <a href='#' className={workout || stats ? '' : 'active'} onClick={handleDash}>
                     <PersonRoundedIcon />
                     <h3>Dashboard</h3>
                 </a>
-                <a href='#'>
+                <a href='#' className={dashboard || stats ? '' : 'active'}
+                onClick={handleWork}>
                     <FitnessCenterRoundedIcon />
                     <h3>Create A Workout +</h3>
                 </a>
-                <a href='#'>
+                <a href='#' className={dashboard || workout ? '' : 'active'}
+                onClick={handleStats}>
                     <AutoGraphRoundedIcon />
                     <h3>Your Stats</h3>
                 </a>
