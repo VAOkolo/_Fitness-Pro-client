@@ -264,6 +264,17 @@ main .insights .middle svg {
     height: 7rem;
 }
 
+@media screen and (max-width: 425px) {
+main .insights .middle svg {
+    display: none;
+}
+}
+@media screen and (max-width: 425px) {
+main .insights .progress {
+    width: 0px;
+}
+}
+
 main .insights small {
     margin-top: 1.6rem;
     display: block;

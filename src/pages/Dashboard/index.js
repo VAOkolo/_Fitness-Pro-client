@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import AuthContext from '../../context/AuthContext'
 import { NavbarDash } from '../../components/index'
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import FitnessCenterRoundedIcon from '@mui/icons-material/FitnessCenterRounded';
 import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
@@ -19,9 +18,9 @@ const Dashboard = () => {
     let [dashboard, setDashboard] = useState(true)
     let [workout, setWorkout] = useState(false)
     let [stats, setStats] = useState(false)
+    let [logout, setLogout] = useState(false)
     let [notes, setNotes] = useState([])
     let {authTokens, logoutUser} = useContext(AuthContext)
-    let [dashboardShow, setDashboardShow] = useState(false)
 
     useEffect(()=> {
         getNotes()
@@ -45,6 +44,12 @@ const Dashboard = () => {
         }     
     }
 
+
+    // These states below are:
+    // changing the purple colour of current sidebar selection
+    // changing page routes
+    // handling logout
+
     const handleDash = () => {
         setDashboard(true)
         setWorkout(false)
@@ -61,6 +66,13 @@ const Dashboard = () => {
         setStats(true)
         setDashboard(false)
         setWorkout(false)
+    }
+    const handleLogout = () => {
+        setLogout(true)
+        setStats(false)
+        setDashboard(false)
+        setWorkout(false)
+        logoutUser()
     }
 
     return (
@@ -81,21 +93,22 @@ const Dashboard = () => {
 
             </div>
             <div className='sidebar'>
-                <a href='#' className={workout || stats ? '' : 'active'} onClick={handleDash}>
+                <a href='#' className={workout || stats || logout  ? '' : 'active'} onClick={handleDash}>
                     <PersonRoundedIcon />
                     <h3>Dashboard</h3>
                 </a>
-                <a href='#' className={dashboard || stats ? '' : 'active'}
+                <a href='#' className={dashboard || stats || logout ? '' : 'active'}
                 onClick={handleWork}>
                     <FitnessCenterRoundedIcon />
                     <h3>Create A Workout +</h3>
                 </a>
-                <a href='#' className={dashboard || workout ? '' : 'active'}
+                <a href='#' className={dashboard || workout|| logout ? '' : 'active'}
                 onClick={handleStats}>
                     <AutoGraphRoundedIcon />
                     <h3>Your Stats</h3>
                 </a>
-                <a href='#'>
+                <a href='#' className={workout || stats || dashboard ? '' : 'active'}
+                onClick={handleLogout}>
                     <LogoutRoundedIcon />
                     <h3>Logout</h3>
                 </a>
