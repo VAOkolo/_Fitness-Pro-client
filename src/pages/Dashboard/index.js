@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { Link } from 'react-router-dom'
 import AuthContext from '../../context/AuthContext'
+import { Navbar, Sidebar} from '../../components/index'
 
 const Dashboard = () => {
     let [notes, setNotes] = useState([])
@@ -30,17 +30,10 @@ const Dashboard = () => {
     }
 
     return (
-        <div>
-            <p>You are logged to the home page!</p>
-            <Link to="/logout">Logout</Link>
-
-
-            <ul>
-                {notes.map(note => (
-                    <li key={note.id} >{note.body}</li>
-                ))}
-            </ul>
-        </div>
+    <>
+    <Navbar />
+    <Sidebar />
+    </>
     )
 }
 

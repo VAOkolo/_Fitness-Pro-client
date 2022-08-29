@@ -7,12 +7,15 @@
 
 html {
 height: 100%;
+overflow: hidden;
 }
 
 body {
   background: linear-gradient(#2C3E50, #0e141a);
-  background-size: cover;
+  height: 100%;
+  margin: 0;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .intro {

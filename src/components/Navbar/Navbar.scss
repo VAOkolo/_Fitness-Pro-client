@@ -194,21 +194,22 @@
   }
 
 .app__navbar {   //references className="app__navbar
+    position: static;
     width: 100%;
-    
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     padding: 1rem 0.5rem;
-    background: rgba(0, 0, 0, 0.13);
-    backdrop-filter: blur(4px);  //blury background around nav bar 
-    -webkit-backdrop-filter: blur(4px); //for other browsers that don't support
     border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 12px 500px;
     border: none;
     position: fixed;  //navbar stays ontop
     z-index: 2;  // make it appear above the content
+
+    @media screen and (max-width: 1200px) {
+      position: static;
+      margin-bottom: -5rem;
+    }
 }
 
 .app__navbar-logo {
@@ -219,6 +220,7 @@
     img {
         width: 90px;
         height: 20px;
+        margin-left: 1.4rem;
 
         @media screen and (min-width: 2000px) {  //extra large devices
             width: 180px;
@@ -372,12 +374,12 @@
         }
 
 
-        @media screen and (min-width: 900px) {  //connected to 'div'. If we expand this over 900px, the menu drop will disappear
+        @media screen and (min-width: 1100px) {  //connected to 'div'. If we expand this over 900px, the menu drop will disappear
             display: none; 
         }
 
     }
-    @media screen and (min-width: 900px) {  //same thing copied to 'button' - so it should disappear aswell
+    @media screen and (min-width: 1100px) {  //same thing copied to 'button' - so it should disappear aswell
         display: none;    //makes it mobile-friendly
     }
 }
