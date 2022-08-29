@@ -8,7 +8,18 @@ import watch from '../../lotties/watch.json'
 const Landing = () => {
     return (
         <>
-            <Navbar />
+            <motion.div
+            initial={{ opacity: 0}}
+            animate={{ opacity: 1}}
+            exit={{ opacity: 0}}
+            transition={{
+                delay: 1,
+                default: {
+                    duration: 0.3,
+                }
+            }}>
+                <Navbar />
+            </motion.div>
             <motion.div className="intro" id="intro"
             initial={{ opacity: 0}}
             animate={{ opacity: 1}}
