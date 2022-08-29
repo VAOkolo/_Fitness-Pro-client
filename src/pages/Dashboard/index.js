@@ -12,13 +12,16 @@ import SportsGymnasticsRoundedIcon from '@mui/icons-material/SportsGymnasticsRou
 import { motion } from 'framer-motion'
 import Graph from '../../components/Graph'
 import './dashboard.css'
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
-    let [dashboard, setDashboard] = useState(false)
+    let navigate = useNavigate()
+    let [dashboard, setDashboard] = useState(true)
     let [workout, setWorkout] = useState(false)
     let [stats, setStats] = useState(false)
     let [notes, setNotes] = useState([])
     let {authTokens, logoutUser} = useContext(AuthContext)
+    let [dashboardShow, setDashboardShow] = useState(false)
 
     useEffect(()=> {
         getNotes()
@@ -51,6 +54,8 @@ const Dashboard = () => {
         setWorkout(true)
         setDashboard(false)
         setStats(false)
+        navigate('/workout')
+        
     }
     const handleStats = () => {
         setStats(true)
@@ -60,17 +65,18 @@ const Dashboard = () => {
 
     return (
     <>
+
+    {/* =======================Sidebar=======================*/}
     <NavbarDash />
-    <motion.div className='container'
-            initial={{ opacity: 0}}
-            animate={{ opacity: 1}}
-            exit={{ opacity: 0}}
-            transition={{
-                default: {
-                    duration: 0.3,
-                }
-            }}>
-        <aside>
+    <div className='container'>
+        <motion.aside
+        initial={{ opacity: 0}}
+        animate={{ opacity: 1}}
+        transition={{
+            default: {
+                duration: 0.3,
+            }
+        }}>
             <div className='top'>
 
             </div>
@@ -94,12 +100,24 @@ const Dashboard = () => {
                     <h3>Logout</h3>
                 </a>
             </div>
-        </aside>
-        <main>
+        </motion.aside>
+
+
+
+        {/* ================DASHBOARD=================== */}
+        <motion.main
+        initial={{ opacity: 0}}
+        animate={{ opacity: 1}}
+        exit={{ opacity: 0}}
+        transition={{
+            default: {
+                duration: 0.3,
+            }
+        }}>
             <h1 className='dashboard'>Dashboard</h1>
 
             {/* Completion */}
-
+            
             <div className='insights'>
                 <div className='sales'>
                     <BookmarkAddedRoundedIcon 
@@ -186,8 +204,8 @@ const Dashboard = () => {
                             <Graph />
                         </div>
                     </div>
-        </main>
-    </motion.div>
+        </motion.main>
+    </div>
     </>
     )
 }
