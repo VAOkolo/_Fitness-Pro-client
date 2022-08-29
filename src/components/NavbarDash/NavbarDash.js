@@ -4,7 +4,7 @@ import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion';  //imports animations from node modules downloaded (pre-rendered animations)
 import { Link } from 'react-router-dom';
 
-import'./Navbar.scss';
+import'./NavbarDash.scss';
 import { images } from '../../constants'
 
 
@@ -20,7 +20,7 @@ const Navbar = () => {
       <div className="app__navbar-logo">
         <img src={images.portfoliologo} alt="logo" />
       </div>
-      <ul className="app__navbar-link">
+      <ul className="app__navbar-links">
         {['home', 'signup', 'login'].map((item) => (
           <li className="app__flex p-text" key={`link-${item}`}>
             <div />

@@ -229,11 +229,12 @@
     }
 } 
 
-.app__navbar-link {
+.app__navbar-links {
     flex: 1;  //makes 'div' take up rest of space that 'logo' doesnt take
     display: flex;
     justify-content: center;
     align-items: center;
+    visibility: hidden;
     list-style: none;
 
     li {  //target li inside of navbar links

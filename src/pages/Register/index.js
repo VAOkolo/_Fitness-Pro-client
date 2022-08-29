@@ -78,8 +78,12 @@ export default function Register() {
             }}>
             {Object.keys(formErrors).length === 0 && isSubmit && (
                 <div className="ui message success">Signed in successfully</div>)}
+            
+            {Object.keys(formErrors).length === 0 && isSubmit && (
+                changePage()
+            )}
 
-            {isSubmit == true && changePage()}
+                
 
             <form onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>

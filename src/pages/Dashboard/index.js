@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import AuthContext from '../../context/AuthContext'
-import { Navbar } from '../../components/index'
+import { NavbarDash } from '../../components/index'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import FitnessCenterRoundedIcon from '@mui/icons-material/FitnessCenterRounded';
@@ -42,7 +42,7 @@ const Dashboard = () => {
 
     return (
     <>
-    <Navbar />
+    <NavbarDash />
     <motion.div className='container'
             initial={{ opacity: 0}}
             animate={{ opacity: 1}}
