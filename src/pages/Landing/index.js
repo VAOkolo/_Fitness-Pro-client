@@ -29,7 +29,7 @@ const Landing = () => {
                             Fitness Pro helps track your workouts, compete with friends, and be the best version of you. Less thinking. More lifting.
                         </div>
                         <div className="buttons">
-                            <Link to="/signup" className="button signup">Signup</Link>
+                            <Link to="/register" className="button signup">Signup</Link>
                             <Link to="/login" className="button login">Login</Link>
                         </div>
                     </div>
