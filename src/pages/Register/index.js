@@ -1,7 +1,9 @@
 import { useState, useEffect, useContext } from "react";
+import { Navbar } from '../../components'
 import AuthContext from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
+import './register.css'
 
 export default function Register() {
     const navigate = useNavigate()
@@ -64,12 +66,12 @@ export default function Register() {
     };
 
     return (
-        <motion.div className="container"
+        <>
+        <motion.div className="container-register"
         initial={{ opacity: 0}}
             animate={{ opacity: 1}}
             exit={{ opacity: 0}}
             transition={{
-                delay: 0.5,
                 default: {
                     duration: 0.3,
                 }
@@ -84,22 +86,18 @@ export default function Register() {
                 <div className="ui divider"></div>
                 <div className="form-group">
                     <div className="field">
-                        <label>Username</label>
                         <input type="text" name="username" placeholder="Username" value={formValues.username} onChange={handleChange} />
                     </div>
                     <p>{formErrors.username}</p>
                     <div className="field">
-                        <label>Email</label>
                         <input type="text" name="email" placeholder="Email" value={formValues.email} onChange={handleChange}/>
                     </div>
                     <p>{formErrors.email}</p>
                     <div className="field">
-                        <label>Password</label>
                         <input type="password" name="password" placeholder="Password" value={formValues.password} onChange={handleChange}/>
                     </div>
                     <p>{formErrors.password}</p>
                     <div className="field">
-                        <label>Password</label>
                         <input type="password" name="password2" placeholder="Confirm password" value={formValues.password2} onChange={handleChange}/>
                     </div>
                     <p>{formErrors.password2}</p>
@@ -107,5 +105,6 @@ export default function Register() {
                 </div>
             </form>
         </motion.div>
+        </>
     );
 }

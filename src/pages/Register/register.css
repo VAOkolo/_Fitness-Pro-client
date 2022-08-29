@@ -1,0 +1,38 @@
+body {
+    background: #161a23 !important
+}
+
+.container-register {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: auto;
+    justify-content: center;
+    margin-top: 20rem;
+}
+
+form {
+    padding: 2rem;
+    background: var(--color-card);
+    border-radius: var(--border-radius-2);
+    
+}
+
+form h1 {
+    text-align: center;
+}
+
+.form-group {
+    margin: 1rem;
+    text-align: center;
+}
+
+.field {
+    margin: 2rem;
+}
+
+.field input {
+    background: transparent;
+    color: white;
+}
