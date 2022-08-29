@@ -1,0 +1,389 @@
+.app {
+    background-color: var(--primary-color);
+    font-family: var(--font-base);
+  }
+  
+  .app__whitebg {
+    background-color: var(--white-color);
+  }
+  
+  .app__primarybg {
+    background-color: var(--primary-color);
+  }
+  
+  .app__container {
+    width: 100%;
+    min-height: 100vh;
+  
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .app__flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .app__wrapper {
+    flex: 1;
+    width: 100%;
+    flex-direction: column;
+    padding: 4rem 2rem;
+  
+    @media screen and (max-width: 450px) {
+      padding: 4rem 1rem 2rem;
+    }
+  }
+  
+  .copyright {
+    width: 100%;
+    padding: 2rem 0 0;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+  
+    p {
+      text-transform: uppercase;
+      color: var(--black-color);
+    }
+  }
+  
+  .head-text {
+    font-size: 2.75rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--black-color);
+    text-transform: capitalize;
+  
+    span {
+      color: var(--secondary-color);
+    }
+  
+    @media screen and (min-width: 2000px) {
+      font-size: 3rem;
+    }
+  
+    @media screen and (max-width: 450px) {
+      font-size: 2rem;
+    }
+  }
+  
+  .p-text {
+    font-size: 1rem;
+    text-align: left;
+    color: var(--gray-color);
+    line-height: 1.5;
+  
+    @media screen and (min-width: 1000px) {
+      font-size: 1.1rem;
+    }
+    @media screen and (min-width: 2000px) {
+      font-size: 1.25rem;
+    }
+  }
+  
+  .bold-text {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--black-color);
+    text-align: left;
+  
+    @media screen and (min-width: 2000px) {
+      font-size: 2rem;
+    }
+    @media screen and (min-width: 1000px) {
+      font-size: 1.5rem;
+    }
+  
+    @media screen and (max-width: 450px) {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .app__social {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+  
+    padding: 1rem;
+  
+    div {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--white-color);
+      margin: 0.25rem 0;
+      border: 1px solid var(--lightGray-color);
+  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      transition: all 0.3s ease-in-out;
+  
+      svg {
+        width: 15px;
+        height: 15px;
+        color: var(--gray-color);
+      }
+  
+      &:hover {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+  
+        svg {
+          color: var(--white-color);
+        }
+      }
+  
+      @media screen and (min-width: 2000px) {
+        width: 50px;
+        height: 50px;
+  
+        margin: 0.5rem 0;
+  
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+  
+  .app__navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+    padding: 1rem;
+  
+    .app__navigation-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #cbcbcb;
+      margin: 0.5rem;
+  
+      transition: background-color 0.2s ease-in-out;
+  
+      &:hover {
+        background-color: var(--secondary-color);
+      }
+  
+      @media screen and (min-width: 2000px) {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .app__navigation,
+    .app__social {
+      display: none;
+    }
+  
+    .copyright {
+      padding: 2rem;
+    }
+  }
+
+.app__navbar {   //references className="app__navbar
+    position: static;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1rem 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: none;
+    position: fixed;  //navbar stays ontop
+    z-index: 2;  // make it appear above the content
+
+    @media screen and (max-width: 1200px) {
+      position: static;
+      margin-bottom: -5rem;
+    }
+}
+
+.app__navbar-logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    img {
+        width: 90px;
+        height: 20px;
+        margin-left: 1.4rem;
+
+        @media screen and (min-width: 2000px) {  //extra large devices
+            width: 180px;
+        height: 40px;
+        }
+    }
+} 
+
+.app__navbar-links {
+    flex: 1;  //makes 'div' take up rest of space that 'logo' doesnt take
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    list-style: none;
+
+    li {  //target li inside of navbar links
+        margin: 0 1rem;  //spaces out home, about, work etc... on the navbar
+        margin-left: 60px;
+        cursor: pointer;
+    
+
+        flex-direction: column;
+        
+
+        div {
+            width: 5px;
+            height: 5px;
+            background: transparent;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+        a {
+            color: var(--gray-color);  //references #number in index.css file with 'gray color'
+            text-decoration: none;
+            flex-direction: column;
+
+            text-transform: uppercase;
+            font-weight: 500;
+
+            transition: all 0.3s ease-in-out;
+            visibility: hidden;
+
+            &:hover {
+                color: var(--secondary-color);  //As you hover it changes to sec.color in 0.3s.
+            }
+        }
+
+        &:hover {
+            div {
+                background: var(--secondary-color);  //the '&' refers to the current {} you are on.
+            }
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+}
+
+//Below is the menu button styling (Top-right of page)
+.app__navbar-menu {
+
+    //Below is creating button shape
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 30px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+    background: linear-gradient(#ffffff, #e9e9e9);
+    z-index: 1;
+
+    @media screen and (max-width: 500px) {
+        width: 40px;
+        height: 40px;
+    }
+
+    svg {
+        width: 70%;
+        height: 70%;
+        color: #000000;
+        cursor: pointer;
+
+    }
+
+    div {  //connected to motion.div (the pop out action once clicked button)
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 10;
+        padding: 1rem;
+
+        width: 80%;
+        height: 100vh;  //vh = vertical height
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column;
+
+        background: rgba(14, 20, 26, 0.988);
+        
+        background-size: cover;
+        background-repeat: repeat;
+
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.235);
+
+        svg {  //vector art for cross button
+            width: 35px;
+            height: 35px;
+            color: #ffffff;
+            margin: 0.5rem 0rem;
+            margin-right: 30px;
+        }
+
+        ul {   // the spacing for link buttons
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+
+            li{
+                margin: 1rem;
+
+                a {  //changing the 'look' of link buttons
+                    color: #dcdcdc;
+                    text-decoration: none;   // text-direction means the underline for each home, about etc...
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover {
+                    color: #155D72;  //As you hover it changes to sec.color in 0.3s.
+                     }
+                }
+            }
+        }
+
+
+        @media screen and (min-width: 1100px) {  //connected to 'div'. If we expand this over 900px, the menu drop will disappear
+            display: none; 
+        }
+
+    }
+    @media screen and (min-width: 1100px) {  //same thing copied to 'button' - so it should disappear aswell
+        display: none;    //makes it mobile-friendly
+    }
+}
+
+.popout {
+    backdrop-filter: blur(4px);
+}

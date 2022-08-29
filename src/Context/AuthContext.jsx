@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
     const [loading, setLoading] = useState(true)
 
+    const localhost = 'http://localhost:3000'
     const navigate = useNavigate()
 
     const loginUser = async (e) => {
@@ -29,7 +30,7 @@ export const AuthProvider = ({ children }) => {
             setAuthTokens(data)
             setUser(jwt_decode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
-            navigate('/home')
+            navigate('/dashboard')
         } else {
             alert('Something went wrong!')
         }
@@ -44,13 +45,15 @@ export const AuthProvider = ({ children }) => {
         // PERMISSION TO LOGIN AND REGISTER PAGE AND WARNING USER IN CASE OF A TRY TO BYPASS TO PAGES
         const url = window.location.href
         const path = '/' + url.substring(url.lastIndexOf("/") + 1, url.length)
-        if (path == '/login') {
+        if (path == '/') {
+            navigate('/')
+        } else if (path == '/login') {
             navigate(path)
         } else if (path == '/signup') {
             navigate(path)
         } else {
             console.log("Not authorized. Try again.")
-            navigate('/login')
+            navigate('/')
         }
     }
 
@@ -120,8 +123,6 @@ export const AuthProvider = ({ children }) => {
         logoutUser: logoutUser,
         postUser: postUser,
     }
-
-
 
     return (
         <AuthContext.Provider value={contextData} >
