@@ -73,7 +73,7 @@
   
   .p-text {
     font-size: 1rem;
-    text-align: left;
+    justify-content: center;
     color: var(--gray-color);
     line-height: 1.5;
   
@@ -239,7 +239,7 @@
 
     li {  //target li inside of navbar links
         margin: 0 1rem;  //spaces out home, about, work etc... on the navbar
-        margin-left: 60px;
+        margin-right: 200px;
         cursor: pointer;
     
 
@@ -262,7 +262,6 @@
             font-weight: 500;
 
             transition: all 0.3s ease-in-out;
-            visibility: hidden;
 
             &:hover {
                 color: var(--secondary-color);  //As you hover it changes to sec.color in 0.3s.
@@ -276,7 +275,7 @@
         }
     }
 
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 1100px) {
         display: none;
     }
 }

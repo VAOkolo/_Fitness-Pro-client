@@ -22,7 +22,10 @@ body {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: auto auto;
+  justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -118,6 +121,15 @@ background-size: 100%;
   background: #9a9a9a;
 }
 
+.watch {
+  margin: auto auto;
+  width: 500px;
+  height: 500px;
+}
+
+
+
+
 @media only screen and (max-width: 767px) {
   .button:not(:last-child) {
     margin: 0 0 16px;
@@ -167,6 +179,7 @@ background-size: 100%;
     .intro {
       min-height: auto;
       padding: 64px 0 152px;
+      display: block;
   }
   }
   

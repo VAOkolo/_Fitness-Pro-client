@@ -2,6 +2,8 @@ import React from 'react'
 import { Navbar } from '../../components/index'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import Lottie from 'react-lottie-player';
+import watch from '../../lotties/watch.json'
 
 const Landing = () => {
     return (
@@ -34,6 +36,11 @@ const Landing = () => {
                         </div>
                     </div>
                 </div>
+                <Lottie
+                className='watch'
+                loop
+                animationData={watch}
+                play/>
             </motion.div>
         </>
     )
