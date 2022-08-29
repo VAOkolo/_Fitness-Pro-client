@@ -1,7 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import AuthContext from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion';
 
 export default function Register() {
+    const navigate = useNavigate()
+
     const initialValues = { username: "", email: "", password: "", password2: "" };
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
@@ -26,6 +30,12 @@ export default function Register() {
             postUser(formValues.username, formValues.email, formValues.password)
         }
     }, [formErrors]);
+
+    function changePage () {
+      setTimeout(() => {
+        navigate('/dashboard')
+      }, 2000)
+    }
 
     const validate = (values) => {
         const errors = {};
@@ -54,12 +64,20 @@ export default function Register() {
     };
 
     return (
-        <div className="container">
-            {Object.keys(formErrors).length === 0 && isSubmit ? (
-                <div className="ui message success">Signed in successfully</div>
-            ) : (
-                <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
-            )}
+        <motion.div className="container"
+        initial={{ opacity: 0}}
+            animate={{ opacity: 1}}
+            exit={{ opacity: 0}}
+            transition={{
+                delay: 0.5,
+                default: {
+                    duration: 0.3,
+                }
+            }}>
+            {Object.keys(formErrors).length === 0 && isSubmit && (
+                <div className="ui message success">Signed in successfully</div>)}
+
+            {isSubmit == true && changePage()}
 
             <form onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>
@@ -88,6 +106,6 @@ export default function Register() {
                     <button className="fluid ui button blue">Submit</button>
                 </div>
             </form>
-        </div>
+        </motion.div>
     );
 }
