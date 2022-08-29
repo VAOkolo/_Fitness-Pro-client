@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AuthContext from '../../Context/AuthContext'
 
-const Home = () => {
+export default function Home() {
   let [notes, setNotes] = useState([])
   let { authTokens, logoutUser, user } = useContext(AuthContext)
 
@@ -19,14 +19,15 @@ const Home = () => {
   }, [])
 
   let getNotes = async () => {
-    let response = await fetch('http://127.0.0.1:8000/api/notes/', {
+    let response = await fetch('', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + String(authTokens.access)
       }
     })
-    let data = await response.json()
+    
+    const data = await response.json()
 
     if (response.status === 200) {
       setNotes(data)
@@ -37,19 +38,12 @@ const Home = () => {
   }
 
   return (
-    <>
-      {user ? <div>
-        <p>You are logged to the home page!</p>
-
-
-        <ul>
-          {notes.map(note => (
-            <li key={note.id} >{note.body}</li>
-          ))}
-        </ul>
-      </div> : <div>not logged in</div>}
-    </>
+    <div className='container'>
+      <div className='text-center'>
+        <h1>Home</h1>
+      </div>
+    </div>
   )
 }
 
-export default Home
+

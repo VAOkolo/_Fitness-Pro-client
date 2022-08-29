@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import AuthContext from "../../Context/AuthContext";
 
-export default function RegisterForm() {
+export default function SignUpForm() {
     const initialValues = { username: "", email: "", password: "", password2: "" };
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
@@ -21,7 +21,6 @@ export default function RegisterForm() {
     };
 
     useEffect(() => {
-        console.log(formErrors);
         if (Object.keys(formErrors).length === 0 && isSubmit) {
             postUser(formValues.username, formValues.email, formValues.password)
         }
@@ -55,39 +54,30 @@ export default function RegisterForm() {
 
     return (
         <div className="container">
-            {Object.keys(formErrors).length === 0 && isSubmit ? (
-                <div className="ui message success">Signed in successfully</div>
-            ) : (
-                <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
-            )}
-
             <form onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>
-                <div className="ui divider"></div>
                 <div className="form-group">
-                    <div className="field">
-                        <label>Username</label>
-                        <input type="text" name="username" placeholder="Username" value={formValues.username} onChange={handleChange} />
-                    </div>
+                    <label htmlFor="username">Username</label>
+                    <input type="text" name="username" className="form-control" placeholder="Username" value={formValues.username} onChange={handleChange} />
                     <p>{formErrors.username}</p>
-                    <div className="field">
-                        <label>Email</label>
-                        <input type="text" name="email" placeholder="Email" value={formValues.email} onChange={handleChange} />
-                    </div>
-                    <p>{formErrors.email}</p>
-                    <div className="field">
-                        <label>Password</label>
-                        <input type="password" name="password" placeholder="Password" value={formValues.password} onChange={handleChange} />
-                    </div>
-                    <p>{formErrors.password}</p>
-                    <div className="field">
-                        <label>Password</label>
-                        <input type="password" name="password2" placeholder="Confirm password" value={formValues.password2} onChange={handleChange} />
-                    </div>
-                    <p>{formErrors.password2}</p>
-                    <button className="fluid ui button blue">Submit</button>
                 </div>
-            </form>
-        </div>
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input type="text" name="email" className="form-control" placeholder="Email" value={formValues.email} onChange={handleChange} />
+                    <p>{formErrors.email}</p>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" className="form-control" placeholder="Password" value={formValues.password} onChange={handleChange} />
+                    <p>{formErrors.password}</p>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password2">Confirm Password</label>
+                    <input type="password" name="password2" className="form-control" placeholder="Confirm password" value={formValues.password2} onChange={handleChange} />
+                    <p>{formErrors.password2}</p>
+                </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form >
+        </div >
     );
 }

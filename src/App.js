@@ -1,11 +1,10 @@
 import './App.css';
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PrivateRoute from './Services/PrivateRoute'
 import { AuthProvider } from './Context/AuthContext'
 
 import { Header, Footer } from './Layout'
-import { Exercises, History, Home, Login, Register, Workout } from './Pages'
+import { Login, SignUp, Home, History, Workout, Exercises, ErrorPage } from './Pages'
 
 function App() {
   return (
@@ -14,8 +13,12 @@ function App() {
         <AuthProvider>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path='/register' element={<Register />} />
+            <Route path='/signup' element={<SignUp />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/workout" element={<Workout />} />
+            <Route path="/exercises" element={<Exercises />} />
+            <Route path="/*" element={<ErrorPage />} />
           </Routes>
         </AuthProvider>
       </Router>

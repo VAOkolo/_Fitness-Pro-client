@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
         const path = '/' + url.substring(url.lastIndexOf("/") + 1, url.length)
         if (path == '/login') {
             navigate(path)
-        } else if (path == '/register') {
+        } else if (path == '/signup') {
             navigate(path)
         } else {
             console.log("Not authorized. Try again.")
@@ -56,20 +56,23 @@ export const AuthProvider = ({ children }) => {
 
 
     const updateToken = async () => {
-        const response = await fetch('https://gym-capstone.herokuapp.com/api/token/refresh/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ 'refresh': authTokens?.refresh })
-        })
-        const data = await response.json()
-        if (response.status === 200) {
-            setAuthTokens(data)
-            setUser(jwt_decode(data.access))
-            localStorage.setItem('authTokens', JSON.stringify(data))
-        } else {
+        if (authTokens == null) {
+            console.log('Login or Register. You dont have any token right now.')
             logoutUser()
+        } else {
+            const response = await fetch('https://gym-capstone.herokuapp.com/api/token/refresh/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 'refresh': authTokens?.refresh })
+            })
+            const data = await response.json()
+            if (response.status === 200) {
+                setAuthTokens(data)
+                setUser(jwt_decode(data.access))
+                localStorage.setItem('authTokens', JSON.stringify(data))
+            }
         }
         if (loading) {
             setLoading(false)
