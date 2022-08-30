@@ -265,6 +265,13 @@ main {
     margin-top: 1.4rem;
 }
 
+@media screen and (max-width: 800px) {
+    main {
+        margin-top: 6rem;
+    }
+}
+
+
 main .insights {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -399,8 +406,11 @@ main .recent-order table:hover {
     .graph {
         height: 320px;
     }
-    .dashboard {
-        visibility: hidden;
+}
+
+@media screen and (max-width: 800px) {
+    .dashboard-dash {
+        visibility: visible;
     }
 }
 

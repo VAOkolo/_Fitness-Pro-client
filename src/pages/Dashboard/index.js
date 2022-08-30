@@ -83,7 +83,7 @@ const Dashboard = () => {
         animate={{ opacity: 1}}
         transition={{
             default: {
-                duration: 0.3,
+                duration: 0.5,
             }
         }}>
             <div className='top'>
@@ -124,7 +124,7 @@ const Dashboard = () => {
                 duration: 0.3,
             }
         }}>
-            <h1 className='dashboard'>Dashboard</h1>
+            <h1 className='dashboard-dash'>Dashboard</h1>
 
             {/* Completion */}
             
