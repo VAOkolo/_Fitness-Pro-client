@@ -54,18 +54,18 @@ export default function LogWorkout() {
     const submitData = (e) => {
         e.preventDefault()
 
-        let sets, reps = ''
+        let reps, weights = ''
         const exerciseSets = []
 
         let inputs = document.getElementsByClassName('sets')
         for (const set of inputs) {
             const tr = set.id
-            sets = set.childNodes[1].childNodes[0].value
-            reps = set.childNodes[2].childNodes[0].value
+            reps = set.childNodes[1].childNodes[0].value
+            weights = set.childNodes[2].childNodes[0].value
             exerciseSets.push({
                 id: tr,
-                'sets': sets,
-                'reps': reps
+                'reps': reps,
+                'weights': weights
             })
         }
 

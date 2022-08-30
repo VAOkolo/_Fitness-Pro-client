@@ -26,7 +26,7 @@ export default function Modal({ open, onClose, url, id, exercise, rows, addRow, 
                             </thead>
                             <tbody>
                                 {rows && rows.map((row, index) => (
-                                    <tr className='sets' id={index + 1}>
+                                    <tr className='sets' id={id}>
                                         <td>Set {index + 1} - </td>
                                         <td>
                                             <input type="number" placeholder="reps" />
