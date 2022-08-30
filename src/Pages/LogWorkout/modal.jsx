@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import './modalStyle.css'
 
-export default function Modal({ open, onClose, url, id, exercise, rows, addRow, submitData, value }) {
+export default function Modal({ open, onClose, url, id, exercise, rows, addRow, submitData}) {
     if (!open) {
         return null
     }
-
-    // const [rows, setRows] = useState([])
 
     return (
         <>
@@ -15,22 +13,26 @@ export default function Modal({ open, onClose, url, id, exercise, rows, addRow, 
                     <h2>{exercise}</h2>
                     <div>
                         <table>
+                            <thead>
                             <tr>
-                                <td>{exercise}</td>
-                                <td>Sets</td>
-                                <td>Reps</td>
-                                <td>Weight</td>
-                                <td><button onClick={addRow}>+</button></td>
-                                <td><button onClick={submitData}>Submit workouts</button></td>
+                                <th>{exercise}</th>
+                                <th>Sets</th>
+                                <th>Reps</th>
+                                <th>Weight</th>
+                                <th><button onClick={addRow}>+</button></th>
+                                <th><button onClick={submitData}>Submit workouts</button></th>
                             </tr>
+                            </thead>
+                            <tbody>
                             {rows && rows.map((row, index) => (
 
                                 <tr id={index + 1}>
                                     <td>Set = {index + 1}</td>
-                                    <td><input type="number" placeholder="reps" onChange={value} value={value} /></td>
-                                    <td><input type="number" placeholder="weights" onChange={value} value={value} /></td>
+                                    <td><input type="number" placeholder="reps" /></td>
+                                    <td><input type="number" placeholder="weights"  /></td>
                                 </tr>
                             ))}
+                            </tbody>
                         </table>
                     </div>
                     <div>

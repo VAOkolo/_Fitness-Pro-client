@@ -16,9 +16,8 @@ export default function LogWorkout() {
     const [rows, setRows] = useState([1])
     const [postData, setPostData] = useState([])
     const [todaysWorkouts, setTodaysWorkouts] = useState()
+    const [activeSession, setActiveSession] = useState([])
     
-    console.log(userWorkoutPaths)
-
     let api_key = process.env.REACT_APP_API_KEY
 
     //for each exercise in postData call postTodaysExercises to insert into table
@@ -53,11 +52,10 @@ export default function LogWorkout() {
 
     useEffect( () => {
       async function getActiveWorkout(user_id){
-        const activeWorkout = await userWorkoutPaths(user_id)
-        const activeSession = activeWorkout[0].user_workout_session
-        console.log(activeSession)
-
-        
+        const response = await userWorkoutPaths(user_id)
+        const activeWorkout = response[0].user_workout_session
+        setActiveSession(activeWorkout)
+        console.log(activeWorkout)
       }
       getActiveWorkout(user_id)
     },[user_id])
@@ -72,28 +70,25 @@ export default function LogWorkout() {
 
     const submitData = (e) => {
         // console.log(e)
-        const tr = document.querySelectorAll('tr')
+        const tbody = document.querySelectorAll('tbody')
 
         const arr = []
         let count = '';
 
-        tr.forEach(x => {
-            if (x.classList.contains('head')) {
-                count = x.children[0].innerHTML
-            }
-            else {
-                let child = [...x.querySelectorAll('td')]
-                // console.log(child)
-                arr.push(...child.map(a => ({ reps: a.children.valueAsNumber, sets: a.innerHTML, weight: a })))
-            }
-        })
+        console.log(tbody)
 
-        // console.log(arr)
-    }
+        // tr.forEach(x => {
+        //     if (x.classList.contains('head')) {
+        //         count = x.children[0].innerHTML
+        //     }
+        //     else {
+        //         let child = [...x.querySelectorAll('td')]
+        //         // console.log(child)
+        //         arr.push(...child.map(a => ({ reps: a.children.valueAsNumber, sets: a.innerHTML, weight: a })))
+        //     }
+        // })
 
-    const value = (e) => {
-        // console.log(e)
-        return e.target.value
+        console.log(arr)
     }
 
     const addRow = (e) => {
@@ -112,19 +107,19 @@ export default function LogWorkout() {
         <>
             <div className="log-workout-parent">
                 <div className="log-workout-title">Today's Exercises</div>
-                {todaysExercises ?
+                {activeSession ?
                     <div className="log-workout-form-parent">
-                        {todaysExercises.map((exercise) => (
-                            <div className="log-workout-container" id={exercise} name={exercise}>
-                                <div className="log-workout-exercise"><a>{exercise}</a></div>
+                        {activeSession.map((data) => (
+                            <div className="log-workout-container" id={data} name={data}>
+                                <div className="log-workout-exercise"><a>{data.exercise_name}</a></div>
                                 <div className="log-workout-input">
-                                    <button id={exercise} name={exercise} onClick={updateModal}>+</button>
+                                    <button id={data.exercise} name={data.exercise_name} onClick={updateModal}>+</button>
                                 </div>
                             </div>
                         ))}
                         <button onClick={handleData} className="log-workout-submitBtn">Submit</button>
                     </div> : <div></div>}
-                <Modal open={openModal} onClose={() => { setOpenModal(false); setRows([]) }} url={modalUrl} id={modalId} exercise={modalTitle} rows={rows} addRow={addRow} submitData={submitData} />
+                <Modal open={openModal} onClose={() => { setOpenModal(false); setRows([]) }} url={modalUrl} id={modalId} exercise={modalTitle} rows={rows} addRow={addRow} submitData={submitData}  />
             </div>
         </>
     )
