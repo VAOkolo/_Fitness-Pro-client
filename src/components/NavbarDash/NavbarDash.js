@@ -34,7 +34,6 @@ const Navbar = () => {
         <AnimatePresence mode='wait'>
           {toggle && (
             <motion.div
-              className='blur-lg'
               initial={{ opacity: 0, width: 0 }}
               animate={{ opacity: 1, width: 300 }}
               exit={{ opacity: 0, width: 0 }}

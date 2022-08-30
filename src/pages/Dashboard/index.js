@@ -80,7 +80,7 @@ const Dashboard = () => {
 
     {/* =======================Sidebar=======================*/}
     <NavbarDash />
-    <div className='container'>
+    <div className='container-dash'>
         <motion.aside
         initial={{ opacity: 0}}
         animate={{ opacity: 1}}

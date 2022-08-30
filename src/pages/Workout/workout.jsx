@@ -38,6 +38,7 @@ export default function Workout() {
                     </select>
                     <input className="" type="submit" />
                 </form>
+                <button className="text-center">Hello</button>
         </div>
     )
 }

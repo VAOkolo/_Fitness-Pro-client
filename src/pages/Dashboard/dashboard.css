@@ -117,7 +117,7 @@ b {
     color: var(--color-warning)
 }
 
-.container {
+.container-dash {
     display: grid;
     width: 96%;
     margin: 0 auto;
@@ -126,7 +126,7 @@ b {
 }
 
 @media screen and (max-width: 800px) {
-    .container {
+    .container-dash {
         display: block;
     }
 }
@@ -365,14 +365,14 @@ main .recent-order table:hover {
 
 
 @media screen and (max-width: 1600px) {
-    .container {
+    .container-dash {
         width: 94%;
         grid-template-columns: 15rem auto;
     }
 }
 
 @media screen and (max-width: 1100px) {
-    .container {
+    .container-dash {
         width: 94%;
         grid-template-columns: 8rem auto;
     }

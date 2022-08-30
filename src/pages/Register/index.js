@@ -67,7 +67,7 @@ export default function Register() {
 
     return (
         <>
-        <motion.div className="container-register"
+        <motion.div 
         initial={{ opacity: 0}}
             animate={{ opacity: 1}}
             exit={{ opacity: 0}}
@@ -76,38 +76,71 @@ export default function Register() {
                     duration: 0.3,
                 }
             }}>
-            {Object.keys(formErrors).length === 0 && isSubmit && (
-                <div className="ui message success">Signed in successfully</div>)}
             
             {Object.keys(formErrors).length === 0 && isSubmit && (
                 changePage()
             )}
 
-                
 
-            <form onSubmit={handleSubmit}>
-                <h1>Sign Up</h1>
-                <div className="ui divider"></div>
-                <div className="form-group">
-                    <div className="field">
-                        <input type="text" name="username" placeholder="Username" value={formValues.username} onChange={handleChange} />
-                    </div>
-                    <p>{formErrors.username}</p>
-                    <div className="field">
-                        <input type="text" name="email" placeholder="Email" value={formValues.email} onChange={handleChange}/>
-                    </div>
-                    <p>{formErrors.email}</p>
-                    <div className="field">
-                        <input type="password" name="password" placeholder="Password" value={formValues.password} onChange={handleChange}/>
-                    </div>
-                    <p>{formErrors.password}</p>
-                    <div className="field">
-                        <input type="password" name="password2" placeholder="Confirm password" value={formValues.password2} onChange={handleChange}/>
-                    </div>
-                    <p>{formErrors.password2}</p>
-                    <button className="fluid ui button blue">Submit</button>
-                </div>
-            </form>
+            <div class="hero min-h-screen info-content">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="text-center lg:text-left">
+      <h1 class="text-5xl font-bold">Signup </h1>
+      <p class="py-6">Only One Step Away...</p>
+    </div>
+
+    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
+    <form onSubmit={handleSubmit}>
+      <div class="card-body">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Username</span>
+          </label>
+          <input type="text" value={formValues.username} name="username" 
+          placeholder="username" class="input input-ghost" onChange={handleChange} />
+        </div>
+        <div className="ui divider"></div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Email</span>
+          </label>
+          <input type="text" placeholder="email" name="email" 
+          class="input input-ghost" value={formValues.email} onChange={handleChange}/>
+        </div>
+        <div className="ui divider"></div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Password</span>
+          </label>
+          <input type="text" placeholder="password"  
+          name="password" class="input input-ghost" 
+          value={formValues.password} onChange={handleChange}/>
+        </div>
+        <div className="ui divider"></div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Confirm Password</span>
+          </label>
+          <input type="text" placeholder="confirm password" 
+          name="password2" class="input input-ghost" value={formValues.password2} onChange={handleChange}/>
+            <label class="label">
+            <a href="#" class="label-text-alt link link-hover">                        {Object.keys(formErrors).length === 0 && isSubmit && (
+                <div className="ui message success">Signed in successfully</div>)}</a>
+          </label>
+        </div>
+        <div className="ui divider"></div>
+        
+        <div class="form-control mt-6">
+          <button class="btn btn-primary">Register</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
         </motion.div>
         </>
     );

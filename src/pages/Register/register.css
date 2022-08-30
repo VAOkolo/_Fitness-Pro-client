@@ -13,9 +13,6 @@ body {
 }
 
 form {
-    padding: 2rem;
-    background: var(--color-card);
-    border-radius: var(--border-radius-2);
     transition: all 300ms ease;
 }
 
@@ -39,4 +36,32 @@ form h1 {
 .field input {
     background: transparent;
     color: white;
+}
+
+@media (max-width: 1024px) {
+.lg\:flex-row-reverse {
+    flex-direction: row-reverse;
+}
+}
+
+
+@media screen and (max-width: 575px) {
+    .flex-col {
+        flex-direction: column;
+    }
+}
+
+.divider {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    height: 0rem;
+}
+
+.card-dash {
+    background: var(--color-card);
+}
+
+.label-text {
+    --tw-text-opacity: 1;
+    --bc: 215 28% 25%
 }
