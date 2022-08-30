@@ -1,0 +1,48 @@
+.log-workout-parent{
+    /* justify-content: center; */
+}
+
+.log-workout-form-parent{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.log-workout-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid;
+    margin: auto;
+    margin-top:5px;
+    border-radius: 10%;
+    border-width: 1px;
+    width: 70%;
+    height: 100%;
+}
+
+.log-workout-exercise{
+    margin-left: 2%;
+}
+
+.log-workout-input{
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.log-workout-title{
+    text-align: center;
+}
+
+.log-workout-submitBtn{
+    border-style: solid;
+    border-radius: 5%;
+    margin: 5px;
+    width: 25%
+}
+
+input{
+    width: 20px;
+    height: 20px;
+    margin: 2px;
+}
