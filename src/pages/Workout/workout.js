@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react'
 import { useNavigate} from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import {levelAction } from "../../actions";
-import { NavbarDash } from '../../components/index'
+import { NavbarDash, BeginnerModal } from '../../components/index'
 import AuthContext from '../../context/AuthContext'
 import { motion } from 'framer-motion';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
@@ -25,6 +25,9 @@ export default function Workout() {
   let [notes, setNotes] = useState([])
   let {authTokens, logoutUser} = useContext(AuthContext)
   let [beginnerModal, setBeginnerModal] = useState(false)
+  let [moderateModal, setModerateModal] = useState(false)
+  let [advancedModal, setAdvancedModal] = useState(false)
+  let [customModal, setCustomModal] = useState(false)
 
     // const level = useSelector((state) => state.reducer.level);
     const dispatch = useDispatch();
@@ -71,48 +74,183 @@ export default function Workout() {
 
 
     function handleBeginner () {
+      setModerateModal(false)
+      setAdvancedModal(false)
+      setCustomModal(false)
       setBeginnerModal(true)
+    }
+    function handleModerate () {
+      setAdvancedModal(false)
+      setCustomModal(false)
+      setBeginnerModal(false)
+      setModerateModal(true)
+    }
+    function handleAdvanced () {
+      setCustomModal(false)
+      setBeginnerModal(false)
+      setModerateModal(false)
+      setAdvancedModal(true)
+    }
+    function handleCustom () {
+      setBeginnerModal(false)
+      setModerateModal(false)
+      setAdvancedModal(false)
+      setCustomModal(true)
     }
 
     return (
     <>
     {/* =======================Beginner Modal=======================*/}
 
-    {beginnerModal && (
-      <>
-            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-            <div class="modal">
-              <div class="modal-box relative">
-                <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                <h3 class="text-lg font-bold">Our Beginner Program</h3>
-                <p class="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
-                & the correct technique to prevent injury.</p>
-                <p class="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classic<br></br> movement patterns. See for yourself!</p>
-                With this template, you alternate between <br></br>two workouts. e.g. ABA - week 1. BAB - week 2.
-                <br></br> 
-                <br></br>
-                
-                <p class="py-4">
-                  Workout A:<br></br>
-                  Bench Press: 3x8<br></br>
-                  Barbell Row: 3x8<br></br>
-                  Squat Variation: 3x8<br></br>
-                  Tricep Extensions: 3x10<br></br>
-                  Bicep Curls: 3x10<br></br>
-                </p>
-                <p class="py-4">
-                  Workout B:<br></br>
-                  Bench Press: 3x8<br></br>
-                  Barbell Row: 3x8<br></br>
-                  Leg Press: 3x8<br></br>
-                  Skull Crushers: 3x10<br></br>
-                  Hammer Curls: 3x10<br></br>
-                </p>
-                <br></br>
-                <button class="btn btn-primary">Select This Template</button>
-              </div>
-            </div>
-      </>)}
+    {beginnerModal &&     
+    <>
+    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box relative">
+        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 class="text-lg font-bold">Our Beginner Program</h3>
+        <p class="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
+        & the correct technique to prevent injury.</p>
+        <p class="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classic<br></br> movement patterns. See for yourself!</p>
+        With this template, you alternate between <br></br>two workouts. e.g. ABA - week 1. BAB - week 2.
+        <br></br> 
+        <br></br>
+        
+        <p class="py-4">
+          Workout A:<br></br>
+          Bench Press: 3x8<br></br>
+          Barbell Row: 3x8<br></br>
+          Squat Variation: 3x8<br></br>
+          Tricep Extensions: 3x10<br></br>
+          Bicep Curls: 3x10<br></br>
+        </p>
+        <p class="py-4">
+          Workout B:<br></br>
+          Bench Press: 3x8<br></br>
+          Barbell Row: 3x8<br></br>
+          Leg Press: 3x8<br></br>
+          Skull Crushers: 3x10<br></br>
+          Hammer Curls: 3x10<br></br>
+        </p>
+        <br></br>
+        <button class="btn btn-primary">Select This Template</button>
+      </div>
+    </div>
+    </>}
+
+    {/* =======================Moderate Modal=======================*/}
+
+    {moderateModal &&     
+    <>
+    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box relative">
+        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 class="text-lg font-bold">Our Moderate Program</h3>
+        <p class="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
+        & the correct technique to prevent injury.</p>
+        <p class="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classic<br></br> movement patterns. See for yourself!</p>
+        With this template, you alternate between <br></br>two workouts. e.g. ABA - week 1. BAB - week 2.
+        <br></br> 
+        <br></br>
+        
+        <p class="py-4">
+          Workout A:<br></br>
+          Bench Press: 3x8<br></br>
+          Barbell Row: 3x8<br></br>
+          Squat Variation: 3x8<br></br>
+          Tricep Extensions: 3x10<br></br>
+          Bicep Curls: 3x10<br></br>
+        </p>
+        <p class="py-4">
+          Workout B:<br></br>
+          Bench Press: 3x8<br></br>
+          Barbell Row: 3x8<br></br>
+          Leg Press: 3x8<br></br>
+          Skull Crushers: 3x10<br></br>
+          Hammer Curls: 3x10<br></br>
+        </p>
+        <br></br>
+        <button class="btn btn-primary">Select This Template</button>
+      </div>
+    </div>
+    </>}
+
+
+    {/* =======================Advanced Modal=======================*/}
+
+    {advancedModal &&     
+    <>
+    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box relative">
+        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 class="text-lg font-bold">Our Advanced Program</h3>
+        <p class="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
+        & the correct technique to prevent injury.</p>
+        <p class="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classic<br></br> movement patterns. See for yourself!</p>
+        With this template, you alternate between <br></br>two workouts. e.g. ABA - week 1. BAB - week 2.
+        <br></br> 
+        <br></br>
+        
+        <p class="py-4">
+          Workout A:<br></br>
+          Bench Press: 3x8<br></br>
+          Barbell Row: 3x8<br></br>
+          Squat Variation: 3x8<br></br>
+          Tricep Extensions: 3x10<br></br>
+          Bicep Curls: 3x10<br></br>
+        </p>
+        <p class="py-4">
+          Workout B:<br></br>
+          Bench Press: 3x8<br></br>
+          Barbell Row: 3x8<br></br>
+          Leg Press: 3x8<br></br>
+          Skull Crushers: 3x10<br></br>
+          Hammer Curls: 3x10<br></br>
+        </p>
+        <br></br>
+        <button class="btn btn-primary">Select This Template</button>
+      </div>
+    </div>
+    </>}
+    {/* =======================Custom Modal=======================*/}
+
+    {customModal &&     
+    <>
+    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box relative">
+        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 class="text-lg font-bold">Your Custom Program </h3>
+        <p class="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
+        & the correct technique to prevent injury.</p>
+        <p class="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classic<br></br> movement patterns. See for yourself!</p>
+        With this template, you alternate between <br></br>two workouts. e.g. ABA - week 1. BAB - week 2.
+        <br></br> 
+        <br></br>
+        
+        <p class="py-4">
+          Workout A:<br></br>
+          Bench Press: 3x8<br></br>
+          Barbell Row: 3x8<br></br>
+          Squat Variation: 3x8<br></br>
+          Tricep Extensions: 3x10<br></br>
+          Bicep Curls: 3x10<br></br>
+        </p>
+        <p class="py-4">
+          Workout B:<br></br>
+          Bench Press: 3x8<br></br>
+          Barbell Row: 3x8<br></br>
+          Leg Press: 3x8<br></br>
+          Skull Crushers: 3x10<br></br>
+          Hammer Curls: 3x10<br></br>
+        </p>
+        <br></br>
+        <button class="btn btn-primary">Submit Program</button>
+      </div>
+    </div>
+    </>}
       {/* =======================Sidebar=======================*/}
     <NavbarDash />
     <div className='container-dash'>
@@ -185,7 +323,7 @@ export default function Workout() {
     <h2 class="card-title">Moderate Program</h2>
     <p></p>
     <div class="card-actions justify-end">
-      <button class="btn btn-primary">Select</button>
+    <label for="my-modal-3" class="btn modal-button btn-primary" onClick={handleModerate}>Select</label>
     </div>
   </div>
 </div>
@@ -198,7 +336,7 @@ export default function Workout() {
     <h2 class="card-title">Advanced Program</h2>
     <p></p>
     <div class="card-actions justify-end">
-      <button class="btn btn-primary">Select</button>
+    <label for="my-modal-3" class="btn modal-button btn-primary" onClick={handleAdvanced}>Select</label>
     </div>
   </div>
 </div>
@@ -211,7 +349,7 @@ export default function Workout() {
     <h2 class="card-title">Custom Program</h2>
     <p></p>
     <div class="card-actions justify-end">
-      <button class="btn btn-primary">Select</button>
+    <label for="my-modal-3" class="btn modal-button btn-primary" onClick={handleCustom}>Select</label>
     </div>
   </div>
 </div>
