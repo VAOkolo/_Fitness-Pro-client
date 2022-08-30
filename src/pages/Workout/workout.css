@@ -225,9 +225,6 @@ aside .sidebar a:hover {
 
 /* ================ MAIN =================== */
 
-main {
-    margin-top: 1.4rem;
-}
 
 main .outer-card {
     display: grid;
@@ -373,7 +370,9 @@ main .recent-order table:hover {
     .workout-card {
         height: 86vh;
     }
-
+    .dashboard {
+        visibility: hidden;
+    }
 }
 
 @media screen and (max-width: 1200px) {
