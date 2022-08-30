@@ -14,7 +14,7 @@ function App() {
     <>
       <Router>
         <AuthProvider>
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence mode='wait'>
             <Routes>
               <Route path="/" element={<Landing />} />
               <Route path="/login" element={<Login />} />

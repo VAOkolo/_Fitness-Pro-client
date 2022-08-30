@@ -3,7 +3,6 @@ import AuthContext from '../../Context/AuthContext'
 
 const Login = () => {
   let { loginUser, user } = useContext(AuthContext)
-
   return (
     <div className='container'>
       <h1>Login</h1>
