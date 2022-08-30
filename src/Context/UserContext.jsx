@@ -17,7 +17,7 @@ export const UserProvider = ({ children }) => {
 
     let userWorkoutPaths = async (user_id) => {
         console.log(user_id)
-        const response = await fetch(`http://localhost:8000/api/gym/profile/workouts/${user_id}/active/1`)
+        const response = await fetch(`http://localhost:8000/api/gym/profile/workouts/${user_id}/active`)
         const data = await response.json()
         // console.log(data)
         return data
