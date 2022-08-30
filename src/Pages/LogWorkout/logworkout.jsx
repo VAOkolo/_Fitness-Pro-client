@@ -56,6 +56,8 @@ export default function LogWorkout() {
         const activeWorkout = await userWorkoutPaths(user_id)
         const activeSession = activeWorkout[0].user_workout_session
         console.log(activeSession)
+
+        
       }
       getActiveWorkout(user_id)
     },[user_id])
