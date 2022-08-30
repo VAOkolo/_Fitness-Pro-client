@@ -1,11 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react'
 import UserContext from '../../Context/UserContext'
+import AuthContext from '../../Context/AuthContext'
 import Modal from './modal'
 import './style.css'
 
 export default function LogWorkout() {
 
-    const { todaysExercises, postTodaysExercises } = useContext(UserContext)
+    const { todaysExercises, userWorkoutPaths } = useContext(UserContext)
+    const {user_id} = useContext(AuthContext)
     const [openModal, setOpenModal] = useState(false)
     const [modalId, setModalId] = useState()
     const [url, setUrl] = useState('')
@@ -13,6 +15,9 @@ export default function LogWorkout() {
     const [modalTitle, setModalTitle] = useState()
     const [rows, setRows] = useState([1])
     const [postData, setPostData] = useState([])
+    const [todaysWorkouts, setTodaysWorkouts] = useState()
+    
+    console.log(userWorkoutPaths)
 
     let api_key = process.env.REACT_APP_API_KEY
 
@@ -26,7 +31,7 @@ export default function LogWorkout() {
     // }, [postData])
 
     const handleData = (e) => {
-        console.log(e.target.parentElement.children)
+        // console.log(e.target.parentElement.children)
         /*
         logic to validate submitted data (make sure no empty cell input)
         logic to push (id, exercise, date, sets, reps, weight into array)
@@ -37,7 +42,7 @@ export default function LogWorkout() {
     const updateModal = (e) => {
         setUrl(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=viewCount&q=${e.target.text + " instructions"}&safeSearch=strict&key=${api_key}`)
         setOpenModal(true)
-        console.log(e.target.id, e.target.name)
+        // console.log(e.target.id, e.target.name)
         setModalId(e.target.id)
         setModalTitle(e.target.name)
     }
@@ -46,16 +51,25 @@ export default function LogWorkout() {
         // fetchYouTubeVideo(url)
     }, [url])
 
+    useEffect( () => {
+      async function getActiveWorkout(user_id){
+        const activeWorkout = await userWorkoutPaths(user_id)
+        const activeSession = activeWorkout[0].user_workout_session
+        console.log(activeSession)
+      }
+      getActiveWorkout(user_id)
+    },[user_id])
+
     const fetchYouTubeVideo = async (url) => {
         const response = await fetch(url)
         const data = await response.json()
         const videoID = data.items[0].id.videoId
-        console.log(videoID)
+        // console.log(videoID)
         setModalUrl(`https://www.youtube.com/embed/${videoID}`)
     }
 
     const submitData = (e) => {
-        console.log(e)
+        // console.log(e)
         const tr = document.querySelectorAll('tr')
 
         const arr = []
@@ -67,16 +81,16 @@ export default function LogWorkout() {
             }
             else {
                 let child = [...x.querySelectorAll('td')]
-                console.log(child)
+                // console.log(child)
                 arr.push(...child.map(a => ({ reps: a.children.valueAsNumber, sets: a.innerHTML, weight: a })))
             }
         })
 
-        console.log(arr)
+        // console.log(arr)
     }
 
     const value = (e) => {
-        console.log(e)
+        // console.log(e)
         return e.target.value
     }
 
@@ -85,7 +99,7 @@ export default function LogWorkout() {
     }
 
     useEffect(() => {
-        console.log("modalId changed", modalId)
+        // console.log("modalId changed", modalId)
 
     }, [rows])
 

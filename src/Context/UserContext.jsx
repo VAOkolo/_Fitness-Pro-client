@@ -10,13 +10,27 @@ export default UserContext;
 export const UserProvider = ({ children }) => {
 
     let postTodaysExercises = (postData) => {
-        console.log("I'm posting today's exercises")
+        // console.log("I'm posting today's exercises")
     }
+
+    
+
+    let userWorkoutPaths = async (user_id) => {
+        console.log(user_id)
+        const response = await fetch(`http://localhost:8000/api/gym/profile/workouts/${user_id}/active/1`)
+        const data = await response.json()
+        // console.log(data)
+        return data
+    }
+
     let userData = {
         user_UD: "test",
         todaysExercises: ["Bench Press", "Situps", "Barbell Row", "Overhead Press", "Deadlift", "Bicep Curls", "Shoulder Press"],
-        postTodaysExercises: postTodaysExercises
+        postTodaysExercises: postTodaysExercises,
+        userWorkoutPaths: userWorkoutPaths,
     }
+
+    
 
     return (
         <UserContext.Provider value={userData} >

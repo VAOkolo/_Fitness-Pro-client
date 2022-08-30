@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
 
     const loginUser = async (e) => {
         e.preventDefault()
-        const response = await fetch('https://gym-capstone.herokuapp.com/api/token/', {
+        const response = await fetch('http://localhost:8000/api/token/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }) => {
             console.log('Login or Register. You dont have any token right now.')
             logoutUser()
         } else {
-            const response = await fetch('https://gym-capstone.herokuapp.com/api/token/refresh/', {
+            const response = await fetch('http://localhost:8000/api/token/refresh/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -99,7 +99,7 @@ export const AuthProvider = ({ children }) => {
 
     const postUser = async (username, email, password) => {
         try {
-            const url = 'https://gym-capstone.herokuapp.com/api/user/register/';
+            const url = 'http://localhost:8000/api/user/register/';
             const options = {
                 method: 'POST',
                 headers: {
@@ -119,6 +119,7 @@ export const AuthProvider = ({ children }) => {
 
     const contextData = {
         user: user,
+        user_id: user.user_id,
         authTokens: authTokens,
         loginUser: loginUser,
         logoutUser: logoutUser,
