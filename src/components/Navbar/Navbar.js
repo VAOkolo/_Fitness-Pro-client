@@ -3,13 +3,26 @@ import { HiMenuAlt4, HiX } from 'react-icons/hi';
 //HiMenuAlt4 = toggle menu icon (two horizontial line button). Hix = Exit toggle menu (Cross button)
 import { motion, AnimatePresence } from 'framer-motion';  //imports animations from node modules downloaded (pre-rendered animations)
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import'./Navbar.scss';
 import { images } from '../../constants'
 
 
 const Navbar = () => {
-  const [toggle, setToggle] = useState(false);  
+  const [toggle, setToggle] = useState(false);
+  const navigate = useNavigate();
+  
+  function home () {
+    navigate('/landing')
+  }
+  function signUp() {
+    navigate('/register')
+  }
+  function login () {
+    navigate('/login')
+  }
+  
 
 
   return (
@@ -22,13 +35,13 @@ const Navbar = () => {
       </div>
       <ul className="app__navbar-link">
         <li class="app__flex p-text">
-          <a><Link to="/landing">Home</Link></a>
+          <a onClick={home}>Home</a>
         </li>
         <li class="app__flex p-text">
-          <a><Link to="/register">Signup</Link></a>
+          <a onClick={signUp}>Signup</a>
         </li>
         <li class="app__flex p-text">
-          <a><Link to="/login">Login</Link></a>
+          <a onClick={login}>Login</a>
         </li>
       </ul>
 
@@ -53,10 +66,10 @@ const Navbar = () => {
                     <a onClick={() => setToggle(false)}><Link to="/landing">Home</Link></a>
                   </li>
                   <li>
-                    <a onClick={() => setToggle(false)}><Link to="/login">Signup</Link></a>
+                    <a onClick={() => setToggle(false)}><Link to="/register">Signup</Link></a>
                   </li>
                   <li>
-                    <a onClick={() => setToggle(false)}><Link to="/dashboard">Login</Link></a>
+                    <a onClick={() => setToggle(false)}><Link to="/login">Login</Link></a>
                   </li>
               </ul>
             </motion.div>

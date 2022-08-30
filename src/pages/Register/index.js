@@ -80,6 +80,7 @@ export default function Register() {
             {Object.keys(formErrors).length === 0 && isSubmit && (
                 changePage()
             )}
+                    <Navbar />
 
 
             <div class="hero min-h-screen info-content">

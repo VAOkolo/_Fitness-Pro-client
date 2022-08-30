@@ -18,7 +18,6 @@ const Dashboard = () => {
     let [dashboard, setDashboard] = useState(true)
     let [workout, setWorkout] = useState(false)
     let [stats, setStats] = useState(false)
-    let [logout, setLogout] = useState(false)
     let [notes, setNotes] = useState([])
     let {authTokens, logoutUser} = useContext(AuthContext)
 
@@ -68,10 +67,9 @@ const Dashboard = () => {
         setWorkout(false)
     }
     const handleLogout = () => {
-        setLogout(true)
-        setStats(false)
-        setDashboard(false)
-        setWorkout(false)
+        setStats(true)
+        setDashboard(true)
+        setWorkout(true)
         logoutUser()
     }
 
@@ -82,7 +80,6 @@ const Dashboard = () => {
     <NavbarDash />
     <div className='container-dash'>
         <motion.aside
-        initial={{ opacity: 0}}
         animate={{ opacity: 1}}
         transition={{
             default: {
@@ -93,21 +90,21 @@ const Dashboard = () => {
 
             </div>
             <div className='sidebar'>
-                <a href='#' className={workout || stats || logout  ? '' : 'active'} onClick={handleDash}>
+                <a href='#' className={workout || stats ? '' : 'active'} onClick={handleDash}>
                     <PersonRoundedIcon />
                     <h3>Dashboard</h3>
                 </a>
-                <a href='#' className={dashboard || stats || logout ? '' : 'active'}
+                <a href='#' className={dashboard || stats ? '' : 'active'}
                 onClick={handleWork}>
                     <FitnessCenterRoundedIcon />
                     <h3>Create A Workout +</h3>
                 </a>
-                <a href='#' className={dashboard || workout|| logout ? '' : 'active'}
+                <a href='#' className={dashboard || workout ? '' : 'active'}
                 onClick={handleStats}>
                     <AutoGraphRoundedIcon />
                     <h3>Your Stats</h3>
                 </a>
-                <a href='#' className={workout || stats || dashboard ? '' : 'active'}
+                <a href='#'
                 onClick={handleLogout}>
                     <LogoutRoundedIcon />
                     <h3>Logout</h3>

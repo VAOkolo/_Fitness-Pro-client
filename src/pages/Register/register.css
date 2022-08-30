@@ -65,3 +65,9 @@ form h1 {
     --tw-text-opacity: 1;
     --bc: 215 28% 25%
 }
+
+@media screen and (max-height: 750px) {
+    .card-body {
+        display: block;
+    }
+}
