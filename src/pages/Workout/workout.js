@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import {levelAction } from "../../actions";
@@ -15,6 +15,9 @@ import deadlift from '../../assets/deadlift.jpg';
 import bench from '../../assets/bench_press.jpg';
 import dumbbell from '../../assets/dumbbell2.jpg';
 import treadmill from '../../assets/treadmill.jpg';
+//*****VINCENT */
+import UserContext from '../../context/UserContext';
+//*****VINCENT */
 
 export default function Workout() {
 
@@ -28,6 +31,11 @@ export default function Workout() {
   let [moderateModal, setModerateModal] = useState(false)
   let [advancedModal, setAdvancedModal] = useState(false)
   let [customModal, setCustomModal] = useState(false)
+  // ******Vincent
+  let { beginnerTemplate } = useContext(UserContext)
+  let [startDate, setStartDate] = useState()
+  let [endDate, setEndDate] = useState()
+  // ******Vincent
 
     // const level = useSelector((state) => state.reducer.level);
 
@@ -112,6 +120,19 @@ export default function Workout() {
       // Post specific template  to database
       navigate('/friends')
     }
+
+    // ******VINCENT**********
+    const updateStartDate = (e) => {
+      setStartDate(e.target.value)
+    }
+    const updateEndDate = (e) => {
+      setEndDate(e.target.value)
+    }
+
+    useEffect(() => {
+      console.log(startDate, endDate)
+    },[startDate, endDate])
+    // ******VINCENT**********
     
 
     return (
@@ -151,6 +172,20 @@ export default function Workout() {
           Hammer Curls: 3x10<br></br>
         </p>
         <br></br>
+         {/* {*******VINCENT**********} */}
+         <label for="start">Start date:</label>
+        <input onChange={updateStartDate} type="date" id="startDate" name=""
+        value={startDate}
+        min="2022-01-01" max="2023-12-31"></input>
+
+        <label  for="end">End date:</label>
+        <input onChange={updateEndDate} type="date" id="endDate" name=""
+        value={endDate}
+        min="2022-01-01" max="2023-12-31"></input>
+        <br></br>
+        <br></br>
+        <br></br>
+        {/* {*******VINCENT**********} */}
         <button onClick={beginnerSelect}class="btn btn-primary">Select This Template</button>
       </div>
     </div>
