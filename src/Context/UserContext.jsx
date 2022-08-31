@@ -35,7 +35,7 @@ export const UserProvider = ({ children }) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    "exercise_sets": workout_session_id,
+                    "exercise_sets": workout_session_id_int,
                     "reps": reps,
                     "weights": weights
                 })
