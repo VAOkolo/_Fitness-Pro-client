@@ -168,19 +168,19 @@ export default function Workout() {
 
     {beginnerModal &&     
     <div>
-    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-    <div class="modal">
-      <div class="modal-box relative">
-        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-        <h3 class="text-lg font-bold">Our Beginner Program</h3>
-        <p class="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
+    <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+    <div className="modal">
+      <div className="modal-box relative">
+        <label for="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 className="text-lg font-bold">Our Beginner Program</h3>
+        <p className="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
         & the correct technique to prevent injury.</p>
-        <p class="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classic<br></br> movement patterns. See for yourself!</p>
+        <p className="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classNameic<br></br> movement patterns. See for yourself!</p>
         With this template, you alternate between <br></br>two workouts. e.g. ABA - week 1. BAB - week 2.
         <br></br> 
         <br></br>
         
-        <p class="py-4">
+        <p className="py-4">
           Workout A:<br></br>
           Bench Press: 3x8<br></br>
           Barbell Row: 3x8<br></br>
@@ -188,7 +188,7 @@ export default function Workout() {
           Tricep Extensions: 3x10<br></br>
           Bicep Curls: 3x10<br></br>
         </p>
-        <p class="py-4">
+        <p className="py-4">
           Workout B:<br></br>
           Bench Press: 3x8<br></br>
           Barbell Row: 3x8<br></br>
@@ -211,7 +211,7 @@ export default function Workout() {
         <br></br>
         <br></br>
         {/* {*******VINCENT**********} */}
-        <button onClick={beginnerSelect}class="btn btn-primary">Select This Template</button>
+        <button onClick={beginnerSelect}className="btn btn-primary">Select This Template</button>
       </div>
     </div>
     </div>}
@@ -220,19 +220,19 @@ export default function Workout() {
 
     {moderateModal &&     
     <>
-    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-    <div class="modal">
-      <div class="modal-box relative">
-        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-        <h3 class="text-lg font-bold">Our Moderate Program</h3>
-        <p class="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
+    <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+    <div className="modal">
+      <div className="modal-box relative">
+        <label for="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 className="text-lg font-bold">Our Moderate Program</h3>
+        <p className="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
         & the correct technique to prevent injury.</p>
-        <p class="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classic<br></br> movement patterns. See for yourself!</p>
+        <p className="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classNameic<br></br> movement patterns. See for yourself!</p>
         With this template, you alternate between <br></br>two workouts. e.g. ABA - week 1. BAB - week 2.
         <br></br> 
         <br></br>
         
-        <p class="py-4">
+        <p className="py-4">
           Workout A:<br></br>
           Bench Press: 3x8<br></br>
           Barbell Row: 3x8<br></br>
@@ -240,7 +240,7 @@ export default function Workout() {
           Tricep Extensions: 3x10<br></br>
           Bicep Curls: 3x10<br></br>
         </p>
-        <p class="py-4">
+        <p className="py-4">
           Workout B:<br></br>
           Bench Press: 3x8<br></br>
           Barbell Row: 3x8<br></br>
@@ -249,7 +249,7 @@ export default function Workout() {
           Hammer Curls: 3x10<br></br>
         </p>
         <br></br>
-        <button onClick={moderateSelect}class="btn btn-primary">Select This Template</button>
+        <button onClick={moderateSelect}className="btn btn-primary">Select This Template</button>
       </div>
     </div>
     </>}
@@ -259,19 +259,19 @@ export default function Workout() {
 
     {advancedModal &&     
     <>
-    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-    <div class="modal">
-      <div class="modal-box relative">
-        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-        <h3 class="text-lg font-bold">Our Advanced Program</h3>
-        <p class="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
+    <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+    <div className="modal">
+      <div className="modal-box relative">
+        <label for="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 className="text-lg font-bold">Our Advanced Program</h3>
+        <p className="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
         & the correct technique to prevent injury.</p>
-        <p class="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classic<br></br> movement patterns. See for yourself!</p>
+        <p className="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classNameic<br></br> movement patterns. See for yourself!</p>
         With this template, you alternate between <br></br>two workouts. e.g. ABA - week 1. BAB - week 2.
         <br></br> 
         <br></br>
         
-        <p class="py-4">
+        <p className="py-4">
           Workout A:<br></br>
           Bench Press: 3x8<br></br>
           Barbell Row: 3x8<br></br>
@@ -279,7 +279,7 @@ export default function Workout() {
           Tricep Extensions: 3x10<br></br>
           Bicep Curls: 3x10<br></br>
         </p>
-        <p class="py-4">
+        <p className="py-4">
           Workout B:<br></br>
           Bench Press: 3x8<br></br>
           Barbell Row: 3x8<br></br>
@@ -288,7 +288,7 @@ export default function Workout() {
           Hammer Curls: 3x10<br></br>
         </p>
         <br></br>
-        <button onClick={advancedSelect}class="btn btn-primary">Select This Template</button>
+        <button onClick={advancedSelect}className="btn btn-primary">Select This Template</button>
       </div>
     </div>
     </>}
@@ -296,19 +296,19 @@ export default function Workout() {
 
     {customModal &&     
     <>
-    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-    <div class="modal">
-      <div class="modal-box relative">
-        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-        <h3 class="text-lg font-bold">Your Custom Program </h3>
-        <p class="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
+    <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+    <div className="modal">
+      <div className="modal-box relative">
+        <label for="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 className="text-lg font-bold">Your Custom Program </h3>
+        <p className="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
         & the correct technique to prevent injury.</p>
-        <p class="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classic<br></br> movement patterns. See for yourself!</p>
+        <p className="py-4">Our beginner program has you train 3 days per <br></br>week; gaining foundational strength in classNameic<br></br> movement patterns. See for yourself!</p>
         With this template, you alternate between <br></br>two workouts. e.g. ABA - week 1. BAB - week 2.
         <br></br> 
         <br></br>
         
-        <p class="py-4">
+        <p className="py-4">
           Workout A:<br></br>
           Bench Press: 3x8<br></br>
           Barbell Row: 3x8<br></br>
@@ -316,7 +316,7 @@ export default function Workout() {
           Tricep Extensions: 3x10<br></br>
           Bicep Curls: 3x10<br></br>
         </p>
-        <p class="py-4">
+        <p className="py-4">
           Workout B:<br></br>
           Bench Press: 3x8<br></br>
           Barbell Row: 3x8<br></br>
@@ -325,13 +325,13 @@ export default function Workout() {
           Hammer Curls: 3x10<br></br>
         </p>
         <br></br>
-        <button onClick={customSelect}class="btn btn-primary">Submit Program</button>
+        <button onClick={customSelect}className="btn btn-primary">Submit Program</button>
       </div>
     </div>
     </>}
       {/* =======================Sidebar=======================*/}
     <NavbarDash />
-    <div className='container-dash'>
+    <div classNameName='container-dash'>
         <motion.aside
         animate={{ opacity: 1}}
   
@@ -340,20 +340,20 @@ export default function Workout() {
                 duration: 0.3,
             }
         }}>
-            <div className='top'>
+            <div classNameName='top'>
 
             </div>
-            <div className='sidebar'>
-                <a href='#' className={workout || stats ? '' : 'active'} onClick={handleDash}>
+            <div classNameName='sidebar'>
+                <a href='#' classNameName={workout || stats ? '' : 'active'} onClick={handleDash}>
                     <PersonRoundedIcon />
                     <h3>Dashboard</h3>
                 </a>
-                <a href='#' className={dashboard || stats ? '' : 'active'}
+                <a href='#' classNameName={dashboard || stats ? '' : 'active'}
                 onClick={handleWork}>
                     <FitnessCenterRoundedIcon />
                     <h3>Create A Workout +</h3>
                 </a>
-                <a href='#' className={dashboard || workout ? '' : 'active'}
+                <a href='#' classNameName={dashboard || workout ? '' : 'active'}
                 onClick={handleStats}>
                     <AutoGraphRoundedIcon />
                     <h3>Your Stats</h3>
@@ -368,7 +368,7 @@ export default function Workout() {
 
         {/* =======================Workout=======================*/}
 
-        <motion.div className="workout-card"
+        <motion.div classNameName="workout-card"
         initial={{ opacity: 0}}
         animate={{ opacity: 1}}
         exit={{ opacity: 0}}
@@ -378,57 +378,57 @@ export default function Workout() {
                 duration: 0.1,
             }
         }}>
-            <main class="main-workout">
+            <main className="main-workout">
               <h1>Create A Workout +</h1>
-              <div class="outer-card">
+              <div className="outer-card">
 
-                <div class="card-1">
-                <div class="card sm:card-side bg-base-100 shadow-xl">
+                <div className="card-1">
+                <div className="card sm:card-side bg-base-100 shadow-xl">
   <figure><img src={deadlift} alt="Album" /></figure>
-  <div class="card-body">
-    <h2 class="card-title">Beginner Program</h2>
+  <div className="card-body">
+    <h2 className="card-title">Beginner Program</h2>
     <p></p>
-    <div class="card-actions justify-end">
-    <label for="my-modal-3" class="btn modal-button btn-primary" onClick={handleBeginner}>Select</label>
+    <div className="card-actions justify-end">
+    <label for="my-modal-3" className="btn modal-button btn-primary" onClick={handleBeginner}>Select</label>
     </div>
   </div>
 </div>
 </div>
 
-<div class="card-2">
-                <div class="card sm:card-side bg-base-100 shadow-xl">
+<div className="card-2">
+                <div className="card sm:card-side bg-base-100 shadow-xl">
   <figure><img src={bench} alt="Album" /></figure>
-  <div class="card-body">
-    <h2 class="card-title">Moderate Program</h2>
+  <div className="card-body">
+    <h2 className="card-title">Moderate Program</h2>
     <p></p>
-    <div class="card-actions justify-end">
-    <label for="my-modal-3" class="btn modal-button btn-primary" onClick={handleModerate}>Select</label>
+    <div className="card-actions justify-end">
+    <label for="my-modal-3" className="btn modal-button btn-primary" onClick={handleModerate}>Select</label>
     </div>
   </div>
 </div>
 </div>
 
-<div class="card-3">
-                <div class="card sm:card-side bg-base-100 shadow-xl">
+<div className="card-3">
+                <div className="card sm:card-side bg-base-100 shadow-xl">
   <figure><img src={dumbbell} alt="Album" /></figure>
-  <div class="card-body">
-    <h2 class="card-title">Advanced Program</h2>
+  <div className="card-body">
+    <h2 className="card-title">Advanced Program</h2>
     <p></p>
-    <div class="card-actions justify-end">
-    <label for="my-modal-3" class="btn modal-button btn-primary" onClick={handleAdvanced}>Select</label>
+    <div className="card-actions justify-end">
+    <label for="my-modal-3" className="btn modal-button btn-primary" onClick={handleAdvanced}>Select</label>
     </div>
   </div>
 </div>
 </div>
 
-<div class="card-4">
-                <div class="card sm:card-side bg-base-100 shadow-xl">
+<div className="card-4">
+                <div className="card sm:card-side bg-base-100 shadow-xl">
   <figure><img src={treadmill} alt="Album" /></figure>
-  <div class="card-body">
-    <h2 class="card-title">Custom Program</h2>
+  <div className="card-body">
+    <h2 className="card-title">Custom Program</h2>
     <p></p>
-    <div class="card-actions justify-end">
-    <label for="my-modal-3" class="btn modal-button btn-primary" onClick={handleCustom}>Select</label>
+    <div className="card-actions justify-end">
+    <label for="my-modal-3" className="btn modal-button btn-primary" onClick={handleCustom}>Select</label>
     </div>
   </div>
 </div>
@@ -450,10 +450,10 @@ export default function Workout() {
             <h1>Select a template</h1>
             < Template/>
             <form onSubmit={handleLevel}>
-                    <select className="">
+                    <select classNameName="">
                         {level_list.map(item => <option value={item.value}>{item.name}</option>)}
                     </select>
-                    <input className="" type="submit" />
+                    <input classNameName="" type="submit" />
                 </form>
-                <button className="text-center">Hello</button>
+                <button classNameName="text-center">Hello</button>
         </div>*/}

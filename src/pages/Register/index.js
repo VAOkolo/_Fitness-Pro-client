@@ -83,59 +83,59 @@ export default function Register() {
                     <Navbar />
 
 
-            <div class="hero hero-register min-h-screen info-content">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <div class="text-center lg:text-left">
-      <h1 class="text-5xl font-bold">Signup </h1>
-      <p class="py-6">Only One Step Away...</p>
+            <div className="hero hero-register min-h-screen info-content">
+  <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className="text-center lg:text-left">
+      <h1 className="text-5xl font-bold">Signup </h1>
+      <p className="py-6">Only One Step Away...</p>
     </div>
 
-    <div class="card max-width flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
+    <div className="card max-width flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
     <form onSubmit={handleSubmit}>
-      <div class="card-body register-margin">
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Username</span>
+      <div className="card-body register-margin">
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Username</span>
           </label>
           <input type="text" value={formValues.username} name="username" 
-          placeholder="username" class="input input-ghost" onChange={handleChange} />
+          placeholder="username" className="input input-ghost" onChange={handleChange} />
         </div>
-        <div className="ui divider"></div>
+        <div classNameName="ui divider"></div>
 
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Email</span>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Email</span>
           </label>
           <input type="text" placeholder="email" name="email" 
-          class="input input-ghost" value={formValues.email} onChange={handleChange}/>
+          className="input input-ghost" value={formValues.email} onChange={handleChange}/>
         </div>
-        <div className="ui divider"></div>
+        <div classNameName="ui divider"></div>
 
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Password</span>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Password</span>
           </label>
           <input type="text" placeholder="password"  
-          name="password" class="input input-ghost" 
+          name="password" className="input input-ghost" 
           value={formValues.password} onChange={handleChange}/>
         </div>
-        <div className="ui divider"></div>
+        <div classNameName="ui divider"></div>
 
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Confirm Password</span>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Confirm Password</span>
           </label>
           <input type="text" placeholder="confirm password" 
-          name="password2" class="input input-ghost" value={formValues.password2} onChange={handleChange}/>
-            <label class="label">
-            <a href="#" class="label-text-alt link link-hover">                        {Object.keys(formErrors).length === 0 && isSubmit && (
-                <div className="ui message success">Signed in successfully</div>)}</a>
+          name="password2" className="input input-ghost" value={formValues.password2} onChange={handleChange}/>
+            <label className="label">
+            <a href="#" className="label-text-alt link link-hover">                        {Object.keys(formErrors).length === 0 && isSubmit && (
+                <div classNameName="ui message success">Signed in successfully</div>)}</a>
           </label>
         </div>
-        <div className="ui divider"></div>
+        <div classNameName="ui divider"></div>
         
-        <div class="form-control mt-6">
-          <button class="btn btn-primary">Register</button>
+        <div className="form-control mt-6">
+          <button className="btn btn-primary">Register</button>
         </div>
       </div>
       </form>

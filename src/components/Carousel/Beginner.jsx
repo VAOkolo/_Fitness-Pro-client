@@ -6,7 +6,7 @@ import Table from 'react-bootstrap/Table';
 export default function Beginner() {
     return (
         <Carousel interval={null} variant="dark" indicators={false}>
-            <Carousel.Item class="carousel-item">
+            <Carousel.Item className="carousel-item">
                 <h1>Monday</h1>
                 <Table bordered hover>
                     <thead>
@@ -42,7 +42,7 @@ export default function Beginner() {
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
+                    classNameName="d-block w-100"
                     src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg"
                     alt="..."
                 />
@@ -62,7 +62,7 @@ export default function Beginner() {
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
+                    classNameName="d-block w-100"
                     src="holder.js/800x400?text=Third slide&bg=20232a"
                     alt="Third slide"
                 />

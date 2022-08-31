@@ -71,7 +71,7 @@ export default function FriendsForm() {
     <>
       {/* =======================Sidebar=======================*/}
     <NavbarDash />
-    <div className='container-dash'>
+    <div classNameName='container-dash'>
         <motion.aside
         animate={{ opacity: 1}}
   
@@ -80,20 +80,20 @@ export default function FriendsForm() {
                 duration: 0.3,
             }
         }}>
-            <div className='top'>
+            <div classNameName='top'>
 
             </div>
-            <div className='sidebar'>
-                <a href='#' className={workout || stats ? '' : 'active'} onClick={handleDash}>
+            <div classNameName='sidebar'>
+                <a href='#' classNameName={workout || stats ? '' : 'active'} onClick={handleDash}>
                     <PersonRoundedIcon />
                     <h3>Dashboard</h3>
                 </a>
-                <a href='#' className={dashboard || stats ? '' : 'active'}
+                <a href='#' classNameName={dashboard || stats ? '' : 'active'}
                 onClick={handleWork}>
                     <FitnessCenterRoundedIcon />
                     <h3>Create A Workout +</h3>
                 </a>
-                <a href='#' className={dashboard || workout ? '' : 'active'}
+                <a href='#' classNameName={dashboard || workout ? '' : 'active'}
                 onClick={handleStats}>
                     <AutoGraphRoundedIcon />
                     <h3>Your Stats</h3>
@@ -108,7 +108,7 @@ export default function FriendsForm() {
 
         {/* =======================Workout=======================*/}
 
-        <motion.div className="workout-card"
+        <motion.div classNameName="workout-card"
         initial={{ opacity: 0}}
         animate={{ opacity: 1}}
         exit={{ opacity: 0}}
@@ -117,9 +117,9 @@ export default function FriendsForm() {
                 duration: 0.1,
             }
         }}>
-            <main class="main-friend">
+            <main className="main-friend">
               <h1>Invite A Friend +</h1>
-              <div class="outer-card-friend">
+              <div className="outer-card-friend">
 
 
               <>
@@ -132,39 +132,39 @@ export default function FriendsForm() {
                     duration: 0.3,
                 }
             }}>
-    <div class="hero min-h-screen-friend info-content">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <div class="text-center lg:text-left">
-      <h1 class="text-5xl font-bold"> Invite</h1>
-      <p class="py-6">Give us some info<br></br> on your friend!</p>
+    <div className="hero min-h-screen-friend info-content">
+  <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className="text-center lg:text-left">
+      <h1 className="text-5xl font-bold"> Invite</h1>
+      <p className="py-6">Give us some info<br></br> on your friend!</p>
     </div>
 
-    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
+    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
     <form>
-      <div class="card-body">
-        <div className="ui divider"></div>
+      <div className="card-body">
+        <div classNameName="ui divider"></div>
 
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Friend's Name</span>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Friend's Name</span>
           </label>
           <input type="text" placeholder="name" name="email" 
-          class="input input-ghost"/>
+          className="input input-ghost"/>
         </div>
-        <div className="ui divider"></div>
+        <div classNameName="ui divider"></div>
 
-        <div class="form-control">
-          <label class="label" htmlFor="exampleInputPassword1">
-            <span class="label-text">Friend's Email</span>
+        <div className="form-control">
+          <label className="label" htmlFor="exampleInputPassword1">
+            <span className="label-text">Friend's Email</span>
           </label>
           <input type="text" id="exampleInputPassword1" placeholder="email"  
-          name="password" class="input input-ghost" 
+          name="password" className="input input-ghost" 
           />
         </div>
-        <div className="ui divider"></div>
+        <div classNameName="ui divider"></div>
         
-        <div class="form-control mt-6">
-          <button class="btn btn-primary">Send Email</button>
+        <div className="form-control mt-6">
+          <button className="btn btn-primary">Send Email</button>
         </div>
       </div>
       </form>
@@ -191,10 +191,10 @@ export default function FriendsForm() {
             <h1>Select a template</h1>
             < Template/>
             <form onSubmit={handleLevel}>
-                    <select className="">
+                    <select classNameName="">
                         {level_list.map(item => <option value={item.value}>{item.name}</option>)}
                     </select>
-                    <input className="" type="submit" />
+                    <input classNameName="" type="submit" />
                 </form>
-                <button className="text-center">Hello</button>
+                <button classNameName="text-center">Hello</button>
         </div>*/}

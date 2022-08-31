@@ -73,7 +73,7 @@ export default function Friends() {
     <>
       {/* =======================Sidebar=======================*/}
     <NavbarDash />
-    <div className='container-dash'>
+    <div classNameName='container-dash'>
         <motion.aside
         animate={{ opacity: 1}}
   
@@ -82,20 +82,20 @@ export default function Friends() {
                 duration: 0.3,
             }
         }}>
-            <div className='top'>
+            <div classNameName='top'>
 
             </div>
-            <div className='sidebar'>
-                <a href='#' className={workout || stats ? '' : 'active'} onClick={handleDash}>
+            <div classNameName='sidebar'>
+                <a href='#' classNameName={workout || stats ? '' : 'active'} onClick={handleDash}>
                     <PersonRoundedIcon />
                     <h3>Dashboard</h3>
                 </a>
-                <a href='#' className={dashboard || stats ? '' : 'active'}
+                <a href='#' classNameName={dashboard || stats ? '' : 'active'}
                 onClick={handleWork}>
                     <FitnessCenterRoundedIcon />
                     <h3>Create A Workout +</h3>
                 </a>
-                <a href='#' className={dashboard || workout ? '' : 'active'}
+                <a href='#' classNameName={dashboard || workout ? '' : 'active'}
                 onClick={handleStats}>
                     <AutoGraphRoundedIcon />
                     <h3>Your Stats</h3>
@@ -110,7 +110,7 @@ export default function Friends() {
 
         {/* =======================Workout=======================*/}
 
-        <motion.div className="workout-card"
+        <motion.div classNameName="workout-card"
         initial={{ opacity: 0}}
         animate={{ opacity: 1}}
         exit={{ opacity: 0}}
@@ -119,20 +119,20 @@ export default function Friends() {
                 duration: 0.1,
             }
         }}>
-            <main class="main-friend">
+            <main className="main-friend">
               <h1>Invite A Friend +</h1>
-              <div class="outer-card-friend">
+              <div className="outer-card-friend">
 
 
-                <div class="card-1">
-                <div class="card sm:card-side bg-base-100 shadow-xl">
-  <figure><img class="friend-img" src={Running} alt="Album" /></figure>
-  <div class="card-body">
-    <h2 class="card-title">Want To Invite A Friend?</h2>
+                <div className="card-1">
+                <div className="card sm:card-side bg-base-100 shadow-xl">
+  <figure><img className="friend-img" src={Running} alt="Album" /></figure>
+  <div className="card-body">
+    <h2 className="card-title">Want To Invite A Friend?</h2>
     <p></p>
-    <div class="card-actions justify-end">
-    <label for="my-modal-3" onClick={handleDash} class="btn ">No Thanks</label>
-    <label for="my-modal-3" onClick={friendForm} class="btn modal-button btn-primary">Yeah Sure!</label>
+    <div className="card-actions justify-end">
+    <label for="my-modal-3" onClick={handleDash} className="btn ">No Thanks</label>
+    <label for="my-modal-3" onClick={friendForm} className="btn modal-button btn-primary">Yeah Sure!</label>
     </div>
   </div>
 </div>
@@ -155,10 +155,10 @@ export default function Friends() {
             <h1>Select a template</h1>
             < Template/>
             <form onSubmit={handleLevel}>
-                    <select className="">
+                    <select classNameName="">
                         {level_list.map(item => <option value={item.value}>{item.name}</option>)}
                     </select>
-                    <input className="" type="submit" />
+                    <input classNameName="" type="submit" />
                 </form>
-                <button className="text-center">Hello</button>
+                <button classNameName="text-center">Hello</button>
         </div>*/}

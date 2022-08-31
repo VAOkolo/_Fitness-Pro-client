@@ -29,23 +29,23 @@ const Navbar = () => {
 
     // Line 18-30: Landscape navbar with anchor links to specific pages
     // Line 30+ Sidebar which animates on entry & exit
-    <nav className="app__navbar">
-      <div className="app__navbar-logo">
+    <nav classNameName="app__navbar">
+      <div classNameName="app__navbar-logo">
         <img src={images.portfoliologo} alt="logo" />
       </div>
-      <ul className="app__navbar-link">
-        <li class="app__flex p-text">
+      <ul classNameName="app__navbar-link">
+        <li className="app__flex p-text">
           <a onClick={home}>Home</a>
         </li>
-        <li class="app__flex p-text">
+        <li className="app__flex p-text">
           <a onClick={signUp}>Signup</a>
         </li>
-        <li class="app__flex p-text">
+        <li className="app__flex p-text">
           <a onClick={login}>Login</a>
         </li>
       </ul>
 
-      <div className="app__navbar-menu">
+      <div classNameName="app__navbar-menu">
         <HiMenuAlt4 onClick={() => setToggle(true)} />
         <AnimatePresence mode='wait'>
           {toggle && (

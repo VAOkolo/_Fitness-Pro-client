@@ -19,39 +19,39 @@ const Login = () => {
                 }
             }}>
     <Navbar />
-    <div class="hero hero-register min-h-screen info-content">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <div class="text-center lg:text-left">
-      <h1 class="text-5xl font-bold">Login </h1>
-      <p class="py-6">Welcome back!...</p>
+    <div className="hero hero-register min-h-screen info-content">
+  <div className="hero-content flex-col lg:flex-row-reverse">
+    <div className="text-center lg:text-left">
+      <h1 className="text-5xl font-bold">Login </h1>
+      <p className="py-6">Welcome back!...</p>
     </div>
 
-    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
+    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
     <form onSubmit={loginUser}>
-      <div class="card-body">
-        <div className="ui divider"></div>
+      <div className="card-body">
+        <div classNameName="ui divider"></div>
 
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Email</span>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Email</span>
           </label>
           <input type="text" placeholder="email" name="email" 
-          class="input input-ghost"/>
+          className="input input-ghost"/>
         </div>
-        <div className="ui divider"></div>
+        <div classNameName="ui divider"></div>
 
-        <div class="form-control">
-          <label class="label" htmlFor="exampleInputPassword1">
-            <span class="label-text">Password</span>
+        <div className="form-control">
+          <label className="label" htmlFor="exampleInputPassword1">
+            <span className="label-text">Password</span>
           </label>
           <input type="text" id="exampleInputPassword1" placeholder="password"  
-          name="password" class="input input-ghost" 
+          name="password" className="input input-ghost" 
           />
         </div>
-        <div className="ui divider"></div>
+        <div classNameName="ui divider"></div>
         
-        <div class="form-control mt-6">
-          <button class="btn btn-primary">Login</button>
+        <div className="form-control mt-6">
+          <button className="btn btn-primary">Login</button>
         </div>
       </div>
       </form>
