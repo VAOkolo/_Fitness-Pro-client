@@ -26,6 +26,7 @@ export default function FriendsForm() {
   let {authTokens, logoutUser} = useContext(AuthContext)
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [isSubmit, setIsSubmit] = useState(false);
 
     // const level = useSelector((state) => state.reducer.level);
 
@@ -48,7 +49,6 @@ export default function FriendsForm() {
         setDashboard(true)
         setWorkout(false)
         setStats(false)
-        navigate('/dashboard')
     }
     const handleWork = () => {
         setWorkout(true)
@@ -71,8 +71,12 @@ export default function FriendsForm() {
     // Before you submit just check when typing in your name and email - the states are console logging!!!
     //Below Submit Button is now ready to link to POST methods
 
-    function friendSubmit() {
-
+    function friendSubmit(event) {
+      event.preventDefault()
+      setIsSubmit(true)
+      setTimeout(() => {
+        navigate('/dashboard')
+      }, 2000)
     }
 
     const nameChange = e => {
@@ -178,11 +182,15 @@ export default function FriendsForm() {
           <input type="text" id="exampleInputPassword1" placeholder="email"  
           name="email" class="input input-ghost" value={email} onChange={emailChange}
           />
+          <label class="label">
+            <a href="#" class="label-text-alt link link-hover">                        {isSubmit && (
+                <div className="ui message success">Email Has Been Sent!</div>)}</a>
+          </label>
         </div>
         <div className="ui divider"></div>
         
         <div class="form-control mt-6">
-          <button class="btn btn-primary">Send Email</button>
+          <button type="submit" class="btn btn-primary">Send Email</button>
         </div>
       </div>
       </form>
