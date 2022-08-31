@@ -10,11 +10,11 @@ export default UserContext;
 export const UserProvider = ({ children }) => {
 
     let beginnerTemplate = [
-        {"Monday": [1, 2, 3, 4,5]},
-        {"Tuesday": []},
-        {"Wednesday": [1, 2, 3, 4,5]},
-        {"Thursday": []},
-        {"Friday": [1, 2, 3, 4,5]}
+        { "Monday": [1, 2, 3, 4, 5] },
+        { "Tuesday": [] },
+        { "Wednesday": [1, 2, 3, 4, 5] },
+        { "Thursday": [] },
+        { "Friday": [1, 2, 3, 4, 5] }
     ]
 
     let userWorkoutPaths = async (user_id) => {
@@ -23,9 +23,19 @@ export const UserProvider = ({ children }) => {
         return data
     }
 
-//posts sets to workout session
-    let userExercisePosts = async ([{ workout_session_id, reps, weights }], workout_session_id_int) => {
+    // BRINGING LOG WORKOUTS FILTERED BY TODAY
+    let setTodaysExercises = async (workout_id) => {
+        try {
+            const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/${workout_id}/sessionday`)
+            const data = await response.json()
+            return data
+        } catch (err) {
+            console.error(err)
+        }
+    }
 
+    //posts sets to workout session
+    let userExercisePosts = async ([{ workout_session_id, reps, weights }], workout_session_id_int) => {
         try {
             const options = {
                 method: 'POST',
@@ -46,7 +56,7 @@ export const UserProvider = ({ children }) => {
         }
     }
 
-//patch request to update workout session complete status
+    //patch request to update workout session complete status
     let postWorkoutCompletionStatus = async (workout_session_id_int) => {
         try {
             let body = {
@@ -62,14 +72,14 @@ export const UserProvider = ({ children }) => {
 
             const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/patch/${workout_session_id_int}`, options)
             const data = await response.json()
-    
-        } catch (err){
+
+        } catch (err) {
             console.error(err)
         }
-        
+
     }
 
-//post new workout
+    //post new workout
     const postNewWorkout = async (user_profile_id, startDate, endDate) => {
         try {
             let body = {
@@ -92,16 +102,16 @@ export const UserProvider = ({ children }) => {
             const response = await fetch(`http://localhost:8000/api/gym/workout/new/post`, options)
             const data = await response.json()
             const workout_id = data.workout_id
-    
+
             return workout_id
-        
-        } catch (err){
+
+        } catch (err) {
             console.error(err)
         }
     }
 
-//post sessions to new workout
-    const postNewWorkoutSessions = async ({workout_id, exercise_id, date, date_name}) => {
+    //post sessions to new workout
+    const postNewWorkoutSessions = async ({ workout_id, exercise_id, date, date_name }) => {
         try {
             let body = {
                 workout_id: workout_id,
@@ -121,16 +131,13 @@ export const UserProvider = ({ children }) => {
 
             const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/exercise/sets/post`, options)
             console.log(response)
-    
+
             return response
-        
-        } catch (err){
+
+        } catch (err) {
             console.error(err)
         }
     }
-
-
-    
 
     function lobbyCodeGenerator() {
         let result = "";
@@ -140,19 +147,23 @@ export const UserProvider = ({ children }) => {
             result += characters.charAt(Math.floor(Math.random() * characters.length));
         }
         return result;
-      }
-
-    let userData = {
-        user_UD: "test",
-        todaysExercises: ["Bench Press", "Situps", "Barbell Row", "Overhead Press", "Deadlift", "Bicep Curls", "Shoulder Press"],
-        userWorkoutPaths: userWorkoutPaths,
-        userExercisePosts: userExercisePosts,
-        postNewWorkout: postNewWorkout,
-        beginnerTemplate: beginnerTemplate,
-        postNewWorkoutSessions: postNewWorkoutSessions
     }
 
+    let userData = {
+        userWorkoutPaths: userWorkoutPaths,
 
+        //POSTS SETS TO WORKOUT SESSION
+        userExercisePosts: userExercisePosts,
+
+        //POSTING NEW WORKOUT
+        postNewWorkout: postNewWorkout,
+
+        // BRINGING LOG WORKOUTS FILTERED BY TODAY
+        setTodaysExercises: setTodaysExercises,
+
+        //POST SESSION TO NEW WORKOUT
+        postNewWorkoutSessions: postNewWorkoutSessions
+    }
 
     return (
         <UserContext.Provider value={userData} >
