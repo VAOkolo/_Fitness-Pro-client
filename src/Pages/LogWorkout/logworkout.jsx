@@ -12,7 +12,8 @@ export default function LogWorkout() {
 
     const { userWorkoutPaths, 
             userExercisePosts,
-            setTodaysExercises} = useContext(UserContext)
+            setTodaysExercises,
+            postWorkoutCompletionStatus} = useContext(UserContext)
     const { user_id } = useContext(AuthContext)
     const [openModal, setOpenModal] = useState(false)
     const [modalId, setModalId] = useState()
@@ -21,8 +22,10 @@ export default function LogWorkout() {
     const [modalTitle, setModalTitle] = useState()
     const [rows, setRows] = useState([1])
     const [activeSession, setActiveSession] = useState([])
-    const [workoutSessionSetId, setWorkoutSet] = useState([])
+    const [workoutSessionSetId, setWorkoutSet] = useState()
     const [modalData, setModalData] = useState([])
+    const [parentWorkoutId, setParentWorkoutId] = useState()
+    const [exerciseId, setExerciseId] = useState()
 
 
     let api_key = process.env.REACT_APP_API_KEY
@@ -45,6 +48,7 @@ export default function LogWorkout() {
             const workout_id = await userWorkoutPaths(user_id)
             const todaysWorkouts = await setTodaysExercises(workout_id)
             setActiveSession(todaysWorkouts)
+            setParentWorkoutId(todaysWorkouts[0].workout_id)
         }
         getActiveWorkout(user_id)
     }, [user_id])
@@ -63,11 +67,10 @@ export default function LogWorkout() {
 
     const submitData = (e) => {
         e.preventDefault()
-
+        console.log(activeSession)
         let reps, weights = ''
         const exerciseSets = []
-        let workoutID = document.getElementsByClassName('overlay')[0].id
-        console.log(workoutID)
+        let workout_session_Id = document.getElementsByClassName('overlay')[0].id
         let inputs = document.getElementsByClassName('sets')
 
         for (const set of inputs) {
@@ -76,12 +79,15 @@ export default function LogWorkout() {
             weights = set.childNodes[2].childNodes[0].value
             exerciseSets.push({
                 exercise_id: parseInt(tr),
-                workout_id: parseInt(workoutID[0].id),
+                workout_id: parseInt(workout_session_Id[0].id),
                 reps: parseInt(reps),
                 weights: parseInt(weights)
             })
         }
-        userExercisePosts(exerciseSets, workoutID)
+
+        //submit sets to workout session and then change status of workout session to true
+        userExercisePosts(exerciseSets, workout_session_Id)
+        postWorkoutCompletionStatus(workout_session_Id, parentWorkoutId, exerciseId)
     }
 
 
@@ -99,7 +105,10 @@ export default function LogWorkout() {
                         <div className="log-workout-container" id={data.id}>
                             <div className="log-workout-exercise"><a>{data.exercise_name}</a></div>
                             <div className="log-workout-input">
-                                <Button variant="" name={data.exercise_name} id={data.exercise} className={data.pk} onClick={(e) => { updateModal(e); setModalData(data.workout_exercise_set) }}>+</Button>
+                                <Button variant="" name={data.exercise_name} id={data.exercise} className={data.pk} onClick={(e) => {
+                                     updateModal(e); 
+                                     setModalData(data.workout_exercise_set);
+                                     setExerciseId(e.target.id) }}>+</Button>
                             </div>
                         </div>
                     ))}

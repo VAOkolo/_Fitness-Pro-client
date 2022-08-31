@@ -42,12 +42,39 @@ export const UserProvider = ({ children }) => {
             }
             const response = await fetch(`http://localhost:8000/api/gym/sets/post`, options)
             const data = await response.json()
-            console.log(data)
-            await postWorkoutCompletionStatus(workout_session_id_int)
+            const exerciseId = data.pk
+            return exerciseId
+            // await postWorkoutCompletionStatus(workout_session_id_int)
         } catch (err) {
             console.error(err)
         }
     }
+
+//patch request to update workout session complete status
+let postWorkoutCompletionStatus = async (workout_session_id_int, workout_id, exercise) => {
+    try {
+        let body = {
+            workout_id: workout_id,
+            exercise: exercise,
+            complete: true,
+        }
+
+        let options = {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body)
+        }
+
+        const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/patch/${workout_session_id_int}`, options)
+        const data = await response.json()
+        console.log(data)
+    } catch (err){
+        console.error(err)
+    }
+    
+}
 
 //todays exercise setter
 let setTodaysExercises = async (workout_id) => {
@@ -60,28 +87,7 @@ let setTodaysExercises = async (workout_id) => {
     }
 }
 
-//patch request to update workout session complete status
-    let postWorkoutCompletionStatus = async (workout_session_id_int) => {
-        try {
-            let body = {
-                complete: true,
-            }
 
-            let options = {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            }
-
-            const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/patch/${workout_session_id_int}`, options)
-            const data = await response.json()
-            console.log(data)
-        } catch (err){
-            console.error(err)
-        }
-        
-    }
 
 //post new workout
     const postNewWorkout = async (user_profile_id, startDate, endDate) => {
@@ -164,6 +170,7 @@ let setTodaysExercises = async (workout_id) => {
         beginnerTemplate: beginnerTemplate,
         postNewWorkoutSessions: postNewWorkoutSessions,
         setTodaysExercises: setTodaysExercises,
+        postWorkoutCompletionStatus: postWorkoutCompletionStatus
     }
 
 
