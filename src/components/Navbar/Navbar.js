@@ -31,7 +31,7 @@ const Navbar = () => {
     // Line 30+ Sidebar which animates on entry & exit
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <img src={images.portfoliologo} alt="logo" />
+        
       </div>
       <ul className="app__navbar-link">
         <li class="app__flex p-text">

@@ -325,6 +325,12 @@ main .recent-order table:hover {
 
 .card {
     max-width: 700px;
+    transition: all 300ms ease;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 12px;
+    cursor: pointer;
 }
 
 .workout-card:hover {
