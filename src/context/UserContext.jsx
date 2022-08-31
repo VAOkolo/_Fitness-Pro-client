@@ -22,7 +22,8 @@ export const UserProvider = ({ children }) => {
         return data
     }
 
-    let userExercisePosts = async ([{ exercise_id, workout_id, reps, weights }]) => {
+    let userExercisePosts = async ([{ workout_session_id, reps, weights }], workout_session_id_int) => {
+
         try {
             const options = {
                 method: 'POST',
@@ -30,17 +31,39 @@ export const UserProvider = ({ children }) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    "exercise_sets": workout_id,
+                    "exercise_sets": workout_session_id,
                     "reps": reps,
                     "weights": weights
                 })
             }
             const response = await fetch(`http://localhost:8000/api/gym/sets/post`, options)
             const data = await response.json()
-            console.log(data)
+            await postWorkoutCompletionStatus(workout_session_id_int)
         } catch (err) {
             console.error(err)
         }
+    }
+//patch request to update completion status
+    let postWorkoutCompletionStatus = async (workout_session_id_int) => {
+        try {
+            let body = {
+                complete: true,
+            }
+
+            let options = {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }
+
+            const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/patch/${workout_session_id_int}`, options)
+            const data = await response.json()
+            console.log(data)
+        } catch (err){
+            console.error(err)
+        }
+        
     }
 
     let userData = {

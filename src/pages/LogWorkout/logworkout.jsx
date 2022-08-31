@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from 'react'
 import UserContext from '../../context/UserContext'
 import AuthContext from '../../context/AuthContext'
 import Modal from './modal'
-import './style.css'
 import { inputAdornmentClasses } from '@mui/material'
 import Button from 'react-bootstrap/Button';
 
@@ -29,7 +28,7 @@ export default function LogWorkout() {
         setOpenModal(true)
         setModalId(e.target.id)
         setModalTitle(e.target.name)
-        setWorkoutSet(e.target.className)
+        setWorkoutSet(e.target.id)
     }
 
     useEffect(() => {
@@ -62,7 +61,8 @@ export default function LogWorkout() {
 
         let reps, weights = ''
         const exerciseSets = []
-        let workoutID = document.getElementsByClassName('overlay')
+        let workoutID = document.getElementsByClassName('overlay')[0].id
+        console.log(workoutID)
         let inputs = document.getElementsByClassName('sets')
 
         for (const set of inputs) {
@@ -76,7 +76,7 @@ export default function LogWorkout() {
                 weights: parseInt(weights)
             })
         }
-        userExercisePosts(exerciseSets)
+        userExercisePosts(exerciseSets, workoutID)
     }
 
 
