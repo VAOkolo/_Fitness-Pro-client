@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
 import { useNavigate} from 'react-router-dom';
-import { useDispatch } from "react-redux";
+
 import {levelAction } from "../../actions";
 import { NavbarDash, BeginnerModal } from '../../components/index'
 import AuthContext from '../../context/AuthContext'
@@ -30,7 +30,6 @@ export default function Workout() {
   let [customModal, setCustomModal] = useState(false)
 
     // const level = useSelector((state) => state.reducer.level);
-    const dispatch = useDispatch();
 
     const pathChange = (path) => {
       navigate(path)
@@ -43,7 +42,6 @@ export default function Workout() {
     const handleLevel = (e) => {
         e.preventDefault()
         console.log(e.target.value)
-        dispatch(levelAction(e.target[0].value))
         pathChange('/submitworkout')
       }
 

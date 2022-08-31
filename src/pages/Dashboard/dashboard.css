@@ -261,6 +261,9 @@ aside .sidebar a:hover {
 
 /* ================ MAIN =================== */
 
+main {
+    margin-top: 6rem;
+}
 
 @media screen and (max-width: 800px) {
     main {
