@@ -115,11 +115,11 @@ let setTodaysExercises = async (workout_id) => {
     }
 
 //post sessions to new workout
-    const postNewWorkoutSessions = async ({workout_id, exercise_id, date, date_name}) => {
+    const postNewWorkoutSessions = async ({workout_id, exercise, date, date_name}) => {
         try {
             let body = {
                 workout_id: workout_id,
-                exercise: exercise_id,
+                exercise: exercise,
                 date: date,
                 date_name: date_name,
                 complete: false
@@ -133,6 +133,7 @@ let setTodaysExercises = async (workout_id) => {
                 body: JSON.stringify(body)
             }
 
+            console.log(body)
             const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/exercise/sets/post`, options)
             console.log(response)
     
