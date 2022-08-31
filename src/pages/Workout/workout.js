@@ -28,8 +28,8 @@ export default function Workout() {
   let [moderateModal, setModerateModal] = useState(false)
   let [advancedModal, setAdvancedModal] = useState(false)
   let [customModal, setCustomModal] = useState(false)
-  const [startNative, startSetNative] = useState("");
-  const [endNative, endSetNative] = useState("");
+  const [startDate, startSetDate] = useState("");
+  const [endDate, endSetDate] = useState("");
 
     // const level = useSelector((state) => state.reducer.level);
 
@@ -100,6 +100,7 @@ export default function Workout() {
 
     function beginnerSelect (event) {
       // Post specific template to database
+      // e.g. grab startDate & endDate usestates
       console.log("***************************")
       event.preventDefault()
       navigate('/friends')
@@ -120,13 +121,13 @@ export default function Workout() {
       navigate('/friends')
     }
 
-    const startNativeChange = e => {
+    const startDateChange = e => {
       console.log("startChange: ", e.target.value);
-      startSetNative(e.target.value);
+      startSetDate(e.target.value);
     }
-    const endNativeChange = e => {
+    const endDateChange = e => {
       console.log("endChange: ", e.target.value);
-      endSetNative(e.target.value);
+      endSetDate(e.target.value);
     }
     
 
@@ -169,9 +170,9 @@ export default function Workout() {
         <br></br>
         Start Date:
         <form class="datepicker" onSubmit={beginnerSelect}>
-    <input type="date" value={startNative} onChange={startNativeChange} /><br></br><br></br>
+    <input type="date" value={startDate} onChange={startDateChange} /><br></br><br></br>
         End Date:<br></br>
-        <input type="date" value={endNative} onChange={endNativeChange} /><br></br><br></br>
+        <input type="date" value={endDate} onChange={endDateChange} /><br></br><br></br>
         <button type="submit" class="btn btn-primary">Select This Template</button>
         </form>
       </div>
@@ -213,9 +214,9 @@ export default function Workout() {
         <br></br>
         Start Date:
         <form class="datepicker" onSubmit={moderateSelect}>
-    <input type="date" value={startNative} onChange={startNativeChange} /><br></br><br></br>
+    <input type="date" value={startDate} onChange={startDateChange} /><br></br><br></br>
         End Date:<br></br>
-        <input type="date" value={endNative} onChange={endNativeChange} /><br></br><br></br>
+        <input type="date" value={endDate} onChange={endDateChange} /><br></br><br></br>
         <button type="submit" class="btn btn-primary">Select This Template</button>
         </form>
       </div>
@@ -258,9 +259,9 @@ export default function Workout() {
         <br></br>
         Start Date:
         <form class="datepicker" onSubmit={advancedSelect}>
-    <input type="date" value={startNative} onChange={startNativeChange} /><br></br><br></br>
+    <input type="date" value={startDate} onChange={startDateChange} /><br></br><br></br>
         End Date:<br></br>
-        <input type="date" value={endNative} onChange={endNativeChange} /><br></br><br></br>
+        <input type="date" value={endDate} onChange={endDateChange} /><br></br><br></br>
         <button type="submit" class="btn btn-primary">Select This Template</button>
         </form>
       </div>
@@ -301,9 +302,9 @@ export default function Workout() {
         <br></br>
         Start Date:
         <form class="datepicker" onSubmit={customSelect}>
-    <input type="date" value={startNative} onChange={startNativeChange} /><br></br><br></br>
+    <input type="date" value={startDate} onChange={startDateChange} /><br></br><br></br>
         End Date:<br></br>
-        <input type="date" value={endNative} onChange={endNativeChange} /><br></br><br></br>
+        <input type="date" value={endDate} onChange={endDateChange} /><br></br><br></br>
         <button type="submit" class="btn btn-primary">Select This Template</button>
         </form>
       </div>
