@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 import {levelAction } from "../../actions";
 import { NavbarDash, BeginnerModal } from '../../components/index'
-import AuthContext from '../../context/AuthContext'
 import { motion } from 'framer-motion';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import FitnessCenterRoundedIcon from '@mui/icons-material/FitnessCenterRounded';
@@ -16,6 +15,7 @@ import bench from '../../assets/bench_press.jpg';
 import dumbbell from '../../assets/dumbbell2.jpg';
 import treadmill from '../../assets/treadmill.jpg';
 //*****VINCENT */
+import AuthContext from '../../context/AuthContext'
 import UserContext from '../../context/UserContext';
 //*****VINCENT */
 
@@ -32,7 +32,8 @@ export default function Workout() {
   let [advancedModal, setAdvancedModal] = useState(false)
   let [customModal, setCustomModal] = useState(false)
   // ******Vincent
-  let { beginnerTemplate } = useContext(UserContext)
+  // let { user } = UserContext(AuthContext)
+  let { beginnerTemplate, postNewWorkout } = useContext(UserContext)
   let [startDate, setStartDate] = useState()
   let [endDate, setEndDate] = useState()
   // ******Vincent
@@ -104,10 +105,11 @@ export default function Workout() {
       setCustomModal(true)
     }
 
-    function beginnerSelect () {
-      // Post specific template to database
-      navigate('/friends')
+    
+    function beginnerSelect(){
+      
     }
+
     function moderateSelect () {
       // Post specific template  to database
       navigate('/friends')

@@ -66,12 +66,50 @@ export const UserProvider = ({ children }) => {
         
     }
 
+    const postNewWorkout = async (user_profile_id, startDate, endDate) => {
+        try {
+            let body = {
+                user_profile: user_profile_id,
+                unique_str: lobbyCodeGenerator(),
+                goal: "CONSISTENCY",
+                complete: false,
+                start_time: startDate,
+                end_time: endDate
+            }
+
+            let options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }
+
+            const response = await fetch(`http://localhost:8000/api/gym/workout/new/post`, options)
+            const data = await response.json()
+            console.log(data)
+        } catch (err){
+            console.error(err)
+        }
+    }
+    
+
+    function lobbyCodeGenerator() {
+        let result = "";
+        let characters = 'abcdefghijklmnopqrstuvwxyz123456789';
+        let charactersLength = 9;
+        for (let i = 0; i < charactersLength; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return result;
+      }
+
     let userData = {
         user_UD: "test",
         todaysExercises: ["Bench Press", "Situps", "Barbell Row", "Overhead Press", "Deadlift", "Bicep Curls", "Shoulder Press"],
         postTodaysExercises: postTodaysExercises,
         userWorkoutPaths: userWorkoutPaths,
-        userExercisePosts: userExercisePosts
+        userExercisePosts: userExercisePosts,
+        postNewWorkout: postNewWorkout,
     }
 
 
