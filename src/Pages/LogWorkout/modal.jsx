@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import './modalStyle.css'
 
-export default function Modal({ open, onClose, url, id, exercise, workoutId, rows, addRow, submitData }) {
+export default function Modal({ open, onClose, url, id, data, exercise, workoutSessionSetId, rows, addRow, submitData }) {
     if (!open) {
         return null
     }
-
+    
     return (
-        <div className="overlay container" id={workoutId}>
+        <div className="overlay container" id={workoutSessionSetId}>
             <div className="modalContainer row">
                 <div className='col'>
                     <h2>{exercise}</h2>
@@ -24,9 +24,16 @@ export default function Modal({ open, onClose, url, id, exercise, workoutId, row
                             </tr>
                         </thead>
                         <tbody>
+                            {data.map((render, index) => (
+                                <tr>
+                                    <td>Set {index + 1}</td>
+                                    <td>{render.reps}</td>
+                                    <td>{render.weights}</td>
+                                </tr>
+                            ))}
                             {rows && rows.map((row, index) => (
                                 <tr className='sets' id={id}>
-                                    <td>Set {index + 1} - </td>
+                                    <td>Set {index + 1}</td>
                                     <td>
                                         <input type="number" placeholder="reps" />
                                     </td>
@@ -48,6 +55,6 @@ export default function Modal({ open, onClose, url, id, exercise, workoutId, row
                     <p onClick={onClose} className="closeBtn">X</p>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }

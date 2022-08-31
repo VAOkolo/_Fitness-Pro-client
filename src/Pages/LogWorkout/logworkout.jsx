@@ -4,6 +4,7 @@ import AuthContext from '../../Context/AuthContext'
 import Modal from './modal'
 import './style.css'
 import { inputAdornmentClasses } from '@mui/material'
+import Button from 'react-bootstrap/Button';
 
 export default function LogWorkout() {
 
@@ -16,8 +17,8 @@ export default function LogWorkout() {
     const [modalTitle, setModalTitle] = useState()
     const [rows, setRows] = useState([1])
     const [activeSession, setActiveSession] = useState([])
-    const [workoutId, setWorkoutId] = useState([])
-
+    const [workoutSessionSetId, setWorkoutSet] = useState([])
+    const [modalData, setModalData] = useState([])
 
 
     let api_key = process.env.REACT_APP_API_KEY
@@ -28,6 +29,7 @@ export default function LogWorkout() {
         setOpenModal(true)
         setModalId(e.target.id)
         setModalTitle(e.target.name)
+        setWorkoutSet(e.target.className)
     }
 
     useEffect(() => {
@@ -38,7 +40,6 @@ export default function LogWorkout() {
         async function getActiveWorkout(user_id) {
             const response = await userWorkoutPaths(user_id)
             const activeWorkout = response[0].user_workout_session
-            setWorkoutId(activeWorkout[0].workout_id)
             setActiveSession(activeWorkout)
         }
         getActiveWorkout(user_id)
@@ -93,12 +94,12 @@ export default function LogWorkout() {
                         <div className="log-workout-container" id={data.id}>
                             <div className="log-workout-exercise"><a>{data.exercise_name}</a></div>
                             <div className="log-workout-input">
-                                <button id={data.exercise} name={data.exercise_name} onClick={updateModal}>+</button>
+                                <Button variant="" name={data.exercise_name} id={data.exercise} className={data.pk} onClick={(e) => { updateModal(e); setModalData(data.workout_exercise_set) }}>+</Button>
                             </div>
                         </div>
                     ))}
                 </div> : <div>Nothing to show</div>}
-            <Modal open={openModal} onClose={() => { setOpenModal(false); setRows([]) }} url={modalUrl} id={modalId} workoutId={workoutId} exercise={modalTitle} rows={rows} addRow={addRow} submitData={submitData} />
+            <Modal open={openModal} onClose={() => { setOpenModal(false); setRows([]) }} url={modalUrl} workoutSessionSetId={workoutSessionSetId} data={modalData} exercise={modalTitle} rows={rows} addRow={addRow} submitData={submitData} />
         </div>
 
     )

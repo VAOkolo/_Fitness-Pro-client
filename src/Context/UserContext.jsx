@@ -30,12 +30,12 @@ export const UserProvider = ({ children }) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    "exercise_sets": exercise_id,
+                    "exercise_sets": workout_id,
                     "reps": reps,
                     "weights": weights
                 })
             }
-            const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/exercise/sets/post`, options)
+            const response = await fetch(`http://localhost:8000/api/gym/sets/post`, options)
             const data = await response.json()
             console.log(data)
         } catch (err) {
