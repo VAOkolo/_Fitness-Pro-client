@@ -20,7 +20,6 @@ export const UserProvider = ({ children }) => {
     let userWorkoutPaths = async (user_id) => {
         const response = await fetch(`http://localhost:8000/api/gym/profile/workouts/${user_id}/active`)
         const data = await response.json()
-        // console.log(data)
         return data
     }
 
@@ -63,7 +62,7 @@ export const UserProvider = ({ children }) => {
 
             const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/patch/${workout_session_id_int}`, options)
             const data = await response.json()
-            console.log(data)
+    
         } catch (err){
             console.error(err)
         }
