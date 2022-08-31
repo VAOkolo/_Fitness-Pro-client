@@ -181,8 +181,6 @@ aside .sidebar a:last-child {
     width: none;
 }
 
-aside .sidebar a:last-child {}
-
 aside .sidebar a.active {
     background: var(--color-light);
     color: var(--color-primary);
@@ -225,14 +223,22 @@ aside .sidebar a:hover {
 
 /* ================ MAIN =================== */
 
-
-main .outer-card {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 1.6rem;
+.main-friend {
+    margin-top: 2rem;
 }
 
-main .outer-card > div {
+@media screen and (max-width: 800px) {
+    .main-friend {
+        margin-top: 6rem;
+    }
+}
+
+.justify-end {
+    justify-content: center;
+}
+
+
+main .outer-card-friend  > div {
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     margin-top: 0rem;
@@ -241,23 +247,23 @@ main .outer-card > div {
 
 
 
-main .outer-card > div:hover {
+main .outer-card-friend  > div:hover {
     box-shadow: none;
 }
 
-main .outer-card > div .middle {
+main .outer-card-friend  > div .middle {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-main .outer-card h3 {
+main .outer-card-friend  h3 {
     margin: 1rem 0 0.6rem;
     padding-right: 3rem;
     font-size: 1rem;
 }
 
-main .outer-card .progress {
+main .outer-card-friend  .progress {
     position: relative;
     width: 92px;
     height: 92px;
@@ -265,37 +271,28 @@ main .outer-card .progress {
     padding-left: 1rem;
 }
 
-main .outer-card .middle svg {
+main .outer-card-friend  .middle svg {
     width: 7rem;
     height: 7rem;
 }
 
 @media screen and (max-width: 425px) {
-main .outer-card .middle svg {
+main .outer-card-friend  .middle svg {
     display: none;
 }
 }
 @media screen and (max-width: 425px) {
-main .outer-card .progress {
+main .outer-card-friend  .progress {
     width: 0px;
 }
 }
 
-main .outer-card small {
+main .outer-card-friend  small {
     margin-top: 1.6rem;
     display: block;
 }
 
 /* =================== workout-card ===================== */
-.main-workout {
-    margin-top: 2rem;
-}
-
-@media screen and (max-width: 800px) {
-    .main-workout {
-        margin-top: 6rem;
-    }
-}
 
 main .recent-order {
     margin-top: 2rem;
@@ -372,7 +369,7 @@ main .recent-order table:hover {
         display: none;
     }
 
-    main .outer-card {
+    main .outer-card-friend  {
         grid-template-columns: auto auto ;
         gap: 0
     }
@@ -385,7 +382,7 @@ main .recent-order table:hover {
 }
 
 @media screen and (max-width: 1200px) {
-    main .outer-card {
+    main .outer-card-friend  {
         grid-template-columns: auto;
     }
 }
