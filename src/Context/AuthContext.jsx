@@ -9,7 +9,7 @@ export default AuthContext;
 export const AuthProvider = ({ children }) => {
     const [authTokens, setAuthTokens] = useState(() => localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null)
     const [user, setUser] = useState(() => localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null)
-    const [error, setError] = useState('') 
+    const [error, setError] = useState('')
     const [loading, setLoading] = useState(true)
 
     const localhost = 'http://localhost:3000'
@@ -119,7 +119,7 @@ export const AuthProvider = ({ children }) => {
 
     const contextData = {
         user: user,
-        user_id: user.user_id,
+        user_id: user ? user.user_id : user,
         authTokens: authTokens,
         loginUser: loginUser,
         logoutUser: logoutUser,

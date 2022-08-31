@@ -13,14 +13,34 @@ export const UserProvider = ({ children }) => {
         // console.log("I'm posting today's exercises")
     }
 
-    
+
 
     let userWorkoutPaths = async (user_id) => {
-        console.log(user_id)
         const response = await fetch(`http://localhost:8000/api/gym/profile/workouts/${user_id}/active`)
         const data = await response.json()
         // console.log(data)
         return data
+    }
+
+    let userExercisePosts = async ([{ exercise_id, workout_id, reps, weights }]) => {
+        try {
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    "exercise_sets": exercise_id,
+                    "reps": reps,
+                    "weights": weights
+                })
+            }
+            const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/exercise/sets/post`, options)
+            const data = await response.json()
+            console.log(data)
+        } catch (err) {
+            console.error(err)
+        }
     }
 
     let userData = {
@@ -28,9 +48,10 @@ export const UserProvider = ({ children }) => {
         todaysExercises: ["Bench Press", "Situps", "Barbell Row", "Overhead Press", "Deadlift", "Bicep Curls", "Shoulder Press"],
         postTodaysExercises: postTodaysExercises,
         userWorkoutPaths: userWorkoutPaths,
+        userExercisePosts: userExercisePosts
     }
 
-    
+
 
     return (
         <UserContext.Provider value={userData} >

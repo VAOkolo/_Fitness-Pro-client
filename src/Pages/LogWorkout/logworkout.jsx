@@ -7,7 +7,7 @@ import { inputAdornmentClasses } from '@mui/material'
 
 export default function LogWorkout() {
 
-    const { todaysExercises, userWorkoutPaths } = useContext(UserContext)
+    const { todaysExercises, userWorkoutPaths, userExercisePosts } = useContext(UserContext)
     const { user_id } = useContext(AuthContext)
     const [openModal, setOpenModal] = useState(false)
     const [modalId, setModalId] = useState()
@@ -15,9 +15,10 @@ export default function LogWorkout() {
     const [modalUrl, setModalUrl] = useState('')
     const [modalTitle, setModalTitle] = useState()
     const [rows, setRows] = useState([1])
-
-    const [todaysWorkouts, setTodaysWorkouts] = useState()
     const [activeSession, setActiveSession] = useState([])
+    const [workoutId, setWorkoutId] = useState([])
+
+
 
     let api_key = process.env.REACT_APP_API_KEY
 
@@ -37,10 +38,12 @@ export default function LogWorkout() {
         async function getActiveWorkout(user_id) {
             const response = await userWorkoutPaths(user_id)
             const activeWorkout = response[0].user_workout_session
+            setWorkoutId(activeWorkout[0].workout_id)
             setActiveSession(activeWorkout)
         }
         getActiveWorkout(user_id)
     }, [user_id])
+
 
     //YOUTUBE FEATURE
     const fetchYouTubeVideo = async (url) => {
@@ -51,26 +54,31 @@ export default function LogWorkout() {
         setModalUrl(`https://www.youtube.com/embed/${videoID}`)
     }
 
+
+
     const submitData = (e) => {
         e.preventDefault()
 
         let reps, weights = ''
         const exerciseSets = []
-
+        let workoutID = document.getElementsByClassName('overlay')
         let inputs = document.getElementsByClassName('sets')
+
         for (const set of inputs) {
             const tr = set.id
             reps = set.childNodes[1].childNodes[0].value
             weights = set.childNodes[2].childNodes[0].value
             exerciseSets.push({
-                id: tr,
-                'reps': reps,
-                'weights': weights
+                exercise_id: parseInt(tr),
+                workout_id: parseInt(workoutID[0].id),
+                reps: parseInt(reps),
+                weights: parseInt(weights)
             })
         }
-
-        console.log(exerciseSets)
+        userExercisePosts(exerciseSets)
     }
+
+
 
     const addRow = (e) => {
         setRows([...rows, "1"])
@@ -78,11 +86,11 @@ export default function LogWorkout() {
 
     return (
         <div className="log-workout-parent">
-            <div className="log-workout-title">Today's Exercises</div>
+            <div className="log-workout-title" >Today's Exercises</div>
             {activeSession ?
-                <div className="log-workout-form-parent">
+                <div className="log-workout-form-parent" >
                     {activeSession.map((data) => (
-                        <div className="log-workout-container" id={data} name={data}>
+                        <div className="log-workout-container" id={data.id}>
                             <div className="log-workout-exercise"><a>{data.exercise_name}</a></div>
                             <div className="log-workout-input">
                                 <button id={data.exercise} name={data.exercise_name} onClick={updateModal}>+</button>
@@ -90,7 +98,7 @@ export default function LogWorkout() {
                         </div>
                     ))}
                 </div> : <div>Nothing to show</div>}
-            <Modal open={openModal} onClose={() => { setOpenModal(false); setRows([]) }} url={modalUrl} id={modalId} exercise={modalTitle} rows={rows} addRow={addRow} submitData={submitData} />
+            <Modal open={openModal} onClose={() => { setOpenModal(false); setRows([]) }} url={modalUrl} id={modalId} workoutId={workoutId} exercise={modalTitle} rows={rows} addRow={addRow} submitData={submitData} />
         </div>
 
     )
