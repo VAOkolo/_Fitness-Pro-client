@@ -104,7 +104,7 @@ export default function Register() {
                     <input type="text" value={formValues.username} name="username"
                       placeholder="username" className="input input-ghost" onChange={handleChange} />
                   </div>
-                  <div classNameName="ui divider"></div>
+                  <div className="ui divider"></div>
 
                   <div className="form-control">
                     <label className="label">
@@ -113,7 +113,7 @@ export default function Register() {
                     <input type="text" placeholder="email" name="email"
                       className="input input-ghost" value={formValues.email} onChange={handleChange} />
                   </div>
-                  <div classNameName="ui divider"></div>
+                  <div className="ui divider"></div>
 
                   <div className="form-control">
                     <label className="label">
@@ -123,7 +123,7 @@ export default function Register() {
                       name="password" className="input input-ghost"
                       value={formValues.password} onChange={handleChange} />
                   </div>
-                  <div classNameName="ui divider"></div>
+                  <div className="ui divider"></div>
 
                   <div className="form-control">
                     <label className="label">
@@ -133,10 +133,10 @@ export default function Register() {
                       name="password2" className="input input-ghost" value={formValues.password2} onChange={handleChange} />
                     <label className="label">
                       <a href="#" className="label-text-alt link link-hover">                        {Object.keys(formErrors).length === 0 && isSubmit && (
-                        <div classNameName="ui message success">Signed in successfully</div>)}</a>
+                        <div className="ui message success">Signed in successfully</div>)}</a>
                     </label>
                   </div>
-                  <div classNameName="ui divider"></div>
+                  <div className="ui divider"></div>
 
                   <div className="form-control mt-6">
                     <button className="btn btn-primary">Register</button>

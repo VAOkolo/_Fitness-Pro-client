@@ -33,7 +33,7 @@ const Login = () => {
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
     <form onSubmit={loginUser}>
       <div className="card-body">
-        <div classNameName="ui divider"></div>
+        <div className="ui divider"></div>
 
         <div className="form-control">
           <label className="label">
@@ -42,7 +42,7 @@ const Login = () => {
           <input type="text" placeholder="email" name="email" 
           className="input input-ghost"/>
         </div>
-        <div classNameName="ui divider"></div>
+        <div className="ui divider"></div>
 
         <div className="form-control">
           <label className="label" htmlFor="exampleInputPassword1">
@@ -52,7 +52,7 @@ const Login = () => {
           name="password" className="input input-ghost" 
           />
         </div>
-        <div classNameName="ui divider"></div>
+        <div className="ui divider"></div>
         
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>

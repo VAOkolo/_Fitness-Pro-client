@@ -71,7 +71,7 @@ export default function FriendsForm() {
     <>
       {/* =======================Sidebar=======================*/}
       <NavbarDash />
-      <div classNameName='container-dash'>
+      <div className='container-dash'>
         <motion.aside
           animate={{ opacity: 1 }}
 
@@ -80,20 +80,20 @@ export default function FriendsForm() {
               duration: 0.3,
             }
           }}>
-          <div classNameName='top'>
+          <div className='top'>
 
           </div>
-          <div classNameName='sidebar'>
-            <a href='#' classNameName={workout || stats ? '' : 'active'} onClick={handleDash}>
+          <div className='sidebar'>
+            <a href='#' className={workout || stats ? '' : 'active'} onClick={handleDash}>
               <PersonRoundedIcon />
               <h3>Dashboard</h3>
             </a>
-            <a href='#' classNameName={dashboard || stats ? '' : 'active'}
+            <a href='#' className={dashboard || stats ? '' : 'active'}
               onClick={handleWork}>
               <FitnessCenterRoundedIcon />
               <h3>Create A Workout +</h3>
             </a>
-            <a href='#' classNameName={dashboard || workout ? '' : 'active'}
+            <a href='#' className={dashboard || workout ? '' : 'active'}
               onClick={handleStats}>
               <AutoGraphRoundedIcon />
               <h3>Your Stats</h3>
@@ -108,7 +108,7 @@ export default function FriendsForm() {
 
         {/* =======================Workout=======================*/}
 
-        <motion.div classNameName="workout-card"
+        <motion.div className="workout-card"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -142,7 +142,7 @@ export default function FriendsForm() {
                       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
                         <form>
                           <div className="card-body">
-                            <div classNameName="ui divider"></div>
+                            <div className="ui divider"></div>
 
                             <div className="form-control">
                               <label className="label">
@@ -151,7 +151,7 @@ export default function FriendsForm() {
                               <input type="text" placeholder="name" name="email"
                                 className="input input-ghost" />
                             </div>
-                            <div classNameName="ui divider"></div>
+                            <div className="ui divider"></div>
 
                             <div className="form-control">
                               <label className="label" htmlFor="exampleInputPassword1">
@@ -161,7 +161,7 @@ export default function FriendsForm() {
                                 name="password" className="input input-ghost"
                               />
                             </div>
-                            <div classNameName="ui divider"></div>
+                            <div className="ui divider"></div>
 
                             <div className="form-control mt-6">
                               <button className="btn btn-primary">Send Email</button>
@@ -191,10 +191,10 @@ export default function FriendsForm() {
             <h1>Select a template</h1>
             < Template/>
             <form onSubmit={handleLevel}>
-                    <select classNameName="">
+                    <select className="">
                         {level_list.map(item => <option value={item.value}>{item.name}</option>)}
                     </select>
-                    <input classNameName="" type="submit" />
+                    <input className="" type="submit" />
                 </form>
-                <button classNameName="text-center">Hello</button>
+                <button className="text-center">Hello</button>
         </div>*/}

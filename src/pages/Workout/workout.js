@@ -332,7 +332,7 @@ export default function Workout() {
         </>}
       {/* =======================Sidebar=======================*/}
       <NavbarDash />
-      <div classNameName='container-dash'>
+      <div className='container-dash'>
         <motion.aside
           animate={{ opacity: 1 }}
 
@@ -341,20 +341,20 @@ export default function Workout() {
               duration: 0.3,
             }
           }}>
-          <div classNameName='top'>
+          <div className='top'>
 
           </div>
-          <div classNameName='sidebar'>
-            <a href='#' classNameName={workout || stats ? '' : 'active'} onClick={handleDash}>
+          <div className='sidebar'>
+            <a href='#' className={workout || stats ? '' : 'active'} onClick={handleDash}>
               <PersonRoundedIcon />
               <h3>Dashboard</h3>
             </a>
-            <a href='#' classNameName={dashboard || stats ? '' : 'active'}
+            <a href='#' className={dashboard || stats ? '' : 'active'}
               onClick={handleWork}>
               <FitnessCenterRoundedIcon />
               <h3>Create A Workout +</h3>
             </a>
-            <a href='#' classNameName={dashboard || workout ? '' : 'active'}
+            <a href='#' className={dashboard || workout ? '' : 'active'}
               onClick={handleStats}>
               <AutoGraphRoundedIcon />
               <h3>Your Stats</h3>
@@ -369,7 +369,7 @@ export default function Workout() {
 
         {/* =======================Workout=======================*/}
 
-        <motion.div classNameName="workout-card"
+        <motion.div className="workout-card"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -451,10 +451,10 @@ export default function Workout() {
             <h1>Select a template</h1>
             < Template/>
             <form onSubmit={handleLevel}>
-                    <select classNameName="">
+                    <select className="">
                         {level_list.map(item => <option value={item.value}>{item.name}</option>)}
                     </select>
-                    <input classNameName="" type="submit" />
+                    <input className="" type="submit" />
                 </form>
-                <button classNameName="text-center">Hello</button>
+                <button className="text-center">Hello</button>
         </div>*/}

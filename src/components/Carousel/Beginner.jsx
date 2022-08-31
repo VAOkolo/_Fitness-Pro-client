@@ -42,7 +42,7 @@ export default function Beginner() {
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    classNameName="d-block w-100"
+                    className="d-block w-100"
                     src="https://coolbackgrounds.io/images/backgrounds/white/pure-white-background-85a2a7fd.jpg"
                     alt="..."
                 />
@@ -62,7 +62,7 @@ export default function Beginner() {
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                    classNameName="d-block w-100"
+                    className="d-block w-100"
                     src="holder.js/800x400?text=Third slide&bg=20232a"
                     alt="Third slide"
                 />
