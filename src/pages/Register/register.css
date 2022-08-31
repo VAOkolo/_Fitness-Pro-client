@@ -57,6 +57,17 @@ form h1 {
     height: 0rem;
 }
 
+@media screen and (max-width: 600px) {
+.hero-register {
+    margin-top: 20%;
+}
+
+
+
+}
+
+
+
 .card-dash {
     background: var(--color-card);
 }
