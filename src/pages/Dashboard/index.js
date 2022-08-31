@@ -143,12 +143,15 @@ const Dashboard = () => {
                             
                             <h3>Days Completed</h3>
                             <br></br>
-                            <h1>3/14</h1>
+                            <h1>7/14</h1>
                         </div>
                             <div className='progress'>
                                 <svg>
-                                    <circle cx={38} cy={38} r={36}></circle>
+                                    <circle class="circle1" cx={38} cy={38} r={36}></circle>
                                 </svg>
+                                <div class="number1">
+                                    <p>82%</p>
+                                </div>
                         </div>
                     </div>
                     <small className='text-cancel'>Last 24 Hours</small>
@@ -173,7 +176,7 @@ const Dashboard = () => {
                         </div>
                             <div className='progress'>
                                 <svg>
-                                    <circle cx={38} cy={38} r={36}></circle>
+                                    <circle class="circle2" cx={38} cy={38} r={36}></circle>
                                 </svg>
                         </div>
                     </div>
@@ -199,8 +202,11 @@ const Dashboard = () => {
                         </div>
                             <div className='progress'>
                                 <svg>
-                                    <circle cx={38} cy={38} r={36}></circle>
+                                    <circle class="circle3" cx={38} cy={38} r={36}></circle>
                                 </svg>
+                                <div class="number2">
+                                    <p>67%</p>
+                                </div>
                         </div>
                     </div>
                     <small className='text-cancel'>Last 24 Hours</small>
