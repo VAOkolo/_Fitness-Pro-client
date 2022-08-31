@@ -288,7 +288,8 @@ main .insights > div {
 }
 
 main .insights > div:hover {
-    box-shadow: none;
+    box-shadow: 0px 0px 12px;
+    cursor: pointer;
 }
 
 main .insights > div .middle {
@@ -364,7 +365,8 @@ main .recent-order table:hover {
 }
 
 .graph:hover {
-    box-shadow: none;
+    box-shadow: 0px 0px 12px;
+    cursor: pointer;
 }
 
 
