@@ -304,7 +304,7 @@ main .recent-order {
 }
 
 .min-h-screen-friend {
-    min-height: 100vh;
+    min-height: none;
 }
 
 @media screen and (max-width: 600px) {
