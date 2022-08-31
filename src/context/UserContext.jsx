@@ -9,11 +9,13 @@ export default UserContext;
 
 export const UserProvider = ({ children }) => {
 
-    let postTodaysExercises = (postData) => {
-        // console.log("I'm posting today's exercises")
-    }
-
-
+    let beginnerTemplate = [
+        {"Monday": [1, 2, 3, 4,5]},
+        {"Tuesday": []},
+        {"Wednesday": [1, 2, 3, 4,5]},
+        {"Thursday": []},
+        {"Friday": [1, 2, 3, 4,5]}
+    ]
 
     let userWorkoutPaths = async (user_id) => {
         const response = await fetch(`http://localhost:8000/api/gym/profile/workouts/${user_id}/active`)
@@ -22,6 +24,7 @@ export const UserProvider = ({ children }) => {
         return data
     }
 
+//posts sets to workout session
     let userExercisePosts = async ([{ workout_session_id, reps, weights }], workout_session_id_int) => {
 
         try {
@@ -43,7 +46,8 @@ export const UserProvider = ({ children }) => {
             console.error(err)
         }
     }
-//patch request to update completion status
+
+//patch request to update workout session complete status
     let postWorkoutCompletionStatus = async (workout_session_id_int) => {
         try {
             let body = {
@@ -66,10 +70,11 @@ export const UserProvider = ({ children }) => {
         
     }
 
+//post new workout
     const postNewWorkout = async (user_profile_id, startDate, endDate) => {
         try {
             let body = {
-                user_profile: user_profile_id,
+                user_profile: parseInt(user_profile_id),
                 unique_str: lobbyCodeGenerator(),
                 goal: "CONSISTENCY",
                 complete: false,
@@ -81,16 +86,51 @@ export const UserProvider = ({ children }) => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                }
+                },
+                body: JSON.stringify(body)
             }
 
             const response = await fetch(`http://localhost:8000/api/gym/workout/new/post`, options)
             const data = await response.json()
-            console.log(data)
+            const workout_id = data.workout_id
+    
+            return workout_id
+        
         } catch (err){
             console.error(err)
         }
     }
+
+//post sessions to new workout
+    const postNewWorkoutSessions = async ({workout_id, exercise_id, date, date_name}) => {
+        try {
+            let body = {
+                workout_id: workout_id,
+                exercise: exercise_id,
+                date: date,
+                date_name: date_name,
+                complete: false
+            }
+
+            let options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(body)
+            }
+
+            const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/exercise/sets/post`, options)
+            console.log(response)
+    
+            return response
+        
+        } catch (err){
+            console.error(err)
+        }
+    }
+
+
     
 
     function lobbyCodeGenerator() {
@@ -106,10 +146,11 @@ export const UserProvider = ({ children }) => {
     let userData = {
         user_UD: "test",
         todaysExercises: ["Bench Press", "Situps", "Barbell Row", "Overhead Press", "Deadlift", "Bicep Curls", "Shoulder Press"],
-        postTodaysExercises: postTodaysExercises,
         userWorkoutPaths: userWorkoutPaths,
         userExercisePosts: userExercisePosts,
         postNewWorkout: postNewWorkout,
+        beginnerTemplate: beginnerTemplate,
+        postNewWorkoutSessions: postNewWorkoutSessions
     }
 
 

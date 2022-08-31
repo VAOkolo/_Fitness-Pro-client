@@ -21,6 +21,7 @@
     "mdb-react-ui-kit": "^4.2.0",
     "node-sass": "^7.0.1",
     "postcss": "^8.4.16",
+    "randomstring": "^1.2.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-chartjs-2": "^4.3.1",

@@ -15,6 +15,7 @@ import bench from '../../assets/bench_press.jpg';
 import dumbbell from '../../assets/dumbbell2.jpg';
 import treadmill from '../../assets/treadmill.jpg';
 //*****VINCENT */
+import { workoutSessionSetter, dateFormatter } from '../../_helpers/helpers';
 import AuthContext from '../../context/AuthContext'
 import UserContext from '../../context/UserContext';
 //*****VINCENT */
@@ -26,16 +27,23 @@ export default function Workout() {
   let [workout, setWorkout] = useState(true)
   let [stats, setStats] = useState(false)
   let [notes, setNotes] = useState([])
-  let {authTokens, logoutUser} = useContext(AuthContext)
+  
   let [beginnerModal, setBeginnerModal] = useState(false)
   let [moderateModal, setModerateModal] = useState(false)
   let [advancedModal, setAdvancedModal] = useState(false)
   let [customModal, setCustomModal] = useState(false)
   // ******Vincent
-  // let { user } = UserContext(AuthContext)
-  let { beginnerTemplate, postNewWorkout } = useContext(UserContext)
   let [startDate, setStartDate] = useState()
   let [endDate, setEndDate] = useState()
+
+  let { authTokens, 
+        logoutUser, 
+        user_id} = useContext(AuthContext)
+
+  let { beginnerTemplate, 
+        postNewWorkout,
+        postNewWorkoutSessions
+        } = useContext(UserContext)
   // ******Vincent
 
     // const level = useSelector((state) => state.reducer.level);
@@ -106,8 +114,21 @@ export default function Workout() {
     }
 
     
-    function beginnerSelect(){
-      
+    async function beginnerSelect(){
+      const id = await postNewWorkout(user_id, startDate, endDate)
+      const workoutSessions = workoutSessionSetter(startDate, endDate, beginnerTemplate, id)
+      workoutSessions.forEach((e) => 
+        {
+          postNewWorkoutSessions(e)
+        })
+      console.log(workoutSessions)
+      // if(id){
+      //   await postNewWorkoutSessions(id)
+      // } else {
+      //   console.log("Something went wrong!")
+      // }
+      // console.log(response)
+      // return response
     }
 
     function moderateSelect () {
@@ -125,10 +146,10 @@ export default function Workout() {
 
     // ******VINCENT**********
     const updateStartDate = (e) => {
-      setStartDate(e.target.value)
+      setStartDate(dateFormatter(e.target.value))
     }
     const updateEndDate = (e) => {
-      setEndDate(e.target.value)
+      setEndDate(dateFormatter(e.target.value))
     }
 
     useEffect(() => {

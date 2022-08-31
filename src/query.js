@@ -1,54 +1,78 @@
-const startDate = "2022/10/4"
-const endDate = "2022/10/20"
-const date = new Date(startDate)
-const dateSetsArray = [];
+let startDate = "2022/10/4"
+let endDate = '2022/10/20'
 
-const beginner = {
-  Monday: [{ "bench press": [0, 0] }, "pressups"],
-  Wednesday: ["rest"],
-  Friday: ["situps", "pressups"],
+
+let date = new Date(startDate)
+
+
+let beginner = [
+    {"Monday": ["bench press", "pressups", "shoulder press", "bicep curls"]},
+    {"Tuesday": []},
+    {"Wednesday": ["situps", "tricep extensions", "dips"]},
+    {"Thursday": []},
+    {"Friday": ["bench press", "pressups", "shoulder press", "bicep curls"]}
+]
+
+dateArray("2022/10/4", '2022/10/20')
+
+function dateArray(startDate, endDate){
+    
+    let d1 = new Date(startDate)
+    let d2 = new Date(endDate)
+
+    const date = new Date(d1.getTime());
+
+    const dates = [];
+
+    while (date <= d2) {
+        let dayName = getDayName(date)
+        let dateObj = new Date(date)
+        dates.push({dateObj, dayName});
+        date.setDate(date.getDate() + 1);
+      }
+
+      let template = [
+        {"Monday": ["bench press", "pressups", "shoulder press", "bicep curls"]},
+        {"Tuesday": []},
+        {"Wednesday": ["situps", "tricep extensions", "dips"]},
+        {"Thursday": []},
+        {"Friday": ["bench press", "pressups", "shoulder press", "bicep curls"]}
+    ]
+
+        let workoutArray = []
+        let templateDayObject;
+        let templateDayName;
+        let templateExerciseArray;
+        let exercise;
+
+ 
+      for(i = 0; i < template.length; i++){
+          console.log(template.length)
+          templateDayObject = Object.keys(template[i])
+          templateDayName = templateDayObject[0]
+          templateExerciseArray = template[i][templateDayName]
+          console.log(templateDayObject)
+        
+        for(j=0; j < templateExerciseArray.length; j++){
+            console.log(templateExerciseArray[j])
+            exercise = templateExerciseArray[j]
+
+            for(k=0; k < dates.length; k++){
+                if(templateDayName == dates[k].dayName){
+                    workoutArray.push({dayName: dates[k].dayName, date: dates[k].dateObj, exericse: exercise, sets: 0, reps: 0, weight: 0})
+             }
+          }
+        }
+    }
+    console.log(workoutArray)
+    return workoutArray
 }
 
-function dayNameHelper(formatedDate, locale = 'en-US') {
-  return formatedDate.toLocaleDateString(locale, { weekday: 'long' });
-}
 
-function dateSets(startDate, endDate, template) {
-  const d1 = new Date(startDate)
-  const d2 = new Date(endDate)
-  const date = new Date(d1.getTime());
-
-  while (date <= d2) {
-    const dayName = dayNameHelper(date)
-    const dateDate = new Date(date)
-
-    // FORMATING DATE
-    let month = dateDate.getUTCMonth() + 1;
-    let day = dateDate.getUTCDate();
-    let year = dateDate.getUTCFullYear();
-    const formatedDate = year + "/" + month + "/" + day;
-
-
-    dateSetsArray.push({ formatedDate, dayName });
-    date.setDate(date.getDate() + 1);
+function getDayName(date, locale = 'en-US') {
+    return date.toLocaleDateString(locale, {weekday: 'long'});
   }
 
-  dateSetsArray.map((key) => {
-    key['exercises'] = template[key.dayName]
-  })
-}
 
-function lobbyCodeGenerator() {
-  let result = "";
-  let characters = 'abcdefghijklmnopqrstuvwxyz123456789';
-  let charactersLength = 9;
-  for (let i = 0; i < charactersLength; i++) {
-      result += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return result;
-}
 
-dateSets(startDate, endDate, beginner)
-console.log(dateSetsArray)
-console.log(lobbyCodeGenerator())
 

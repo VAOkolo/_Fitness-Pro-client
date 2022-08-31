@@ -47,9 +47,9 @@ function workoutSessionSetter(startDate, endDate, template, workout_id){
                 if(templateDayName == dates[k].dayName){
                     workoutArray.push({
                         workout_id: workout_id,
-                        date_name: dates[k].dayName, 
-                        date: dates[k].formatedDate, 
                         exercise: exercise,
+                        date: dates[k].formatedDate, 
+                        date_name: dates[k].dayName, 
                         complete: false })
              }
           }
@@ -64,8 +64,19 @@ function getDayName(date, locale = 'en-US') {
     return date.toLocaleDateString(locale, {weekday: 'long'});
   }
 
+function dateFormatter(date){
+
+        let d1 = new Date(date)
+
+        let formattedDate = d1.getFullYear() + '-' + 
+        ('0' + (d1.getMonth()+1)).slice(-2)+ '-' +
+        ('0' + d1.getDate()).slice(-2) ;
+
+    return formattedDate.toString()
+}
+
   workoutSessionSetter("2022/10/10","2022/11/20",beginnerTemplate,1)
 
-export default workoutSessionSetter
+export { dateFormatter, workoutSessionSetter }
 
 
