@@ -25,7 +25,7 @@ export default function Modal({ open, onClose, url, id, data, exercise, workoutS
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map((render, index) => (
+                            {data && data.map((render, index) => (
                                 <tr>
                                     <td>Set {index + 1}</td>
                                     <td>{render.reps}</td>
