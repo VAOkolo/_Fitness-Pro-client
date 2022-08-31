@@ -24,6 +24,8 @@ export default function FriendsForm() {
   let [stats, setStats] = useState(false)
   let [notes, setNotes] = useState([])
   let {authTokens, logoutUser} = useContext(AuthContext)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
 
     // const level = useSelector((state) => state.reducer.level);
 
@@ -64,6 +66,22 @@ export default function FriendsForm() {
         setDashboard(true)
         setWorkout(true)
         logoutUser()
+    }
+
+    // Before you submit just check when typing in your name and email - the states are console logging!!!
+    //Below Submit Button is now ready to link to POST methods
+
+    function friendSubmit() {
+
+    }
+
+    const nameChange = e => {
+      console.log("Current Name: ", e.target.value);
+      setName(e.target.value);
+    }
+    const emailChange = e => {
+      console.log("Current Name: ", e.target.value);
+      setEmail(e.target.value);
     }
     
 
@@ -140,7 +158,7 @@ export default function FriendsForm() {
     </div>
 
     <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
-    <form>
+    <form onSubmit={friendSubmit}>
       <div class="card-body">
         <div className="ui divider"></div>
 
@@ -148,8 +166,8 @@ export default function FriendsForm() {
           <label class="label">
             <span class="label-text">Friend's Name</span>
           </label>
-          <input type="text" placeholder="name" name="email" 
-          class="input input-ghost"/>
+          <input type="text" placeholder="name" name="name" 
+          class="input input-ghost" value={name} onChange={nameChange}/>
         </div>
         <div className="ui divider"></div>
 
@@ -158,7 +176,7 @@ export default function FriendsForm() {
             <span class="label-text">Friend's Email</span>
           </label>
           <input type="text" id="exampleInputPassword1" placeholder="email"  
-          name="password" class="input input-ghost" 
+          name="email" class="input input-ghost" value={email} onChange={emailChange}
           />
         </div>
         <div className="ui divider"></div>

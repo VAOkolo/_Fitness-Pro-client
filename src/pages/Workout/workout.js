@@ -100,7 +100,7 @@ export default function Workout() {
 
     function beginnerSelect (event) {
       // Post specific template to database
-      // e.g. grab startDate & endDate usestates
+      // e.g. able to grab startDate & endDate usestates
       console.log("***************************")
       event.preventDefault()
       navigate('/friends')
