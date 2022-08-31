@@ -1,4 +1,4 @@
-import { Landing, Login, Dashboard, Register, Workout, AddWorkout, SubmitWorkout, History, LogWorkout, ErrorPage, Friends } from './pages';
+import { Landing, Login, Dashboard, Register, Workout, AddWorkout, SubmitWorkout, History, LogWorkout, ErrorPage, Friends, FriendsForm } from './pages';
 import { Routes, Route } from 'react-router-dom'
 import { UserProvider } from './context/UserContext';
 import { AnimatePresence } from 'framer-motion'
@@ -24,6 +24,7 @@ function App() {
             <Route path="/history" element={<History />} />
             <Route path='/workout' element={<Workout />} />
             <Route path='/friends' element={<Friends />} />
+            <Route path='/friendsform' element={<FriendsForm />} />
             <Route path='/addworkout' element={<AddWorkout />} />
             <Route path='/submitworkout' element={<SubmitWorkout />} />
             <Route path="/*" element={<ErrorPage />} />

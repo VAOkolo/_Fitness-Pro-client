@@ -63,6 +63,10 @@ export default function Friends() {
         setWorkout(true)
         logoutUser()
     }
+
+    function friendForm () {
+        navigate('/friendsform')
+    }
     
 
     return (
@@ -128,7 +132,7 @@ export default function Friends() {
     <p></p>
     <div class="card-actions justify-end">
     <label for="my-modal-3" onClick={handleDash} class="btn ">No Thanks</label>
-    <label for="my-modal-3" class="btn modal-button btn-primary">Yeah Sure!</label>
+    <label for="my-modal-3" onClick={friendForm} class="btn modal-button btn-primary">Yeah Sure!</label>
     </div>
   </div>
 </div>
