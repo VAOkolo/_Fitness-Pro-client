@@ -10,7 +10,9 @@ import AuthContext from '../../Context/AuthContext';
 
 export default function LogWorkout() {
 
-    const { todaysExercises, userWorkoutPaths, userExercisePosts } = useContext(UserContext)
+    const { userWorkoutPaths, 
+            userExercisePosts,
+            setTodaysExercises} = useContext(UserContext)
     const { user_id } = useContext(AuthContext)
     const [openModal, setOpenModal] = useState(false)
     const [modalId, setModalId] = useState()
@@ -40,9 +42,9 @@ export default function LogWorkout() {
 
     useEffect(() => {
         async function getActiveWorkout(user_id) {
-            const response = await userWorkoutPaths(user_id)
-            const activeWorkout = response[0].user_workout_session
-            setActiveSession(activeWorkout)
+            const workout_id = await userWorkoutPaths(user_id)
+            const todaysWorkouts = await setTodaysExercises(workout_id)
+            setActiveSession(todaysWorkouts)
         }
         getActiveWorkout(user_id)
     }, [user_id])

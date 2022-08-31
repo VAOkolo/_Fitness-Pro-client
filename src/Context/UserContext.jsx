@@ -20,8 +20,9 @@ export const UserProvider = ({ children }) => {
     let userWorkoutPaths = async (user_id) => {
         const response = await fetch(`http://localhost:8000/api/gym/profile/workouts/${user_id}/active`)
         const data = await response.json()
-        // console.log(data)
-        return data
+        const workout_id = data[0].workout_id
+        console.log(workout_id)
+        return workout_id
     }
 
 //posts sets to workout session
@@ -41,11 +42,23 @@ export const UserProvider = ({ children }) => {
             }
             const response = await fetch(`http://localhost:8000/api/gym/sets/post`, options)
             const data = await response.json()
+            console.log(data)
             await postWorkoutCompletionStatus(workout_session_id_int)
         } catch (err) {
             console.error(err)
         }
     }
+
+//todays exercise setter
+let setTodaysExercises = async (workout_id) => {
+    try {
+        const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/${workout_id}/sessionday`)
+        const data = await response.json()
+        return data
+    } catch (err) {
+        console.error(err)
+    }
+}
 
 //patch request to update workout session complete status
     let postWorkoutCompletionStatus = async (workout_session_id_int) => {
@@ -78,8 +91,8 @@ export const UserProvider = ({ children }) => {
                 unique_str: lobbyCodeGenerator(),
                 goal: "CONSISTENCY",
                 complete: false,
-                start_time: startDate,
-                end_time: endDate
+                // start_time: startDate,
+                // end_time: endDate
             }
 
             let options = {
@@ -144,13 +157,12 @@ export const UserProvider = ({ children }) => {
       }
 
     let userData = {
-        user_UD: "test",
-        todaysExercises: ["Bench Press", "Situps", "Barbell Row", "Overhead Press", "Deadlift", "Bicep Curls", "Shoulder Press"],
         userWorkoutPaths: userWorkoutPaths,
         userExercisePosts: userExercisePosts,
         postNewWorkout: postNewWorkout,
         beginnerTemplate: beginnerTemplate,
-        postNewWorkoutSessions: postNewWorkoutSessions
+        postNewWorkoutSessions: postNewWorkoutSessions,
+        setTodaysExercises: setTodaysExercises,
     }
 
 
