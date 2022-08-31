@@ -117,10 +117,12 @@ export default function Workout() {
     async function beginnerSelect(){
       const id = await postNewWorkout(user_id, startDate, endDate)
       const workoutSessions = workoutSessionSetter(startDate, endDate, beginnerTemplate, id)
+      if(workoutSessions){
       workoutSessions.forEach((e) => 
         {
           postNewWorkoutSessions(e)
         })
+      }
       console.log(workoutSessions)
       // if(id){
       //   await postNewWorkoutSessions(id)
