@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react'
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import {levelAction } from "../../actions";
 import { NavbarDash, BeginnerModal } from '../../components/index'
@@ -96,12 +96,32 @@ export default function Workout() {
       setCustomModal(true)
     }
 
+    function beginnerSelect () {
+      // Post specific template to database
+      navigate('/friends')
+    }
+    function moderateSelect () {
+      // Post specific template  to database
+      navigate('/friends')
+    }
+    function advancedSelect () {
+      // Post specific template  to database
+      navigate('/friends')
+    }
+    function customSelect () {
+      // Post specific template  to database
+      navigate('/friends')
+    }
+    
+
     return (
     <>
+
+
     {/* =======================Beginner Modal=======================*/}
 
     {beginnerModal &&     
-    <>
+    <div>
     <input type="checkbox" id="my-modal-3" class="modal-toggle" />
     <div class="modal">
       <div class="modal-box relative">
@@ -131,10 +151,10 @@ export default function Workout() {
           Hammer Curls: 3x10<br></br>
         </p>
         <br></br>
-        <button class="btn btn-primary">Select This Template</button>
+        <button onClick={beginnerSelect}class="btn btn-primary">Select This Template</button>
       </div>
     </div>
-    </>}
+    </div>}
 
     {/* =======================Moderate Modal=======================*/}
 
@@ -169,7 +189,7 @@ export default function Workout() {
           Hammer Curls: 3x10<br></br>
         </p>
         <br></br>
-        <button class="btn btn-primary">Select This Template</button>
+        <button onClick={moderateSelect}class="btn btn-primary">Select This Template</button>
       </div>
     </div>
     </>}
@@ -208,7 +228,7 @@ export default function Workout() {
           Hammer Curls: 3x10<br></br>
         </p>
         <br></br>
-        <button class="btn btn-primary">Select This Template</button>
+        <button onClick={advancedSelect}class="btn btn-primary">Select This Template</button>
       </div>
     </div>
     </>}
@@ -245,7 +265,7 @@ export default function Workout() {
           Hammer Curls: 3x10<br></br>
         </p>
         <br></br>
-        <button class="btn btn-primary">Submit Program</button>
+        <button onClick={customSelect}class="btn btn-primary">Submit Program</button>
       </div>
     </div>
     </>}
@@ -297,7 +317,7 @@ export default function Workout() {
                 duration: 0.1,
             }
         }}>
-            <main>
+            <main class="main-workout">
               <h1>Create A Workout +</h1>
               <div class="outer-card">
 

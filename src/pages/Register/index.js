@@ -83,16 +83,16 @@ export default function Register() {
                     <Navbar />
 
 
-            <div class="hero min-h-screen info-content">
+            <div class="hero hero-register min-h-screen info-content">
   <div class="hero-content flex-col lg:flex-row-reverse">
     <div class="text-center lg:text-left">
       <h1 class="text-5xl font-bold">Signup </h1>
       <p class="py-6">Only One Step Away...</p>
     </div>
 
-    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
+    <div class="card max-width flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
     <form onSubmit={handleSubmit}>
-      <div class="card-body">
+      <div class="card-body register-margin">
         <div class="form-control">
           <label class="label">
             <span class="label-text">Username</span>

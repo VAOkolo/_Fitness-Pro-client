@@ -19,7 +19,7 @@ const Login = () => {
                 }
             }}>
     <Navbar />
-    <div class="hero min-h-screen info-content">
+    <div class="hero hero-register min-h-screen info-content">
   <div class="hero-content flex-col lg:flex-row-reverse">
     <div class="text-center lg:text-left">
       <h1 class="text-5xl font-bold">Login </h1>
