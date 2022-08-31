@@ -236,6 +236,11 @@ aside .sidebar a:hover {
 .justify-end {
     justify-content: center;
 }
+@media screen and (max-width: 640px) {
+.justify-end {
+    justify-content: flex-end;
+}
+}
 
 
 main .outer-card-friend  > div {
@@ -298,6 +303,16 @@ main .recent-order {
     margin-top: 2rem;
 }
 
+.min-h-screen-friend {
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+.flex-col {
+    flex-direction: column;
+}
+}
+
 main .recent-order table {
     background: var(--color-white);
     width: 100%;
@@ -336,6 +351,13 @@ main .recent-order table:hover {
 .bg-base-100 {
     --tw-bg-opacity: 0
 }
+
+@media screen and (max-width: 600px) {
+    .hero {
+       display: block;
+    }
+}
+
 
 
 /* ================= MEDIA QUERIES ================== */

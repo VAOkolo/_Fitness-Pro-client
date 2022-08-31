@@ -132,10 +132,10 @@ export default function FriendsForm() {
                     duration: 0.3,
                 }
             }}>
-    <div class="hero min-h-screen info-content">
+    <div class="hero min-h-screen-friend info-content">
   <div class="hero-content flex-col lg:flex-row-reverse">
     <div class="text-center lg:text-left">
-      <h1 class="text-5xl font-bold">. Ready?</h1>
+      <h1 class="text-5xl font-bold"> Invite</h1>
       <p class="py-6">Give us some info<br></br> on your friend!</p>
     </div>
 
@@ -164,7 +164,7 @@ export default function FriendsForm() {
         <div className="ui divider"></div>
         
         <div class="form-control mt-6">
-          <button class="btn btn-primary">Login</button>
+          <button class="btn btn-primary">Send Email</button>
         </div>
       </div>
       </form>
