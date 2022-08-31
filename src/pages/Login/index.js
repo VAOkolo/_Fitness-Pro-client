@@ -1,7 +1,11 @@
-import React, { useContext } from 'react'
-import { motion } from 'framer-motion'
-import { Navbar } from '../../components'
-import AuthContext from '../../context/AuthContext'
+import React, { useContext } from 'react';
+
+import { motion } from 'framer-motion';
+import { Navbar } from '../../Components';
+
+// UTILS
+import AuthContext from '../../Context/AuthContext';
+
 
 const Login = () => {
   let { loginUser, user } = useContext(AuthContext)

@@ -1,9 +1,12 @@
-import React, { useContext, useState, useEffect } from 'react'
-import UserContext from '../../context/UserContext'
-import AuthContext from '../../context/AuthContext'
-import Modal from './modal'
-import { inputAdornmentClasses } from '@mui/material'
+import React, { useContext, useState, useEffect } from 'react';
+
+import Modal from './modal';
 import Button from 'react-bootstrap/Button';
+import { inputAdornmentClasses } from '@mui/material';
+
+// UTILS
+import UserContext from '../../Context/UserContext';
+import AuthContext from '../../Context/AuthContext';
 
 export default function LogWorkout() {
 

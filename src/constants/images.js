@@ -1,4 +1,4 @@
-import portfoliologo from '../assets/portfoliologo.png'
+import portfoliologo from '../Assets/portfoliologo.png'
 
 export default {
   portfoliologo,

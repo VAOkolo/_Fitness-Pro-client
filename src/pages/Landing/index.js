@@ -1,35 +1,36 @@
-import React from 'react'
-import { Navbar } from '../../components/index'
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Navbar } from '../../Components/index';
+
+import { motion } from 'framer-motion';
 import Lottie from 'react-lottie-player';
-import watch from '../../lotties/watch.json'
+import watch from '../../Lotties/watch.json';
 
 const Landing = () => {
     return (
         <>
             <motion.div
-            initial={{ opacity: 0}}
-            animate={{ opacity: 1}}
-            exit={{ opacity: 0}}
-            transition={{
-                delay: 0.5,
-                default: {
-                    duration: 0.3,
-                }
-            }}>
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                    delay: 0.5,
+                    default: {
+                        duration: 0.3,
+                    }
+                }}>
                 <Navbar />
             </motion.div>
             <motion.div className="intro" id="intro"
-            initial={{ opacity: 0}}
-            animate={{ opacity: 1}}
-            exit={{ opacity: 0}}
-            transition={{
-                delay: 0.5,
-                default: {
-                    duration: 0.3,
-                }
-            }}>
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                    delay: 0.5,
+                    default: {
+                        duration: 0.3,
+                    }
+                }}>
                 <div className="intro__center center">
                     <div className="intro__wrap">
                         <div className="tagline">
@@ -48,10 +49,10 @@ const Landing = () => {
                     </div>
                 </div>
                 <Lottie
-                className='watch'
-                loop
-                animationData={watch}
-                play/>
+                    className='watch'
+                    loop
+                    animationData={watch}
+                    play />
             </motion.div>
         </>
     )

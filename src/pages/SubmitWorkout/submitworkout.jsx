@@ -1,6 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import { measureAction, durationAction } from "../../actions";
+
+import { measureAction, durationAction } from "../../Actions";
+
+
 
 export default function SubmitWorkout() {
   const level = useSelector(state => state.level);
@@ -45,7 +48,7 @@ export default function SubmitWorkout() {
         <select className="">
           {duration_list.map(item => <option value={item.value}>{item.name}</option>)}
         </select> <br></br> <br></br>
-        <input className="" value= "Confirm Challenge" type="submit" />
+        <input className="" value="Confirm Challenge" type="submit" />
       </form>
     </div>
   )

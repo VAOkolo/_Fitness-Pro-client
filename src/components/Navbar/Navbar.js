@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
-import { HiMenuAlt4, HiX } from 'react-icons/hi';  
-//HiMenuAlt4 = toggle menu icon (two horizontial line button). Hix = Exit toggle menu (Cross button)
-import { motion, AnimatePresence } from 'framer-motion';  //imports animations from node modules downloaded (pre-rendered animations)
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
+import { HiMenuAlt4, HiX } from 'react-icons/hi';  
+import { motion, AnimatePresence } from 'framer-motion'; 
 import'./Navbar.scss';
-import { images } from '../../constants'
+import { images } from '../../Constants';
 
 
 const Navbar = () => {
@@ -29,11 +28,11 @@ const Navbar = () => {
 
     // Line 18-30: Landscape navbar with anchor links to specific pages
     // Line 30+ Sidebar which animates on entry & exit
-    <nav classNameName="app__navbar">
-      <div classNameName="app__navbar-logo">
+    <nav className="app__navbar">
+      <div className="app__navbar-logo">
         <img src={images.portfoliologo} alt="logo" />
       </div>
-      <ul classNameName="app__navbar-link">
+      <ul className="app__navbar-link">
         <li className="app__flex p-text">
           <a onClick={home}>Home</a>
         </li>
@@ -45,7 +44,7 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <div classNameName="app__navbar-menu">
+      <div className="app__navbar-menu">
         <HiMenuAlt4 onClick={() => setToggle(true)} />
         <AnimatePresence mode='wait'>
           {toggle && (

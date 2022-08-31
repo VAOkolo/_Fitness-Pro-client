@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
-import { HiMenuAlt4, HiX } from 'react-icons/hi';  
-//HiMenuAlt4 = toggle menu icon (two horizontial line button). Hix = Exit toggle menu (Cross button)
-import { motion, AnimatePresence } from 'framer-motion';  //imports animations from node modules downloaded (pre-rendered animations)
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import'./NavbarDash.scss';
-import { images } from '../../constants'
+import { HiMenuAlt4, HiX } from 'react-icons/hi';
+import { motion, AnimatePresence } from 'framer-motion';
+import { images } from '../../Constants';
+import './NavbarDash.scss';
 
 
 const Navbar = () => {
-  const [toggle, setToggle] = useState(false);  
+  const [toggle, setToggle] = useState(false);
 
 
   return (
@@ -46,15 +45,15 @@ const Navbar = () => {
 
               <HiX onClick={() => setToggle(false)} />
               <ul>
-                  <li>
-                    <a onClick={() => setToggle(false)}><Link to="/landing">Home</Link></a>
-                  </li>
-                  <li>
-                    <a onClick={() => setToggle(false)}><Link to="/login">Signup</Link></a>
-                  </li>
-                  <li>
-                    <a onClick={() => setToggle(false)}><Link to="/dashboard">Login</Link></a>
-                  </li>
+                <li>
+                  <a onClick={() => setToggle(false)}><Link to="/landing">Home</Link></a>
+                </li>
+                <li>
+                  <a onClick={() => setToggle(false)}><Link to="/login">Signup</Link></a>
+                </li>
+                <li>
+                  <a onClick={() => setToggle(false)}><Link to="/dashboard">Login</Link></a>
+                </li>
               </ul>
             </motion.div>
           )}

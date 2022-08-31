@@ -1,46 +1,48 @@
-import React, {useState, useContext} from 'react'
-import { useNavigate} from 'react-router-dom';
+import React, { useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { NavbarDash, BeginnerModal } from '../../Components/index';
 
-import {levelAction } from "../../actions";
-import { NavbarDash, BeginnerModal } from '../../components/index'
-import AuthContext from '../../context/AuthContext'
+
+import { levelAction } from "../../Actions";
 import { motion } from 'framer-motion';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import FitnessCenterRoundedIcon from '@mui/icons-material/FitnessCenterRounded';
 import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
-import './friends.css'
+import './friends.css';
 
-import Running from '../../assets/running_togther.jpg'
-import Stare from '../../assets/workout_friends.jpg'
+import Running from '../../Assets/running_togther.jpg';
+import Stare from '../../Assets/workout_friends.jpg';
+import AuthContext from '../../Context/AuthContext';
+
 
 export default function Friends() {
 
-  let navigate = useNavigate()
-  let [dashboard, setDashboard] = useState(false)
-  let [workout, setWorkout] = useState(true)
-  let [stats, setStats] = useState(false)
-  let [notes, setNotes] = useState([])
-  let {authTokens, logoutUser} = useContext(AuthContext)
+    let navigate = useNavigate()
+    let [dashboard, setDashboard] = useState(false)
+    let [workout, setWorkout] = useState(true)
+    let [stats, setStats] = useState(false)
+    let [notes, setNotes] = useState([])
+    let { authTokens, logoutUser } = useContext(AuthContext)
 
     // const level = useSelector((state) => state.reducer.level);
 
     const pathChange = (path) => {
-      navigate(path)
+        navigate(path)
     }
 
-    let level_list = [{name:"Beginner", value:"beginner"},
-    {name:"Intermediate", value:"intermediate"},
-    {name:"Advanced", value:"advanced"}]
+    let level_list = [{ name: "Beginner", value: "beginner" },
+    { name: "Intermediate", value: "intermediate" },
+    { name: "Advanced", value: "advanced" }]
 
     const handleLevel = (e) => {
         e.preventDefault()
         console.log(e.target.value)
         pathChange('/submitworkout')
-      }
+    }
 
 
-      const handleDash = () => {
+    const handleDash = () => {
         setDashboard(true)
         setWorkout(false)
         setStats(false)
@@ -50,7 +52,7 @@ export default function Friends() {
         setWorkout(true)
         setDashboard(false)
         setStats(false)
-        
+
     }
     const handleStats = () => {
         setStats(true)
@@ -64,87 +66,87 @@ export default function Friends() {
         logoutUser()
     }
 
-    function friendForm () {
+    function friendForm() {
         navigate('/friendsform')
     }
-    
+
 
     return (
-    <>
-      {/* =======================Sidebar=======================*/}
-    <NavbarDash />
-    <div classNameName='container-dash'>
-        <motion.aside
-        animate={{ opacity: 1}}
-  
-        transition={{
-            default: {
-                duration: 0.3,
-            }
-        }}>
-            <div classNameName='top'>
+        <>
+            {/* =======================Sidebar=======================*/}
+            <NavbarDash />
+            <div classNameName='container-dash'>
+                <motion.aside
+                    animate={{ opacity: 1 }}
 
+                    transition={{
+                        default: {
+                            duration: 0.3,
+                        }
+                    }}>
+                    <div classNameName='top'>
+
+                    </div>
+                    <div classNameName='sidebar'>
+                        <a href='#' classNameName={workout || stats ? '' : 'active'} onClick={handleDash}>
+                            <PersonRoundedIcon />
+                            <h3>Dashboard</h3>
+                        </a>
+                        <a href='#' classNameName={dashboard || stats ? '' : 'active'}
+                            onClick={handleWork}>
+                            <FitnessCenterRoundedIcon />
+                            <h3>Create A Workout +</h3>
+                        </a>
+                        <a href='#' classNameName={dashboard || workout ? '' : 'active'}
+                            onClick={handleStats}>
+                            <AutoGraphRoundedIcon />
+                            <h3>Your Stats</h3>
+                        </a>
+                        <a href='#'
+                            onClick={handleLogout}>
+                            <LogoutRoundedIcon />
+                            <h3>Logout</h3>
+                        </a>
+                    </div>
+                </motion.aside>
+
+                {/* =======================Workout=======================*/}
+
+                <motion.div classNameName="workout-card"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                        default: {
+                            duration: 0.1,
+                        }
+                    }}>
+                    <main className="main-friend">
+                        <h1>Invite A Friend +</h1>
+                        <div className="outer-card-friend">
+
+
+                            <div className="card-1">
+                                <div className="card sm:card-side bg-base-100 shadow-xl">
+                                    <figure><img className="friend-img" src={Running} alt="Album" /></figure>
+                                    <div className="card-body">
+                                        <h2 className="card-title">Want To Invite A Friend?</h2>
+                                        <p></p>
+                                        <div className="card-actions justify-end">
+                                            <label for="my-modal-3" onClick={handleDash} className="btn ">No Thanks</label>
+                                            <label for="my-modal-3" onClick={friendForm} className="btn modal-button btn-primary">Yeah Sure!</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </main>
+                </motion.div>
             </div>
-            <div classNameName='sidebar'>
-                <a href='#' classNameName={workout || stats ? '' : 'active'} onClick={handleDash}>
-                    <PersonRoundedIcon />
-                    <h3>Dashboard</h3>
-                </a>
-                <a href='#' classNameName={dashboard || stats ? '' : 'active'}
-                onClick={handleWork}>
-                    <FitnessCenterRoundedIcon />
-                    <h3>Create A Workout +</h3>
-                </a>
-                <a href='#' classNameName={dashboard || workout ? '' : 'active'}
-                onClick={handleStats}>
-                    <AutoGraphRoundedIcon />
-                    <h3>Your Stats</h3>
-                </a>
-                <a href='#'
-                onClick={handleLogout}>
-                    <LogoutRoundedIcon />
-                    <h3>Logout</h3>
-                </a>
-            </div>
-        </motion.aside>
+        </>
 
-        {/* =======================Workout=======================*/}
-
-        <motion.div classNameName="workout-card"
-        initial={{ opacity: 0}}
-        animate={{ opacity: 1}}
-        exit={{ opacity: 0}}
-        transition={{
-            default: {
-                duration: 0.1,
-            }
-        }}>
-            <main className="main-friend">
-              <h1>Invite A Friend +</h1>
-              <div className="outer-card-friend">
-
-
-                <div className="card-1">
-                <div className="card sm:card-side bg-base-100 shadow-xl">
-  <figure><img className="friend-img" src={Running} alt="Album" /></figure>
-  <div className="card-body">
-    <h2 className="card-title">Want To Invite A Friend?</h2>
-    <p></p>
-    <div className="card-actions justify-end">
-    <label for="my-modal-3" onClick={handleDash} className="btn ">No Thanks</label>
-    <label for="my-modal-3" onClick={friendForm} className="btn modal-button btn-primary">Yeah Sure!</label>
-    </div>
-  </div>
-</div>
-</div>
-
-
-</div>
-</main>
-        </motion.div>
-        </div>
-      </>
-        
     )
 }
 

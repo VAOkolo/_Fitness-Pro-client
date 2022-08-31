@@ -90,8 +90,8 @@ export default function Template() {
                                             <MDBModalTitle>Beginner workout template</MDBModalTitle>
                                             <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
                                         </MDBModalHeader>
-                                        <MDBModalBody><Beginner /> 
-                                        <a href="https://www.youtube.com/watch?v=acp77RhVzMM&t=418s" target = "blank"><button>Video guide</button></a>
+                                        <MDBModalBody><Beginner />
+                                            <a href="https://www.youtube.com/watch?v=acp77RhVzMM&t=418s" target="blank"><button>Video guide</button></a>
                                         </MDBModalBody>
                                     </MDBModalContent>
                                 </MDBModalDialog>
