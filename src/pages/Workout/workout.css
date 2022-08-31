@@ -56,6 +56,10 @@ small {
     overflow: hidden;
 }
 
+.datepicker {
+    box-shadow: none;
+}
+
 .text-cancel {
     color: var(--color-info-dark);
 }

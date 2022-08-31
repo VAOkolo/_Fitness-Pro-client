@@ -28,6 +28,8 @@ export default function Workout() {
   let [moderateModal, setModerateModal] = useState(false)
   let [advancedModal, setAdvancedModal] = useState(false)
   let [customModal, setCustomModal] = useState(false)
+  const [startNative, startSetNative] = useState("");
+  const [endNative, endSetNative] = useState("");
 
     // const level = useSelector((state) => state.reducer.level);
 
@@ -96,21 +98,35 @@ export default function Workout() {
       setCustomModal(true)
     }
 
-    function beginnerSelect () {
+    function beginnerSelect (event) {
       // Post specific template to database
+      console.log("***************************")
+      event.preventDefault()
       navigate('/friends')
     }
-    function moderateSelect () {
+    function moderateSelect (event) {
       // Post specific template  to database
+      event.preventDefault()
       navigate('/friends')
     }
-    function advancedSelect () {
+    function advancedSelect (event) {
       // Post specific template  to database
+      event.preventDefault()
       navigate('/friends')
     }
-    function customSelect () {
+    function customSelect (event) {
       // Post specific template  to database
+      event.preventDefault()
       navigate('/friends')
+    }
+
+    const startNativeChange = e => {
+      console.log("startChange: ", e.target.value);
+      startSetNative(e.target.value);
+    }
+    const endNativeChange = e => {
+      console.log("endChange: ", e.target.value);
+      endSetNative(e.target.value);
     }
     
 
@@ -148,10 +164,16 @@ export default function Workout() {
           Barbell Row: 3x8<br></br>
           Leg Press: 3x8<br></br>
           Skull Crushers: 3x10<br></br>
-          Hammer Curls: 3x10<br></br>
+          Hammer Curls: 3x9<br></br>
         </p>
         <br></br>
-        <button onClick={beginnerSelect}class="btn btn-primary">Select This Template</button>
+        Start Date:
+        <form class="datepicker" onSubmit={beginnerSelect}>
+    <input type="date" value={startNative} onChange={startNativeChange} /><br></br><br></br>
+        End Date:<br></br>
+        <input type="date" value={endNative} onChange={endNativeChange} /><br></br><br></br>
+        <button type="submit" class="btn btn-primary">Select This Template</button>
+        </form>
       </div>
     </div>
     </div>}
@@ -189,7 +211,13 @@ export default function Workout() {
           Hammer Curls: 3x10<br></br>
         </p>
         <br></br>
-        <button onClick={moderateSelect}class="btn btn-primary">Select This Template</button>
+        Start Date:
+        <form class="datepicker" onSubmit={moderateSelect}>
+    <input type="date" value={startNative} onChange={startNativeChange} /><br></br><br></br>
+        End Date:<br></br>
+        <input type="date" value={endNative} onChange={endNativeChange} /><br></br><br></br>
+        <button type="submit" class="btn btn-primary">Select This Template</button>
+        </form>
       </div>
     </div>
     </>}
@@ -228,7 +256,13 @@ export default function Workout() {
           Hammer Curls: 3x10<br></br>
         </p>
         <br></br>
-        <button onClick={advancedSelect}class="btn btn-primary">Select This Template</button>
+        Start Date:
+        <form class="datepicker" onSubmit={advancedSelect}>
+    <input type="date" value={startNative} onChange={startNativeChange} /><br></br><br></br>
+        End Date:<br></br>
+        <input type="date" value={endNative} onChange={endNativeChange} /><br></br><br></br>
+        <button type="submit" class="btn btn-primary">Select This Template</button>
+        </form>
       </div>
     </div>
     </>}
@@ -265,7 +299,13 @@ export default function Workout() {
           Hammer Curls: 3x10<br></br>
         </p>
         <br></br>
-        <button onClick={customSelect}class="btn btn-primary">Submit Program</button>
+        Start Date:
+        <form class="datepicker" onSubmit={customSelect}>
+    <input type="date" value={startNative} onChange={startNativeChange} /><br></br><br></br>
+        End Date:<br></br>
+        <input type="date" value={endNative} onChange={endNativeChange} /><br></br><br></br>
+        <button type="submit" class="btn btn-primary">Select This Template</button>
+        </form>
       </div>
     </div>
     </>}
