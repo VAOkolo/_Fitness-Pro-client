@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
             setAuthTokens(data)
             setUser(jwt_decode(data.access))
             localStorage.setItem('authTokens', JSON.stringify(data))
-            navigate('/login')
+            navigate('/dashboard')
         } else {
             setError('Wrong')
         }
@@ -47,14 +47,14 @@ export const AuthProvider = ({ children }) => {
         const url = window.location.href
         const path = '/' + url.substring(url.lastIndexOf("/") + 1, url.length)
         if (path == '/') {
-            navigate('/')
+            navigate('/landing')
         } else if (path == '/login') {
             navigate(path)
-        } else if (path == '/signup') {
+        } else if (path == '/register') {
             navigate(path)
         } else {
             console.log("Not authorized. Try again.")
-            navigate('/')
+            navigate('/landing')
         }
     }
 

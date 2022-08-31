@@ -313,6 +313,7 @@ export default function Workout() {
         animate={{ opacity: 1}}
         exit={{ opacity: 0}}
         transition={{
+          delay: 0.5,
             default: {
                 duration: 0.1,
             }
