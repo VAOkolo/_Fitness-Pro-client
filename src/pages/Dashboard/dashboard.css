@@ -271,6 +271,10 @@ main {
     }
 }
 
+.progress-middle-2 {
+    align-items: end;
+}
+
 
 main .insights {
     display: grid;
@@ -287,9 +291,22 @@ main .insights > div {
     transition: all 300ms ease;
 }
 
+.btn-error {
+    color: rgb(255, 255, 255);
+    transition: all 300ms ease;
+}
+.btn-error:hover {
+    background-color: #fb4756d5;
+}
+
+
 main .insights > div:hover {
     box-shadow: 0px 0px 12px;
     cursor: pointer;
+}
+
+.input-group {
+    display: block;
 }
 
 main .insights > div .middle {
@@ -308,6 +325,9 @@ main .insights .progress {
     position: relative;
     width: 92px;
     height: 92px;
+}
+.middle-btn {
+    align-items: end;
 }
 
 .progress {

@@ -319,6 +319,18 @@ main .recent-order table:hover {
 
 }
 
+.form-workout {
+    transition: none;
+}
+
+.form-workout:hover {
+    box-shadow: none;
+}
+
+.form-workout input:hover {
+    cursor: pointer;
+}
+
 .card-body {
     background: var(--color-card);
 }

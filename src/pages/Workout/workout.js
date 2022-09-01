@@ -169,7 +169,7 @@ export default function Workout() {
         </p>
         <br></br>
         Start Date:
-        <form class="datepicker" onSubmit={beginnerSelect}>
+        <form class="datepicker form-workout" onSubmit={beginnerSelect}>
     <input type="date" value={startDate} onChange={startDateChange} /><br></br><br></br>
         End Date:<br></br>
         <input type="date" value={endDate} onChange={endDateChange} /><br></br><br></br>
@@ -213,7 +213,7 @@ export default function Workout() {
         </p>
         <br></br>
         Start Date:
-        <form class="datepicker" onSubmit={moderateSelect}>
+        <form class="datepicker form-workout" onSubmit={moderateSelect}>
     <input type="date" value={startDate} onChange={startDateChange} /><br></br><br></br>
         End Date:<br></br>
         <input type="date" value={endDate} onChange={endDateChange} /><br></br><br></br>
@@ -258,7 +258,7 @@ export default function Workout() {
         </p>
         <br></br>
         Start Date:
-        <form class="datepicker" onSubmit={advancedSelect}>
+        <form class="datepicker form-workout" onSubmit={advancedSelect}>
     <input type="date" value={startDate} onChange={startDateChange} /><br></br><br></br>
         End Date:<br></br>
         <input type="date" value={endDate} onChange={endDateChange} /><br></br><br></br>
@@ -301,7 +301,7 @@ export default function Workout() {
         </p>
         <br></br>
         Start Date:
-        <form class="datepicker" onSubmit={customSelect}>
+        <form class="datepicker form-workout" onSubmit={customSelect}>
     <input type="date" value={startDate} onChange={startDateChange} /><br></br><br></br>
         End Date:<br></br>
         <input type="date" value={endDate} onChange={endDateChange} /><br></br><br></br>
