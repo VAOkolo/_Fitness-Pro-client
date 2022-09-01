@@ -26,6 +26,18 @@ const Dashboard = () => {
     let [stats, setStats] = useState(false)
     let [notes, setNotes] = useState([])
     let { authTokens, logoutUser } = useContext(AuthContext)
+    const [dashWork, setDashWork] = useState(false)
+
+    const [field1Set, setField1Set] = useState("")
+    const [field1Rep, setField1Rep] = useState("")
+    const [field2Set, setField2Set] = useState("")
+    const [field2Rep, setField2Rep] = useState("")
+    const [field3Set, setField3Set] = useState("")
+    const [field3Rep, setField3Rep] = useState("")
+    const [field4Set, setField4Set] = useState("")
+    const [field4Rep, setField4Rep] = useState("")
+    const [field5Set, setField5Set] = useState("")
+    const [field5Rep, setField5Rep] = useState("")
 
     useEffect(() => {
        
@@ -60,8 +72,114 @@ const Dashboard = () => {
         logoutUser()
     }
 
+    function dashWorkModal() {
+        setDashWork(true)
+        console.log("I've been clicked")
+    }
+
+    function submitLog(e) {
+        e.preventDefault()
+        console.log(field1Set, field1Rep)
+        navigate('/workout')
+    }
+
     return (
         <>
+        {/* =======================Your Workout Today Modal!=======================*/}
+
+{dashWork &&     
+    <div>
+    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box relative">
+        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 class="text-lg font-bold">Login Your Workout Here!</h3>
+        <br></br> 
+        <h3 class="text-lg font-bold">Workout A</h3>
+        <p class="py-4"></p>
+
+<form class="form-workout" onSubmit={submitLog} >
+        <h3 class="text-md font-bold">Bench Press: 3x8</h3>
+          <div class="form-control">
+  <label class="input-group input-group-sm">
+    <span>Sets</span>
+    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field1Set} onChange={e => setField1Set(e.target.value)}/>
+  </label>
+</div>
+          <div class="form-control">
+  <label class="input-group input-group-sm">
+    <span>Reps</span>
+    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field1Rep} onChange={e => setField1Rep(e.target.value)}/>
+  </label>
+</div>
+          
+          <br></br>
+          <h3 class="text-md font-bold">Barbell Row: 3x8</h3>
+          <div class="form-control">
+  <label class="input-group input-group-sm">
+    <span>Sets</span>
+    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field2Set} onChange={e => setField2Set(e.target.value)}/>
+  </label>
+</div>
+          <div class="form-control">
+  <label class="input-group input-group-sm">
+    <span>Reps</span>
+    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field2Rep} onChange={e => setField2Rep(e.target.value)}/>
+  </label>
+</div>
+
+          <br></br>
+          <h3 class="text-md font-bold">Squat Variation: 3x8</h3>
+          <div class="form-control">
+  <label class="input-group input-group-sm">
+    <span>Sets</span>
+    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field3Set} onChange={e => setField3Set(e.target.value)}/>
+  </label>
+</div>
+          <div class="form-control">
+  <label class="input-group input-group-sm">
+    <span>Reps</span>
+    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field3Rep} onChange={e => setField3Rep(e.target.value)}/>
+  </label>
+</div>
+
+          <br></br>
+          <h3 class="text-md font-bold">Tricep Extensions: 3x10</h3>
+          <div class="form-control">
+  <label class="input-group input-group-sm">
+    <span>Sets</span>
+    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field4Set} onChange={e => setField4Set(e.target.value)}/>
+  </label>
+</div>
+          <div class="form-control">
+  <label class="input-group input-group-sm">
+    <span>Reps</span>
+    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field4Rep} onChange={e => setField4Rep(e.target.value)}/>
+  </label>
+</div>
+
+          <br></br>
+          <h3 class="text-md font-bold">Bicep Curls: 3x10</h3>
+          <div class="form-control">
+  <label class="input-group input-group-sm">
+    <span>Sets</span>
+    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field5Set} onChange={e => setField5Set(e.target.value)}/>
+  </label>
+</div>
+          <div class="form-control">
+  <label class="input-group input-group-sm">
+    <span>Reps</span>
+    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field5Rep} onChange={e => setField5Rep(e.target.value)}/>
+  </label>
+</div>
+        <br></br>
+        <br></br>
+        <button type="submit" class="btn btn-primary">Log Your Workout</button>
+        </form>
+      </div>
+    </div>
+    </div>}
+
 
             {/* =======================Sidebar=======================*/}
             <NavbarDash />
@@ -134,7 +252,7 @@ const Dashboard = () => {
                                 </div>
                                 <div className='progress'>
                                     <svg>
-                                        <circle cx={38} cy={38} r={36}></circle>
+                                        <circle class="circle1" cx={38} cy={38} r={36}></circle>
                                     </svg>
                                 </div>
                             </div>
@@ -144,7 +262,7 @@ const Dashboard = () => {
                         {/* Metrics */}
 
 
-                        <div className='expenses'>
+                        <div className='expenses' for="my-modal-3" onClick={dashWorkModal}>
                             <SportsGymnasticsRoundedIcon
                                 sx={{
                                     background: '#ff7782',
@@ -158,10 +276,8 @@ const Dashboard = () => {
                                     <h3>Your Workout Today</h3>
                                     <h1>Upper</h1>
                                 </div>
-                                <div className='progress'>
-                                    <svg>
-                                        <circle cx={38} cy={38} r={36}></circle>
-                                    </svg>
+                                <div className='progress-middle-2'>
+                                <label for="my-modal-3" class="btn btn-error modal-button">Open</label>
                                 </div>
                             </div>
                             <small className='text-cancel'>Click For More Info</small>
