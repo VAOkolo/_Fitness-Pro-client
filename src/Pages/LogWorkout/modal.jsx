@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import './modalStyle.css'
 
-export default function Modal({ open, onClose, url, id, data, exercise, workoutSessionSetId, rows, addRow, submitData }) {
+export default function Modal({ open, onClose, url, id, data, exercise, workoutSetId, rows, addRow, submitData }) {
     if (!open) {
         return null
     }
 
     console.log(data)
     return (
-        <div className="overlay container" id={workoutSessionSetId}>
+        <div className="overlay container" id={workoutSetId}>
             <div className="modalContainer row">
                 <div className='col'>
                     <h2>{exercise}</h2>
