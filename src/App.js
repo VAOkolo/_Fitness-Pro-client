@@ -1,4 +1,4 @@
-import { Landing, Login, Dashboard, Register, Workout, AddWorkout, SubmitWorkout, History, LogWorkout, ErrorPage, Friends, FriendsForm } from './Pages';
+import { Landing, Login, Dashboard, Register, Workout, AddWorkout, SubmitWorkout, History, LogWorkout, ErrorPage, Friends, FriendsForm, AcceptInvite  } from './Pages';
 import { Routes, Route } from 'react-router-dom'
 import { useLocation } from "react-router-dom";
 

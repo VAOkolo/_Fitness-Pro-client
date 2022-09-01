@@ -25,7 +25,7 @@ export default function FriendsForm() {
   let [workout, setWorkout] = useState(true)
   let [stats, setStats] = useState(false)
   let [notes, setNotes] = useState([])
-  let { authTokens, logoutUser } = useContext(AuthContext)
+  let { authTokens, logoutUser, user } = useContext(AuthContext)
   let { createdWorkoutObject } = useContext(UserContext)
 
   // const level = useSelector((state) => state.reducer.level);
@@ -76,32 +76,39 @@ export default function FriendsForm() {
     let name = e.target[0].value
     let email = e.target[1].value
 
-    const postEmailForm = async (name,email) => {
-      
+    const postEmailForm = async (createdWorkoutObject, name, email) => {
+
+      let nameStr = name.toString()
+      let emailStr = email.toString()
+      let { unique_str } = createdWorkoutObject
+      console.log(createdWorkoutObject)
       let body = {
-        message_name: `Hey ! Join me in a contest`,
-        message_email: "uihbkjb",
-        message_body: "yererjkrjkn"
+        account_id: user.user_id,
+        message_name: `Hey ${nameStr}! I'm challenging you to take part in my workout!`,
+        message_email: `${emailStr}`,
+        message_body: `Your special string is ${unique_str} input it at http://localhost:3000/acceptinvite to link with your challenger!`
       }
+
+      console.log(body)
 
       let options = {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(body)
+      }
+
+      try {
+        const response = await fetch('http://localhost:8000/api/gym/email', options)
+        const data = await response.json()
+        return data
+      } catch (err) {
+        console.error(err)
+      }
     }
 
-    try{
-      const response = await fetch('http://localhost:8000/api/gym/email',options)
-      const data = await response.json()
-      return data
-    } catch (err){
-      console.error(err)
-    }
-    }
-
-    postEmailForm(createdWorkoutObject,name,email)
+    postEmailForm(createdWorkoutObject, name, email)
   }
 
 
@@ -221,18 +228,3 @@ export default function FriendsForm() {
 
   )
 }
-
-{/*<div>
-            <h1>Create a workout</h1>
-            <button onClick={() => pathChange('/addworkout')}>Start a new Workout</button>
-            {/* <button onClick={() => pathChange('/templates')}>Use a template</button> 
-            <h1>Select a template</h1>
-            < Template/>
-            <form onSubmit={handleLevel}>
-                    <select className="">
-                        {level_list.map(item => <option value={item.value}>{item.name}</option>)}
-                    </select>
-                    <input className="" type="submit" />
-                </form>
-                <button className="text-center">Hello</button>
-        </div>*/}
