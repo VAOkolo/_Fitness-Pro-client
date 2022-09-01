@@ -55,13 +55,16 @@ export default function FriendsForm() {
     setWorkout(true)
     setDashboard(false)
     setStats(false)
+    navigate('/workout')
 
   }
-  const handleStats = () => {
-    setStats(true)
-    setDashboard(false)
+  const logWorkout = () => {
     setWorkout(false)
-  }
+    setDashboard(false)
+    setStats(true)
+    navigate('/logworkout')
+
+}
   const handleLogout = () => {
     setStats(true)
     setDashboard(true)
@@ -139,7 +142,7 @@ export default function FriendsForm() {
               <h3>Create A Workout +</h3>
             </a>
             <a href='#' className={dashboard || workout ? '' : 'active'}
-              onClick={handleStats}>
+              onClick={logWorkout}>
               <AutoGraphRoundedIcon />
               <h3>Your Stats</h3>
             </a>
