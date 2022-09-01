@@ -32,11 +32,11 @@ const Graph = () => {
 //         }
 //       }).then((response) => [
 //         response.json().then((json) => {
-//           console.log(json.data)
+//           (json.data)
 //           setChart(json.data)
 //         })
 //       ]).catch(error => {
-//         console.log(error);
+//         (error);
 //       })
 //     }
 //     fetchCoins()

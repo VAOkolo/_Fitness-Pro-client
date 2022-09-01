@@ -23,7 +23,7 @@ export const UserProvider = ({ children }) => {
         const response = await fetch(`http://localhost:8000/api/gym/profile/workouts/${user_id}/active`)
         const data = await response.json()
         const workout_id = data[0].workout_id
-        console.log(workout_id)
+        
         return workout_id
     }
 
@@ -71,7 +71,7 @@ export const UserProvider = ({ children }) => {
 
             const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/patch/${workout_session_id_int}`, options)
             const data = await response.json()
-            console.log(data)
+            (data)
         } catch (err) {
             console.error(err)
         }
@@ -143,10 +143,10 @@ export const UserProvider = ({ children }) => {
                 body: JSON.stringify(body)
             }
 
-            // console.log(body)
+            // (body)
             const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/exercise/sets/post`, options)
             const data = await response.json()
-            console.log(data)
+            (data)
             return response
 
         } catch (err) {

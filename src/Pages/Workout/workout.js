@@ -62,7 +62,7 @@ export default function Workout() {
 
   const handleLevel = (e) => {
     e.preventDefault()
-    console.log(e.target.value)
+    (e.target.value)
     pathChange('/submitworkout')
   }
 
@@ -133,7 +133,7 @@ export default function Workout() {
         postNewWorkoutSessions(e)
       })
     }
-    console.log(workoutSessions)
+    
     navigate('/friends')
   }
 
@@ -159,7 +159,7 @@ export default function Workout() {
   }
 
   useEffect(() => {
-    console.log(startDate, endDate)
+    
   }, [startDate, endDate])
   // ******VINCENT**********
 
@@ -175,7 +175,7 @@ export default function Workout() {
           <input type="checkbox" id="my-modal-3" className="modal-toggle" />
           <div className="modal">
             <div className="modal-box relative">
-              <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+              <label htmlhtmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
               <h3 className="text-lg font-bold">Our Beginner Program</h3>
               <p className="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
                 & the correct technique to prevent injury.</p>
@@ -202,12 +202,12 @@ export default function Workout() {
               </p>
               <br></br>
               {/* {*******VINCENT**********} */}
-              <label htmlFor="start">Start date:</label>
+              <label htmlhtmlFor="start">Start date:</label>
               <input onChange={updateStartDate} type="date" id="startDate" name=""
                 value={startDate}
                 min="2022-01-01" max="2023-12-31"></input><br></br><br></br>
 
-              <label htmlFor="end">End date:</label>
+              <label htmlhtmlFor="end">End date:</label>
               <input onChange={updateEndDate} type="date" id="endDate" name=""
                 value={endDate}
                 min="2022-01-01" max="2023-12-31"></input>
@@ -227,7 +227,7 @@ export default function Workout() {
           <input type="checkbox" id="my-modal-3" className="modal-toggle" />
           <div className="modal">
             <div className="modal-box relative">
-              <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+              <label htmlhtmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
               <h3 className="text-lg font-bold">Our Moderate Program</h3>
               <p className="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
                 & the correct technique to prevent injury.</p>
@@ -266,7 +266,7 @@ export default function Workout() {
           <input type="checkbox" id="my-modal-3" className="modal-toggle" />
           <div className="modal">
             <div className="modal-box relative">
-              <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+              <label htmlhtmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
               <h3 className="text-lg font-bold">Our Advanced Program</h3>
               <p className="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
                 & the correct technique to prevent injury.</p>
@@ -303,7 +303,7 @@ export default function Workout() {
           <input type="checkbox" id="my-modal-3" className="modal-toggle" />
           <div className="modal">
             <div className="modal-box relative">
-              <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+              <label htmlhtmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
               <h3 className="text-lg font-bold">Your Custom Program </h3>
               <p className="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
                 & the correct technique to prevent injury.</p>
@@ -393,7 +393,7 @@ export default function Workout() {
                     <h2 className="card-title">Beginner Program</h2>
                     <p></p>
                     <div className="card-actions justify-end">
-                      <label htmlFor="my-modal-3" className="btn modal-button btn-primary" onClick={handleBeginner}>Select</label>
+                      <label htmlhtmlFor="my-modal-3" className="btn modal-button btn-primary" onClick={handleBeginner}>Select</label>
                     </div>
                   </div>
                 </div>
@@ -406,7 +406,7 @@ export default function Workout() {
                     <h2 className="card-title">Moderate Program</h2>
                     <p></p>
                     <div className="card-actions justify-end">
-                      <label htmlFor="my-modal-3" className="btn modal-button btn-primary" onClick={handleModerate}>Select</label>
+                      <label htmlhtmlFor="my-modal-3" className="btn modal-button btn-primary" onClick={handleModerate}>Select</label>
                     </div>
                   </div>
                 </div>
@@ -419,7 +419,7 @@ export default function Workout() {
                     <h2 className="card-title">Advanced Program</h2>
                     <p></p>
                     <div className="card-actions justify-end">
-                      <label htmlFor="my-modal-3" className="btn modal-button btn-primary" onClick={handleAdvanced}>Select</label>
+                      <label htmlhtmlFor="my-modal-3" className="btn modal-button btn-primary" onClick={handleAdvanced}>Select</label>
                     </div>
                   </div>
                 </div>
@@ -432,7 +432,7 @@ export default function Workout() {
                     <h2 className="card-title">Custom Program</h2>
                     <p></p>
                     <div className="card-actions justify-end">
-                      <label htmlFor="my-modal-3" className="btn modal-button btn-primary" onClick={handleCustom}>Select</label>
+                      <label htmlhtmlFor="my-modal-3" className="btn modal-button btn-primary" onClick={handleCustom}>Select</label>
                     </div>
                   </div>
                 </div>

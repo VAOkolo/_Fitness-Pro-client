@@ -108,9 +108,9 @@ export const AuthProvider = ({ children }) => {
                 },
                 body: JSON.stringify({ 'email': email, 'user_name': username, 'password': password })
             }
-            console.log(options)
+            (options)
             const response = await fetch(url, options)
-            console.log(response.status)
+            (response.status)
         } catch (err) {
             console.error(err)
         }

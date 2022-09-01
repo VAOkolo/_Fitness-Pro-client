@@ -56,7 +56,7 @@ function workoutSessionSetter(startDate, endDate, template, workout_id) {
       }
     }
   }
-  console.log(workoutArray)
+
   return workoutArray
 }
 

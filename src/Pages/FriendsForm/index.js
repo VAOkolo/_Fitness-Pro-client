@@ -40,7 +40,7 @@ export default function FriendsForm() {
 
   const handleLevel = (e) => {
     e.preventDefault()
-    console.log(e.target.value)
+    (e.target.value)
     pathChange('/submitworkout')
   }
 
@@ -81,7 +81,7 @@ export default function FriendsForm() {
       let nameStr = name.toString()
       let emailStr = email.toString()
       let { unique_str } = createdWorkoutObject
-      console.log(createdWorkoutObject)
+      (createdWorkoutObject)
       let body = {
         account_id: user.user_id,
         message_name: `Hey ${nameStr}! I'm challenging you to take part in my workout!`,
@@ -89,7 +89,7 @@ export default function FriendsForm() {
         message_body: `Your special string is ${unique_str} input it at http://localhost:3000/acceptinvite to link with your challenger!`
       }
 
-      console.log(body)
+      (body)
 
       let options = {
         method: 'POST',
@@ -199,7 +199,7 @@ export default function FriendsForm() {
                             <div className="ui divider"></div>
 
                             <div className="form-control">
-                              <label className="label" htmlFor="exampleInputPassword1">
+                              <label className="label" htmlhtmlFor="exampleInputPassword1">
                                 <span className="label-text">Friend's Email</span>
                               </label>
                               <input type="text" id="exampleInputPassword1" placeholder="email"

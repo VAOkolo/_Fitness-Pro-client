@@ -5,8 +5,8 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-    console.log("REDUCER")
-    console.log(action)
+    ("REDUCER")
+    (action)
     switch (action.type) {
         case "LEVEL":
             return { ...state, level: action.payload }
