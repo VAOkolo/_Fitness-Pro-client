@@ -133,8 +133,8 @@ export default function Friends() {
                                         <h2 className="card-title">Want To Invite A Friend?</h2>
                                         <p></p>
                                         <div className="card-actions justify-end">
-                                            <label htmlhtmlFor="my-modal-3" onClick={handleDash} className="btn ">No Thanks</label>
-                                            <label htmlhtmlFor="my-modal-3" onClick={friendForm} className="btn modal-button btn-primary">Yeah Sure!</label>
+                                            <label htmlFor="my-modal-3" onClick={handleDash} className="btn ">No Thanks</label>
+                                            <label htmlFor="my-modal-3" onClick={friendForm} className="btn modal-button btn-primary">Yeah Sure!</label>
                                         </div>
                                     </div>
                                 </div>

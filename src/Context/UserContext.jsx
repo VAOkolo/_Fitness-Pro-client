@@ -27,19 +27,9 @@ export const UserProvider = ({ children }) => {
         return workout_id
     }
 
-    // BRINGING LOG WORKOUTS FILTERED BY TODAY
-    let setTodaysExercises = async (workout_id) => {
-        try {
-            const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/${workout_id}/sessionday`)
-            const data = await response.json()
-            return data
-        } catch (err) {
-            console.error(err)
-        }
-    }
-
-    //POSTS SETS TO WORKOUT SESSION
+    //posts sets to workout session
     let userExercisePosts = async ([{ workout_session_id, reps, weights }], workout_session_id_int) => {
+
         try {
             const options = {
                 method: 'POST',
@@ -61,7 +51,6 @@ export const UserProvider = ({ children }) => {
             console.error(err)
         }
     }
-
 
     //patch request to update workout session complete status
     let postWorkoutCompletionStatus = async (workout_session_id_int, workout_id, exercise) => {
@@ -89,13 +78,25 @@ export const UserProvider = ({ children }) => {
 
     }
 
+    //todays exercise setter
+    let setTodaysExercises = async (workout_id) => {
+        try {
+            const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/${workout_id}/sessionday`)
+            const data = await response.json()
+            return data
+        } catch (err) {
+            console.error(err)
+        }
+    }
+
+
 
     //post new workout
-    const postNewWorkout = async (user_profile_id, startDate, endDate) => {
+    const postNewWorkout = async (user_profile_id, unique_str, startDate, endDate) => {
         try {
             let body = {
                 user_profile: parseInt(user_profile_id),
-                unique_str: lobbyCodeGenerator(),
+                unique_str: unique_str ? unique_str : lobbyCodeGenerator(),
                 goal: "CONSISTENCY",
                 complete: false,
                 // start_time: startDate,
@@ -114,10 +115,8 @@ export const UserProvider = ({ children }) => {
             const data = await response.json()
             const workout_id = data.workout_id
 
-
             //set created workout object so we can send string and all the data to the user
             setCreatedWorkoutObject(data)
-
             return workout_id
 
         } catch (err) {
@@ -125,7 +124,7 @@ export const UserProvider = ({ children }) => {
         }
     }
 
-    //POST SESSION TO NEW WORKOUT
+    //post sessions to new workout
     const postNewWorkoutSessions = async ({ workout_id, exercise, date, date_name }) => {
         try {
             let body = {
@@ -144,16 +143,19 @@ export const UserProvider = ({ children }) => {
                 body: JSON.stringify(body)
             }
 
-            console.log(body)
+            // console.log(body)
             const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/exercise/sets/post`, options)
-            console.log(response)
-
+            const data = await response.json()
+            console.log(data)
             return response
 
         } catch (err) {
             console.error(err)
         }
     }
+
+
+
 
     function lobbyCodeGenerator() {
         let result = "";
@@ -165,27 +167,18 @@ export const UserProvider = ({ children }) => {
         return result;
     }
 
-
-
-
-
     let userData = {
         userWorkoutPaths: userWorkoutPaths,
-
-        //POSTS SETS TO WORKOUT SESSION
         userExercisePosts: userExercisePosts,
-
-        //POSTING NEW WORKOUT
         postNewWorkout: postNewWorkout,
-
-        // BRINGING LOG WORKOUTS FILTERED BY TODAY
-        setTodaysExercises: setTodaysExercises,
-
-        //POST SESSION TO NEW WORKOUT
+        beginnerTemplate: beginnerTemplate,
         postNewWorkoutSessions: postNewWorkoutSessions,
-
+        setTodaysExercises: setTodaysExercises,
         postWorkoutCompletionStatus: postWorkoutCompletionStatus,
+        createdWorkoutObject: createdWorkoutObject
     }
+
+
 
     return (
         <UserContext.Provider value={userData} >
