@@ -30,6 +30,7 @@ export default function Workout() {
   let [workout, setWorkout] = useState(true)
   let [stats, setStats] = useState(false)
   let [notes, setNotes] = useState([])
+  let [isSubmit, setIsSubmit] = useState(false)
 
   let [beginnerModal, setBeginnerModal] = useState(false)
   let [moderateModal, setModerateModal] = useState(false)
@@ -123,6 +124,7 @@ export default function Workout() {
 
 
   async function beginnerSelect() {
+    setIsSubmit(true)
     const id = await postNewWorkout(user_id, unique_str, startDate, endDate)
     const workoutSessions = workoutSessionSetter(startDate, endDate, beginnerTemplate, id)
     if (id) {
@@ -210,6 +212,10 @@ export default function Workout() {
                 min="2022-01-01" max="2023-12-31"></input>
               <br></br>
               <br></br>
+              <label class="label">
+                                <a href="#" class="label-text-alt link link-hover">                        {isSubmit && (
+                                  <div className="ui message success">Loading...</div>)}</a>
+                              </label>
               <br></br>
               {/* {*******VINCENT**********} */}
               <button onClick={beginnerSelect} className="btn btn-primary">Select This Template</button>
