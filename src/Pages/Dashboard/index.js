@@ -5,6 +5,7 @@ import { NavbarDash } from '../../Components/index'
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import FitnessCenterRoundedIcon from '@mui/icons-material/FitnessCenterRounded';
 import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
+import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import BookmarkAddedRoundedIcon from '@mui/icons-material/BookmarkAddedRounded';
 import PeopleAltRoundedIcon from '@mui/icons-material/PeopleAltRounded';
@@ -30,13 +31,7 @@ const Dashboard = () => {
     }, [])
 
 
-    
 
-
-    // These states below are:
-    // changing the purple colour of current sidebar selection
-    // changing page routes
-    // handling logout
 
     const handleDash = () => {
         setDashboard(true)
@@ -48,6 +43,13 @@ const Dashboard = () => {
         setDashboard(false)
         setStats(false)
         navigate('/workout')
+
+    }
+    const logWorkout = () => {
+        setWorkout(false)
+        setDashboard(false)
+        setStats(false)
+        navigate('/logworkout')
 
     }
     const handleStats = () => {
@@ -87,6 +89,11 @@ const Dashboard = () => {
                             onClick={handleWork}>
                             <FitnessCenterRoundedIcon />
                             <h3>Create A Workout +</h3>
+                        </a>
+                        <a href='#' className={dashboard || workout ? '' : 'active'}
+                            onClick={logWorkout}>
+                            <WorkOutlineIcon />
+                            <h3>Exercise Session</h3>
                         </a>
                         <a href='#' className={dashboard || workout ? '' : 'active'}
                             onClick={handleStats}>
