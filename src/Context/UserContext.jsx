@@ -114,7 +114,7 @@ export const UserProvider = ({ children }) => {
             const data = await response.json()
             const workout_id = data.workout_id
 
-            
+
             //set created workout object so we can send string and all the data to the user
             setCreatedWorkoutObject(data)
 
@@ -163,7 +163,7 @@ export const UserProvider = ({ children }) => {
             result += characters.charAt(Math.floor(Math.random() * characters.length));
         }
         return result;
-      }
+    }
 
 
 
