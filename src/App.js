@@ -1,4 +1,4 @@
-import { Landing, Login, Dashboard, Register, Workout, AddWorkout, SubmitWorkout, History, LogWorkout, ErrorPage, Friends, FriendsForm } from './Pages';
+import { Landing, Login, Dashboard, Register, Workout, AddWorkout, SubmitWorkout, History, LogWorkout, ErrorPage, Friends, FriendsForm, AcceptInvite } from './Pages';
 import { Routes, Route } from 'react-router-dom'
 import { useLocation } from "react-router-dom";
 
@@ -29,6 +29,7 @@ function App() {
               <Route path='/friendsform' element={<FriendsForm />} />
               <Route path='/addworkout' element={<AddWorkout />} />
               <Route path='/submitworkout' element={<SubmitWorkout />} />
+              <Route path='/acceptinvite' element={<AcceptInvite />} />
               <Route path="/*" element={<ErrorPage />} />
             </Routes>
           </AnimatePresence>
