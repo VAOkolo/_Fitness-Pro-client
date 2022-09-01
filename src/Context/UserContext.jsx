@@ -71,7 +71,7 @@ export const UserProvider = ({ children }) => {
 
             const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/patch/${workout_session_id_int}`, options)
             const data = await response.json()
-            (data)
+            return data
         } catch (err) {
             console.error(err)
         }
