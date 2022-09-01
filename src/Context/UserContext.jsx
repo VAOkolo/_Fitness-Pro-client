@@ -17,6 +17,8 @@ export const UserProvider = ({ children }) => {
         {"Friday": [1, 2, 3, 4,5]}
     ]
 
+    let [createdWorkoutObject, setCreatedWorkoutObject] = useState()
+
     let userWorkoutPaths = async (user_id) => {
         const response = await fetch(`http://localhost:8000/api/gym/profile/workouts/${user_id}/active`)
         const data = await response.json()
@@ -112,7 +114,9 @@ let setTodaysExercises = async (workout_id) => {
             const response = await fetch(`http://localhost:8000/api/gym/workout/new/post`, options)
             const data = await response.json()
             const workout_id = data.workout_id
-    
+            
+            //set created workout object so we can send string and all the data to the user
+            setCreatedWorkoutObject(data)
             return workout_id
         
         } catch (err){
@@ -170,7 +174,8 @@ let setTodaysExercises = async (workout_id) => {
         beginnerTemplate: beginnerTemplate,
         postNewWorkoutSessions: postNewWorkoutSessions,
         setTodaysExercises: setTodaysExercises,
-        postWorkoutCompletionStatus: postWorkoutCompletionStatus
+        postWorkoutCompletionStatus: postWorkoutCompletionStatus,
+        createdWorkoutObject: createdWorkoutObject
     }
 
 
