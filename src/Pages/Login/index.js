@@ -45,7 +45,7 @@ const Login = () => {
         <div className="ui divider"></div>
 
         <div className="form-control">
-          <label className="label" htmlFor="exampleInputPassword1">
+          <label className="label" htmlhtmlhtmlFor="exampleInputPassword1">
             <span className="label-text">Password</span>
           </label>
           <input type="text" id="exampleInputPassword1" placeholder="password"  

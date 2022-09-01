@@ -76,7 +76,6 @@ function dateFormatter(date) {
   return formattedDate.toString()
 }
 
-workoutSessionSetter("2022/10/10", "2022/11/20", beginnerTemplate, 1)
 
 export { dateFormatter, workoutSessionSetter }
 

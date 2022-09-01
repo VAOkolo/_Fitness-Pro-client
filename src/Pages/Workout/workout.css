@@ -71,12 +71,15 @@ b {
 .primary {
     color: var(--color-primary)
 }
+
 .danger {
     color: var(--color-danger)
 }
+
 .success {
     color: var(--color-success)
 }
+
 .warning {
     color: var(--color-warning)
 }
@@ -130,13 +133,13 @@ aside .sidebar {
 }
 
 @media screen and (max-width: 800px) {
-aside .sidebar {
-    height: 100%;
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10%;
-}
+    aside .sidebar {
+        height: 100%;
+        flex-direction: row;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10%;
+    }
 }
 
 aside .sidebar:hover {
@@ -165,14 +168,15 @@ aside .sidebar a span {
 }
 
 @media screen and (max-width: 800px) {
-aside .sidebar a svg {
-    font-size: 3rem;
+    aside .sidebar a svg {
+        font-size: 3rem;
+    }
 }
-}
+
 @media screen and (max-width: 400px) {
-aside .sidebar a svg {
-    font-size: 2.5rem;
-}
+    aside .sidebar a svg {
+        font-size: 2.5rem;
+    }
 }
 
 aside .sidebar a:last-child {
@@ -202,19 +206,21 @@ aside .sidebar a.active {
 }
 
 @media screen and (max-width: 800px) {
-aside .sidebar a.active {
-    padding: 0 3rem
+    aside .sidebar a.active {
+        padding: 0 3rem
+    }
 }
-}
+
 @media screen and (max-width: 600px) {
-aside .sidebar a.active {
-    padding: 0 2rem
+    aside .sidebar a.active {
+        padding: 0 2rem
+    }
 }
-}
+
 @media screen and (max-width: 450px) {
-aside .sidebar a.active {
-    padding: 0 1rem
-}
+    aside .sidebar a.active {
+        padding: 0 1rem
+    }
 }
 
 
@@ -232,7 +238,7 @@ main .outer-card {
     gap: 1.6rem;
 }
 
-main .outer-card > div {
+main .outer-card>div {
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     margin-top: 0rem;
@@ -241,11 +247,11 @@ main .outer-card > div {
 
 
 
-main .outer-card > div:hover {
+main .outer-card>div:hover {
     box-shadow: none;
 }
 
-main .outer-card > div .middle {
+main .outer-card>div .middle {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -271,14 +277,15 @@ main .outer-card .middle svg {
 }
 
 @media screen and (max-width: 425px) {
-main .outer-card .middle svg {
-    display: none;
+    main .outer-card .middle svg {
+        display: none;
+    }
 }
-}
+
 @media screen and (max-width: 425px) {
-main .outer-card .progress {
-    width: 0px;
-}
+    main .outer-card .progress {
+        width: 0px;
+    }
 }
 
 main .outer-card small {
@@ -351,25 +358,30 @@ main .recent-order table:hover {
     aside .sidebar h3 {
         display: none;
     }
+
     aside .sidebar a {
         justify-content: center;
         margin: 0;
     }
+
     aside .sidebar a:last-child {
         position: relative;
         margin-top: 1.8rem;
     }
+
     aside .sidebar a::before {
         display: none;
     }
 
     main .outer-card {
-        grid-template-columns: auto auto ;
+        grid-template-columns: auto auto;
         gap: 0
     }
+
     .workout-card {
         height: 86vh;
     }
+
     .dashboard {
         visibility: hidden;
     }

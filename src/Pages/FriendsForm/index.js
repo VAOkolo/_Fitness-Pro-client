@@ -192,7 +192,7 @@ export default function FriendsForm() {
                             <div className="ui divider"></div>
 
                             <div className="form-control">
-                              <label className="label" htmlFor="exampleInputPassword1">
+                              <label className="label" htmlhtmlhtmlFor="exampleInputPassword1">
                                 <span className="label-text">Friend's Email</span>
                               </label>
                               <input type="text" id="exampleInputPassword1" placeholder="email"

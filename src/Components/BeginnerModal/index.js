@@ -6,7 +6,7 @@ const BeginnerModal = () => {
     <input type="checkbox" id="my-modal-3" className="modal-toggle" />
     <div className="modal">
       <div className="modal-box relative">
-        <label for="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <label htmlhtmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
         <h3 className="text-lg font-bold">Our Beginner Program</h3>
         <p className="py-4">If you're brand new to strength training <br></br>we recommend gaining foundational movements<br></br>
         & the correct technique to prevent injury.</p>

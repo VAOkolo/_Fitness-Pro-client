@@ -182,7 +182,9 @@ export const UserProvider = ({ children }) => {
         setTodaysExercises: setTodaysExercises,
 
         //POST SESSION TO NEW WORKOUT
-        postNewWorkoutSessions: postNewWorkoutSessions
+        postNewWorkoutSessions: postNewWorkoutSessions,
+
+        postWorkoutCompletionStatus: postWorkoutCompletionStatus,
     }
 
     return (
