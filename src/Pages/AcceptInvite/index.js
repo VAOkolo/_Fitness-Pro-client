@@ -5,10 +5,13 @@ import { Navbar } from '../../Components';
 
 // UTILS
 import AuthContext from '../../Context/AuthContext';
+import UserContext from '../../Context/UserContext';
 
 
 const AcceptInvite = () => {
   let { user } = useContext(AuthContext)
+  let { postNewWorkout, postNewWorkoutSessions } = useContext(UserContext)
+
   let [inviteCode, setInviteCode ] = useState('')
 
   const updateInviteCode = (e) => {
@@ -16,9 +19,30 @@ const AcceptInvite = () => {
   }
 
   const postWorkout = async (e) => {
-    const response = await fetch('')
-    const data = await response.json()
-    console.log(data)
+    e.preventDefault()
+    try {
+        let user_id = user.user_id
+        const response = await fetch(`http://localhost:8000/api/gym/workout/unique_string/${inviteCode}`)
+        const data = await response.json()
+        const workout_sessions = data[0].user_workout_session
+        console.log(workout_sessions)
+        if(data){
+            const startDate = data[0].startTime
+            const endDate = data[0].endTime
+            const workout_id = await postNewWorkout(user_id,inviteCode, startDate, endDate )
+            console.log("this means it works" + workout_id)
+
+
+            // if(workout_sessions){
+            //     workout_sessions.forEach(async (row) => {
+            //         const response = await postNewWorkoutSessions(row)
+            //         // console.log(response)
+            //     })
+            // }
+        }
+    } catch (err){
+        console.error(err)
+    }
   }
 
   return (
@@ -54,7 +78,7 @@ const AcceptInvite = () => {
         <div className="ui divider"></div>
         
         <div className="form-control mt-6">
-          <button onSubmit={postWorkout} className="btn btn-primary">AcceptInvite</button>
+          <button onClick={postWorkout} className="btn btn-primary">AcceptInvite</button>
         </div>
       </div>
       </form>

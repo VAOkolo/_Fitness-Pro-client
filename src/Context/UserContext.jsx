@@ -92,11 +92,11 @@ let setTodaysExercises = async (workout_id) => {
 
 
 //post new workout
-    const postNewWorkout = async (user_profile_id, startDate, endDate) => {
+    const postNewWorkout = async (user_profile_id, unique_str, startDate, endDate) => {
         try {
             let body = {
                 user_profile: parseInt(user_profile_id),
-                unique_str: lobbyCodeGenerator(),
+                unique_str: unique_str ? unique_str : lobbyCodeGenerator() ,
                 goal: "CONSISTENCY",
                 complete: false,
                 // start_time: startDate,
@@ -143,10 +143,10 @@ let setTodaysExercises = async (workout_id) => {
                 body: JSON.stringify(body)
             }
 
-            console.log(body)
+            // console.log(body)
             const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/exercise/sets/post`, options)
-            console.log(response)
-    
+            const data = await response.json()
+            console.log(data)
             return response
         
         } catch (err){
