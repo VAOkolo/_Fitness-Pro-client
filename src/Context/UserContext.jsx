@@ -34,7 +34,7 @@ export const UserProvider = ({ children }) => {
         }
     }
 
-    //posts sets to workout session
+    //POSTS SETS TO WORKOUT SESSION
     let userExercisePosts = async ([{ workout_session_id, reps, weights }], workout_session_id_int) => {
         try {
             const options = {

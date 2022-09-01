@@ -10,7 +10,12 @@ import AuthContext from '../../Context/AuthContext';
 
 export default function LogWorkout() {
 
-    const { todaysExercises, userWorkoutPaths, userExercisePosts } = useContext(UserContext)
+    const {
+        setTodaysExercises,
+        userWorkoutPaths,
+        userExercisePosts
+    } = useContext(UserContext)
+
     const { user_id } = useContext(AuthContext)
     const [openModal, setOpenModal] = useState(false)
     const [modalId, setModalId] = useState()
@@ -21,7 +26,7 @@ export default function LogWorkout() {
     const [activeSession, setActiveSession] = useState([])
     const [workoutSessionSetId, setWorkoutSet] = useState([])
     const [modalData, setModalData] = useState([])
-
+    console.log(activeSession)
 
     let api_key = process.env.REACT_APP_API_KEY
 
@@ -40,9 +45,9 @@ export default function LogWorkout() {
 
     useEffect(() => {
         async function getActiveWorkout(user_id) {
-            const response = await userWorkoutPaths(user_id)
-            const activeWorkout = response[0].user_workout_session
-            setActiveSession(activeWorkout)
+            const workout_id = await userWorkoutPaths(user_id)
+            const todaysWorkouts = await setTodaysExercises(workout_id)
+            setActiveSession(todaysWorkouts)
         }
         getActiveWorkout(user_id)
     }, [user_id])
