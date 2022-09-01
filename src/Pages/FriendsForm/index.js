@@ -76,12 +76,12 @@ export default function FriendsForm() {
     let name = e.target[0].value
     let email = e.target[1].value
 
-    const postEmailForm = async ({createdWorkoutObject},name,email) => {
+    const postEmailForm = async (name,email) => {
       
       let body = {
-        message_name: `Hey ${name}! Join me in a contest`,
-        message_email: email,
-        message_body: createdWorkoutObject
+        message_name: `Hey ! Join me in a contest`,
+        message_email: "uihbkjb",
+        message_body: "yererjkrjkn"
       }
 
       let options = {
