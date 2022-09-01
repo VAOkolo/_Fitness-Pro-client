@@ -10,6 +10,7 @@ import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import BookmarkAddedRoundedIcon from '@mui/icons-material/BookmarkAddedRounded';
 import PeopleAltRoundedIcon from '@mui/icons-material/PeopleAltRounded';
 import SportsGymnasticsRoundedIcon from '@mui/icons-material/SportsGymnasticsRounded';
+import FitbitRoundedIcon from '@mui/icons-material/FitbitRounded';
 import { motion } from 'framer-motion'
 import Graph from '../../Components/Graph'
 import './dashboard.css'
@@ -48,14 +49,9 @@ const Dashboard = () => {
     const logWorkout = () => {
         setWorkout(false)
         setDashboard(false)
-        setStats(false)
+        setStats(true)
         navigate('/logworkout')
 
-    }
-    const handleStats = () => {
-        setStats(true)
-        setDashboard(false)
-        setWorkout(false)
     }
     const handleLogout = () => {
         setStats(true)
@@ -92,13 +88,8 @@ const Dashboard = () => {
                         </a>
                         <a href='#' className={dashboard || workout ? '' : 'active'}
                             onClick={logWorkout}>
-                            <WorkOutlineIcon />
+                            <FitbitRoundedIcon />
                             <h3>Exercise Session</h3>
-                        </a>
-                        <a href='#' className={dashboard || workout ? '' : 'active'}
-                            onClick={handleStats}>
-                            <AutoGraphRoundedIcon />
-                            <h3>Your Stats</h3>
                         </a>
                         <a href='#'
                             onClick={handleLogout}>
