@@ -14,6 +14,7 @@ import deadlift from '../../Assets/deadlift.jpg';
 import bench from '../../Assets/bench_press.jpg';
 import dumbbell from '../../Assets/dumbbell2.jpg';
 import treadmill from '../../Assets/treadmill.jpg';
+import FitbitRoundedIcon from '@mui/icons-material/FitbitRounded';
 
 
 // UTILS
@@ -116,6 +117,13 @@ export default function Workout() {
     setCustomModal(true)
   }
 
+  const logWorkout = () => {
+    setWorkout(false)
+    setDashboard(false)
+    setStats(true)
+    navigate('/logworkout')
+  }
+
 
   async function beginnerSelect() {
     const id = await postNewWorkout(user_id, unique_str, startDate, endDate)
@@ -197,7 +205,7 @@ export default function Workout() {
               <label htmlFor="start">Start date:</label>
               <input onChange={updateStartDate} type="date" id="startDate" name=""
                 value={startDate}
-                min="2022-01-01" max="2023-12-31"></input>
+                min="2022-01-01" max="2023-12-31"></input><br></br><br></br>
 
               <label htmlFor="end">End date:</label>
               <input onChange={updateEndDate} type="date" id="endDate" name=""
@@ -350,9 +358,9 @@ export default function Workout() {
               <h3>Create A Workout +</h3>
             </a>
             <a href='#' className={dashboard || workout ? '' : 'active'}
-              onClick={handleStats}>
-              <AutoGraphRoundedIcon />
-              <h3>Your Stats</h3>
+              onClick={logWorkout}>
+                <FitbitRoundedIcon />
+              <h3>Exercise Session</h3>
             </a>
             <a href='#'
               onClick={handleLogout}>
