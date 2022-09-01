@@ -11,7 +11,7 @@ function workoutSessionSetter(startDate, endDate, template, workout_id) {
   let d1 = new Date(startDate)
   let d2 = new Date(endDate)
 
-  const date = new Date(d1.getTime());
+  const date = new Date(d1.getTime() - 1);
 
   const dates = [];
 
@@ -56,7 +56,7 @@ function workoutSessionSetter(startDate, endDate, template, workout_id) {
       }
     }
   }
-
+  console.log(workoutArray)
   return workoutArray
 }
 

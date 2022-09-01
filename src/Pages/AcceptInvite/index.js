@@ -21,9 +21,12 @@ const AcceptInvite = () => {
     const postWorkout = async (e) => {
         e.preventDefault()
         try {
+            console.log(user)
             let user_id = user.user_id
+            console.log(user)
             const response = await fetch(`http://localhost:8000/api/gym/workout/unique_string/${inviteCode}`)
             const data = await response.json()
+            console.log(data)
             const workout_sessions = data[0].user_workout_session
             console.log(workout_sessions)
             if (data) {

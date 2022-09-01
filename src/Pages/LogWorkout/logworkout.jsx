@@ -47,8 +47,11 @@ export default function LogWorkout() {
     useEffect(() => {
         async function getActiveWorkout(user_id) {
             const workout_id = await userWorkoutPaths(user_id)
+            console.log(workout_id)
             const todaysWorkouts = await setTodaysExercises(workout_id)
+            console.log(todaysWorkouts)
             setActiveSession(todaysWorkouts)
+            
             setParentWorkoutId(todaysWorkouts[0].workout_id)
         }
         getActiveWorkout(user_id)

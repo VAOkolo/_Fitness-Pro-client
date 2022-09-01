@@ -29,6 +29,7 @@ function App() {
               <Route path='/friendsform' element={<FriendsForm />} />
               <Route path='/addworkout' element={<AddWorkout />} />
               <Route path='/submitworkout' element={<SubmitWorkout />} />
+              <Route path='/acceptinvite' element={<AcceptInvite />} />
               <Route path="/*" element={<ErrorPage />} />
             </Routes>
           </AnimatePresence>
