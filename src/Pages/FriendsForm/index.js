@@ -25,7 +25,7 @@ export default function FriendsForm() {
   let [workout, setWorkout] = useState(true)
   let [stats, setStats] = useState(false)
   let [notes, setNotes] = useState([])
-  let { authTokens, logoutUser } = useContext(AuthContext)
+  let { authTokens, logoutUser, user } = useContext(AuthContext)
   let { createdWorkoutObject } = useContext(UserContext)
 
   // const level = useSelector((state) => state.reducer.level);
@@ -76,13 +76,19 @@ export default function FriendsForm() {
     let name = e.target[0].value
     let email = e.target[1].value
 
-    const postEmailForm = async (name,email) => {
+    const postEmailForm = async (createdWorkoutObject,name,email) => {
+
+      let nameStr = name.toString()
+      let emailStr = email.toString()
       
       let body = {
-        message_name: `Hey ! Join me in a contest`,
-        message_email: "uihbkjb",
-        message_body: "yererjkrjkn"
+        account_id: user.user_id,
+        message_name: `Hey ${nameStr}! I'm challenging you to take part in my workout!`,
+        message_email: `${emailStr}`,
+        message_body: "Testing"
       }
+
+      console.log(body)
 
       let options = {
         method: 'POST',
