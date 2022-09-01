@@ -37,7 +37,7 @@ export default function Friends() {
 
     const handleLevel = (e) => {
         e.preventDefault()
-        console.log(e.target.value)
+        (e.target.value)
         pathChange('/submitworkout')
     }
 

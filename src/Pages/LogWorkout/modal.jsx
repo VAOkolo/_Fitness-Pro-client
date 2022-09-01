@@ -6,7 +6,7 @@ export default function Modal({ open, onClose, url, id, data, exercise, workoutS
         return null
     }
 
-    console.log(data)
+    (data)
     return (
         <div className="overlay container" id={workoutSetId}>
             <div className="modalContainer row">
@@ -26,14 +26,14 @@ export default function Modal({ open, onClose, url, id, data, exercise, workoutS
                         </thead>
                         <tbody>
                             {data && data.map((render, index) => (
-                                <tr>
+                                <tr key={index}>
                                     <td>Set {index + 1}</td>
                                     <td>{render.reps}</td>
                                     <td>{render.weights}</td>
                                 </tr>
                             ))}
                             {rows && rows.map((row, index) => (
-                                <tr className='sets' id={id}>
+                                <tr className='sets' id={id} key={index}>
                                     <td>Set {index + 1}</td>
                                     <td>
                                         <input type="number" placeholder="reps" />

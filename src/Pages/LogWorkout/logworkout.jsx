@@ -48,9 +48,7 @@ export default function LogWorkout() {
     useEffect(() => {
         async function getActiveWorkout(user_id) {
             const workout_id = await userWorkoutPaths(user_id)
-            console.log(workout_id)
             const todaysWorkouts = await setTodaysExercises(workout_id)
-            console.log(todaysWorkouts)
             setActiveSession(todaysWorkouts)
 
             setParentWorkoutId(todaysWorkouts[0].workout_id)
@@ -106,7 +104,7 @@ export default function LogWorkout() {
             {activeSession ?
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash" >
                     {activeSession.map((data) => (
-                        <div>
+                        <div key={data.pk}>
                             <div className="card-body" id={data.pk}>
                                 <div>
                                     <div className='ui divider'></div>
@@ -114,7 +112,7 @@ export default function LogWorkout() {
                                 </div>
                                 <div>
                                     {data.workout_exercise_set ?
-                                        <table class="table table-borderless margin-auto">
+                                        <table className="table table-borderless margin-auto" key={data.pk}>
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Sets</th>
@@ -124,7 +122,7 @@ export default function LogWorkout() {
                                             </thead>
                                             {data.workout_exercise_set.map(({ pk, sets, weights }) => {
                                                 return (
-                                                    <tbody>
+                                                    <tbody key={pk}>
                                                         <tr>
                                                             <td>{pk}</td>
                                                             <td>{sets}</td>

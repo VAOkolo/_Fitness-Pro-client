@@ -10,7 +10,7 @@ import AuthContext from '../../Context/AuthContext';
 const Login = () => {
   let { loginUser, user } = useContext(AuthContext)
 
-  console.log(user)
+  (user)
   return (
     <>
             <motion.div 
@@ -45,7 +45,7 @@ const Login = () => {
         <div className="ui divider"></div>
 
         <div className="form-control">
-          <label className="label" htmlFor="exampleInputPassword1">
+          <label className="label" htmlhtmlFor="exampleInputPassword1">
             <span className="label-text">Password</span>
           </label>
           <input type="text" id="exampleInputPassword1" placeholder="password"  

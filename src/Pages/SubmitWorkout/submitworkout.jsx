@@ -26,12 +26,12 @@ export default function SubmitWorkout() {
 
   const handleMeasure = (e) => {
     e.preventDefault()
-    console.log(e.target.value)
+    (e.target.value)
     dispatch(measureAction(e.target.value))
   }
   const handleDuration = (e) => {
     e.preventDefault()
-    console.log(e.target.value)
+    (e.target.value)
     dispatch(durationAction(e.target[0].value))
   }
 

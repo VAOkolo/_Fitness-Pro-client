@@ -31,7 +31,7 @@ export default function Register() {
   };
 
   useEffect(() => {
-    console.log(formErrors);
+    
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       postUser(formValues.username, formValues.email, formValues.password)
     }

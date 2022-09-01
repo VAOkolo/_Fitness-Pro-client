@@ -62,7 +62,7 @@ export default function Workout() {
 
   const handleLevel = (e) => {
     e.preventDefault()
-    console.log(e.target.value)
+    (e.target.value)
     pathChange('/submitworkout')
   }
 
@@ -130,7 +130,7 @@ export default function Workout() {
         postNewWorkoutSessions(e)
       })
     }
-    console.log(workoutSessions)
+    
     navigate('/friends')
   }
 
@@ -156,7 +156,7 @@ export default function Workout() {
   }
 
   useEffect(() => {
-    console.log(startDate, endDate)
+
   }, [startDate, endDate])
   // ******VINCENT**********
 

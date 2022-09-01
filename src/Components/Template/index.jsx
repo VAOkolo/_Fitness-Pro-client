@@ -33,7 +33,7 @@ export default function Template() {
 
     // const changeLevel = (level) => {
     //     setlevel(level)
-    //     console.log(level)
+    //     (level)
     // }
 
     const [optLgModal, setOptLgModal] = useState(false);

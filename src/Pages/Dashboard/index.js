@@ -74,12 +74,12 @@ const Dashboard = () => {
 
     function dashWorkModal() {
         setDashWork(true)
-        console.log("I've been clicked")
+        ("I've been clicked")
     }
 
     function submitLog(e) {
         e.preventDefault()
-        console.log(field1Set, field1Rep)
+        (field1Set, field1Rep)
         navigate('/workout')
     }
 
@@ -89,92 +89,92 @@ const Dashboard = () => {
 
 {dashWork &&     
     <div>
-    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-    <div class="modal">
-      <div class="modal-box relative">
-        <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-        <h3 class="text-lg font-bold">Login Your Workout Here!</h3>
+    <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+    <div className="modal">
+      <div className="modal-box relative">
+        <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+        <h3 className="text-lg font-bold">Login Your Workout Here!</h3>
         <br></br> 
-        <h3 class="text-lg font-bold">Workout A</h3>
-        <p class="py-4"></p>
+        <h3 className="text-lg font-bold">Workout A</h3>
+        <p className="py-4"></p>
 
-<form class="form-workout" onSubmit={submitLog} >
-        <h3 class="text-md font-bold">Bench Press: 3x8</h3>
-          <div class="form-control">
-  <label class="input-group input-group-sm">
+<form className="form-workout" onSubmit={submitLog} >
+        <h3 className="text-md font-bold">Bench Press: 3x8</h3>
+          <div className="form-control">
+  <label className="input-group input-group-sm">
     <span>Sets</span>
-    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field1Set} onChange={e => setField1Set(e.target.value)}/>
+    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field1Set} onChange={e => setField1Set(e.target.value)}/>
   </label>
 </div>
-          <div class="form-control">
-  <label class="input-group input-group-sm">
+          <div className="form-control">
+  <label className="input-group input-group-sm">
     <span>Reps</span>
-    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field1Rep} onChange={e => setField1Rep(e.target.value)}/>
+    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field1Rep} onChange={e => setField1Rep(e.target.value)}/>
   </label>
 </div>
           
           <br></br>
-          <h3 class="text-md font-bold">Barbell Row: 3x8</h3>
-          <div class="form-control">
-  <label class="input-group input-group-sm">
+          <h3 className="text-md font-bold">Barbell Row: 3x8</h3>
+          <div className="form-control">
+  <label className="input-group input-group-sm">
     <span>Sets</span>
-    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field2Set} onChange={e => setField2Set(e.target.value)}/>
+    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field2Set} onChange={e => setField2Set(e.target.value)}/>
   </label>
 </div>
-          <div class="form-control">
-  <label class="input-group input-group-sm">
+          <div className="form-control">
+  <label className="input-group input-group-sm">
     <span>Reps</span>
-    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field2Rep} onChange={e => setField2Rep(e.target.value)}/>
+    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field2Rep} onChange={e => setField2Rep(e.target.value)}/>
   </label>
 </div>
 
           <br></br>
-          <h3 class="text-md font-bold">Squat Variation: 3x8</h3>
-          <div class="form-control">
-  <label class="input-group input-group-sm">
+          <h3 className="text-md font-bold">Squat Variation: 3x8</h3>
+          <div className="form-control">
+  <label className="input-group input-group-sm">
     <span>Sets</span>
-    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field3Set} onChange={e => setField3Set(e.target.value)}/>
+    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field3Set} onChange={e => setField3Set(e.target.value)}/>
   </label>
 </div>
-          <div class="form-control">
-  <label class="input-group input-group-sm">
+          <div className="form-control">
+  <label className="input-group input-group-sm">
     <span>Reps</span>
-    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field3Rep} onChange={e => setField3Rep(e.target.value)}/>
+    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field3Rep} onChange={e => setField3Rep(e.target.value)}/>
   </label>
 </div>
 
           <br></br>
-          <h3 class="text-md font-bold">Tricep Extensions: 3x10</h3>
-          <div class="form-control">
-  <label class="input-group input-group-sm">
+          <h3 className="text-md font-bold">Tricep Extensions: 3x10</h3>
+          <div className="form-control">
+  <label className="input-group input-group-sm">
     <span>Sets</span>
-    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field4Set} onChange={e => setField4Set(e.target.value)}/>
+    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field4Set} onChange={e => setField4Set(e.target.value)}/>
   </label>
 </div>
-          <div class="form-control">
-  <label class="input-group input-group-sm">
+          <div className="form-control">
+  <label className="input-group input-group-sm">
     <span>Reps</span>
-    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field4Rep} onChange={e => setField4Rep(e.target.value)}/>
+    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field4Rep} onChange={e => setField4Rep(e.target.value)}/>
   </label>
 </div>
 
           <br></br>
-          <h3 class="text-md font-bold">Bicep Curls: 3x10</h3>
-          <div class="form-control">
-  <label class="input-group input-group-sm">
+          <h3 className="text-md font-bold">Bicep Curls: 3x10</h3>
+          <div className="form-control">
+  <label className="input-group input-group-sm">
     <span>Sets</span>
-    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field5Set} onChange={e => setField5Set(e.target.value)}/>
+    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field5Set} onChange={e => setField5Set(e.target.value)}/>
   </label>
 </div>
-          <div class="form-control">
-  <label class="input-group input-group-sm">
+          <div className="form-control">
+  <label className="input-group input-group-sm">
     <span>Reps</span>
-    <input type="text" placeholder="Type here" class="input input-bordered input-xs" value={field5Rep} onChange={e => setField5Rep(e.target.value)}/>
+    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field5Rep} onChange={e => setField5Rep(e.target.value)}/>
   </label>
 </div>
         <br></br>
         <br></br>
-        <button type="submit" class="btn btn-primary">Log Your Workout</button>
+        <button type="submit" className="btn btn-primary">Log Your Workout</button>
         </form>
       </div>
     </div>
@@ -252,7 +252,7 @@ const Dashboard = () => {
                                 </div>
                                 <div className='progress'>
                                     <svg>
-                                        <circle class="circle1" cx={38} cy={38} r={36}></circle>
+                                        <circle className="circle1" cx={38} cy={38} r={36}></circle>
                                     </svg>
                                     <div class="number1">
                                     <p>82%</p>
@@ -265,7 +265,7 @@ const Dashboard = () => {
                         {/* Metrics */}
 
 
-                        <div className='expenses' for="my-modal-3" onClick={dashWorkModal}>
+                        <div className='expenses' htmlFor="my-modal-3" onClick={dashWorkModal}>
                             <SportsGymnasticsRoundedIcon
                                 sx={{
                                     background: '#ff7782',
@@ -280,7 +280,7 @@ const Dashboard = () => {
                                     <h1>Upper</h1>
                                 </div>
                                 <div className='progress-middle-2'>
-                                <label for="my-modal-3" class="btn btn-error modal-button">Open</label>
+                                <label htmlFor="my-modal-3" className="btn btn-error modal-button">Open</label>
                                 </div>
                             </div>
                             <small className='text-cancel'>Click For More Info</small>

@@ -47,14 +47,14 @@ function dateArray(startDate, endDate){
 
  
       for(i = 0; i < template.length; i++){
-          console.log(template.length)
+          (template.length)
           templateDayObject = Object.keys(template[i])
           templateDayName = templateDayObject[0]
           templateExerciseArray = template[i][templateDayName]
-          console.log(templateDayObject)
+          (templateDayObject)
         
         for(j=0; j < templateExerciseArray.length; j++){
-            console.log(templateExerciseArray[j])
+            (templateExerciseArray[j])
             exercise = templateExerciseArray[j]
 
             for(k=0; k < dates.length; k++){
@@ -64,7 +64,7 @@ function dateArray(startDate, endDate){
           }
         }
     }
-    console.log(workoutArray)
+    (workoutArray)
     return workoutArray
 }
 
