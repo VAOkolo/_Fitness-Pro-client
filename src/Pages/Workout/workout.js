@@ -14,6 +14,7 @@ import deadlift from '../../Assets/deadlift.jpg';
 import bench from '../../Assets/bench_press.jpg';
 import dumbbell from '../../Assets/dumbbell2.jpg';
 import treadmill from '../../Assets/treadmill.jpg';
+import FitbitRoundedIcon from '@mui/icons-material/FitbitRounded';
 
 
 // UTILS
@@ -114,6 +115,13 @@ export default function Workout() {
     setModerateModal(false)
     setAdvancedModal(false)
     setCustomModal(true)
+  }
+
+  const logWorkout = () => {
+    setWorkout(false)
+    setDashboard(false)
+    setStats(true)
+    navigate('/logworkout')
   }
 
 
@@ -350,9 +358,9 @@ export default function Workout() {
               <h3>Create A Workout +</h3>
             </a>
             <a href='#' className={dashboard || workout ? '' : 'active'}
-              onClick={handleStats}>
-              <AutoGraphRoundedIcon />
-              <h3>Your Stats</h3>
+              onClick={logWorkout}>
+                <FitbitRoundedIcon />
+              <h3>Exercise Session</h3>
             </a>
             <a href='#'
               onClick={handleLogout}>
