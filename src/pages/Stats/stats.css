@@ -1,0 +1,412 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+html {
+    font-size: 14px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-dark-variant);
+}
+
+a {
+    color: var(--color-dark)
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 0.87rem;
+}
+
+h4 {
+    font-size: 0.8rem;
+}
+
+h5 {
+    font-size: 0.77rem;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+.graph-stats-tab {
+    max-height: 500px;
+}
+
+
+
+.profile-photo {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-cancel {
+    color: var(--color-info-dark);
+}
+
+p {
+    color: var(--color-dark-variant);
+}
+
+b {
+    color: var(--color-dark);
+}
+
+.primary {
+    color: var(--color-primary)
+}
+.danger {
+    color: var(--color-danger)
+}
+.success {
+    color: var(--color-success)
+}
+.warning {
+    color: var(--color-warning)
+}
+
+.container-dash {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: auto auto;
+}
+
+@media screen and (max-width: 800px) {
+    .container-dash {
+        display: block;
+    }
+}
+
+aside .top {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2.8rem;
+    border-radius: var(--border-radius-1);
+}
+
+aside .logo {
+    display: flex;
+    gap: 0.8rem;
+}
+
+aside .logo img {
+    width: 2rem;
+    height: 2rem;
+}
+
+aside .close {
+    display: none;
+}
+
+aside .sidebar {
+    background: var(--color-card);
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 3rem;
+    border-radius: var(--border-radius-1);
+    transition: all 300ms ease;
+}
+
+@media screen and (max-width: 800px) {
+aside .sidebar {
+    height: 100%;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+}
+}
+
+aside .sidebar:hover {
+    box-shadow: none;
+}
+
+aside h3 {
+    font-weight: 500;
+}
+
+aside .sidebar a {
+    display: flex;
+    color: var(--color-info-dark);
+    margin: 1rem;
+    margin-right: 0;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a span {
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+
+@media screen and (max-width: 800px) {
+aside .sidebar a svg {
+    font-size: 3rem;
+}
+}
+@media screen and (max-width: 400px) {
+aside .sidebar a svg {
+    font-size: 2.5rem;
+}
+}
+
+aside .sidebar a:last-child {
+    position: absolute;
+    bottom: 2rem;
+    width: none;
+}
+
+aside .sidebar a.active {
+    background: var(--color-light);
+    color: var(--color-primary);
+    margin-left: 0;
+}
+
+aside .sidebar a.active::before {
+    content: '';
+    width: 6px;
+    height: 100%;
+    background: var(--color-primary);
+}
+
+aside .sidebar a.active {
+    color: var(--color-primary);
+    margin-left: calc(1rem - 14px);
+}
+
+@media screen and (max-width: 800px) {
+aside .sidebar a.active {
+    padding: 0 3rem
+}
+}
+@media screen and (max-width: 600px) {
+aside .sidebar a.active {
+    padding: 0 2rem
+}
+}
+@media screen and (max-width: 450px) {
+aside .sidebar a.active {
+    padding: 0 1rem
+}
+}
+
+
+aside .sidebar a:hover {
+    color: var(--color-primary);
+}
+
+
+/* ================ MAIN =================== */
+
+.main-friend {
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 800px) {
+    .main-friend {
+        margin-top: 6rem;
+    }
+}
+
+
+main .outer-card-friend  > div {
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 0rem;
+    transition: all 300ms ease;
+}
+
+
+
+main .outer-card-friend  > div:hover {
+    box-shadow: none;
+}
+
+main .outer-card-friend  > div .middle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main .outer-card-friend  h3 {
+    margin: 1rem 0 0.6rem;
+    padding-right: 3rem;
+    font-size: 1rem;
+}
+
+main .outer-card-friend  .progress {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    padding-left: 1rem;
+}
+
+main .outer-card-friend  .middle svg {
+    width: 7rem;
+    height: 7rem;
+}
+
+@media screen and (max-width: 425px) {
+main .outer-card-friend  .middle svg {
+    display: none;
+}
+}
+@media screen and (max-width: 425px) {
+main .outer-card-friend  .progress {
+    width: 0px;
+}
+}
+
+main .outer-card-friend  small {
+    margin-top: 1.6rem;
+    display: block;
+}
+
+/* =================== workout-card ===================== */
+
+main .recent-order {
+    margin-top: 2rem;
+}
+
+main .recent-order table {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-border-radius);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+main .recent-order table:hover {
+    box-shadow: none;
+}
+
+.workout-card {
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    transition: all 300ms ease;
+    height: 86vh;
+    margin-top: 4rem;
+
+}
+
+.card-body {
+    background: var(--color-card);
+}
+
+.card {
+    max-width: 700px;
+}
+
+.workout-card:hover {
+    box-shadow: none;
+}
+
+.bg-base-100 {
+    --tw-bg-opacity: 0
+}
+
+.graph-stats-tab {
+    background: var(--color-card);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+    height: 1000px;
+}
+
+.graph-stats-tab:hover {
+    box-shadow: 0px 0px 12px;
+    cursor: pointer;
+}
+
+
+/* ================= MEDIA QUERIES ================== */
+
+
+@media screen and (max-width: 1600px) {
+    .container-dash {
+        width: 94%;
+        grid-template-columns: 15rem auto;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container-dash {
+        width: 94%;
+        grid-template-columns: 8rem auto;
+    }
+
+    aside .sidebar h3 {
+        display: none;
+    }
+    aside .sidebar a {
+        justify-content: center;
+        margin: 0;
+    }
+    aside .sidebar a:last-child {
+        position: relative;
+        margin-top: 1.8rem;
+    }
+    aside .sidebar a::before {
+        display: none;
+    }
+
+    main .outer-card-friend  {
+        grid-template-columns: auto auto ;
+        gap: 0
+    }
+    .workout-card {
+        height: 86vh;
+    }
+    .dashboard {
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    main .outer-card-friend  {
+        grid-template-columns: auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    aside .sidebar a:last-child {
+        margin-top: 0rem;
+        bottom: 0rem;
+    }
+}
