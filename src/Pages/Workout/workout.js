@@ -77,13 +77,16 @@ export default function Workout() {
     setWorkout(true)
     setDashboard(false)
     setStats(false)
+    ('/workout')
 
   }
-  const handleStats = () => {
-    setStats(true)
-    setDashboard(false)
+  const logWorkout = () => {
     setWorkout(false)
-  }
+    setDashboard(false)
+    setStats(true)
+    navigate('/logworkout')
+
+}
   const handleLogout = () => {
     setStats(true)
     setDashboard(true)
@@ -117,12 +120,6 @@ export default function Workout() {
     setCustomModal(true)
   }
 
-  const logWorkout = () => {
-    setWorkout(false)
-    setDashboard(false)
-    setStats(true)
-    navigate('/logworkout')
-  }
 
 
   async function beginnerSelect() {

@@ -254,6 +254,9 @@ const Dashboard = () => {
                                     <svg>
                                         <circle className="circle1" cx={38} cy={38} r={36}></circle>
                                     </svg>
+                                    <div class="number1">
+                                    <p>82%</p>
+                                </div>
                                 </div>
                             </div>
                             <small className='text-cancel'>Last 24 Hours</small>
@@ -271,7 +274,7 @@ const Dashboard = () => {
                                     padding: '0.5rem',
                                     fontSize: '3rem'
                                 }} />
-                            <div className='middle'>
+                            <div className='middle middle-btn'>
                                 <div className='left'>
                                     <h3>Your Workout Today</h3>
                                     <h1>Upper</h1>
@@ -302,8 +305,11 @@ const Dashboard = () => {
                                 </div>
                                 <div className='progress'>
                                     <svg>
-                                        <circle cx={38} cy={38} r={36}></circle>
+                                        <circle class="circle3" cx={38} cy={38} r={36}></circle>
                                     </svg>
+                                    <div class="number2">
+                                    <p>67%</p>
+                                </div>
                                 </div>
                             </div>
                             <small className='text-cancel'>Last 24 Hours</small>
