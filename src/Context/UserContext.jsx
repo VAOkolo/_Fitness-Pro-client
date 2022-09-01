@@ -11,9 +11,9 @@ export const UserProvider = ({ children }) => {
 
     let beginnerTemplate = [
         {"Monday": [1, 2, 3, 4,5]},
-        {"Tuesday": []},
+        {"Tuesday": [1, 2, 3, 4,5]},
         {"Wednesday": [1, 2, 3, 4,5]},
-        {"Thursday": []},
+        {"Thursday": [1, 2, 3, 4,5]},
         {"Friday": [1, 2, 3, 4,5]}
     ]
 

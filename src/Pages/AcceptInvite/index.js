@@ -32,13 +32,11 @@ const AcceptInvite = () => {
             const workout_id = await postNewWorkout(user_id,inviteCode, startDate, endDate )
             console.log("this means it works" + workout_id)
 
-
-            // if(workout_sessions){
-            //     workout_sessions.forEach(async (row) => {
-            //         const response = await postNewWorkoutSessions(row)
-            //         // console.log(response)
-            //     })
-            // }
+            if(workout_sessions){
+                workout_sessions.forEach((e) => {
+                    postNewWorkoutSessions(e)
+                })
+            }
         }
     } catch (err){
         console.error(err)
