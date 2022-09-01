@@ -214,8 +214,8 @@ export default function FriendsForm() {
                               <input type="text" id="exampleInputPassword1" placeholder="email"
                                 name="password" className="input input-ghost"
                               />
-                              <label class="label">
-                                <a href="#" class="label-text-alt link link-hover">                        {isSubmit && (
+                              <label className="label">
+                                <a href="#" className="label-text-alt link link-hover">                        {isSubmit && (
                                   <div className="ui message success">Email Has Been Sent!</div>)}</a>
                               </label>
                             </div>

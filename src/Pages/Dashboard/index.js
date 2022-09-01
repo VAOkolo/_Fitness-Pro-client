@@ -254,7 +254,7 @@ const Dashboard = () => {
                                     <svg>
                                         <circle className="circle1" cx={38} cy={38} r={36}></circle>
                                     </svg>
-                                    <div class="number1">
+                                    <div className="number1">
                                     <p>82%</p>
                                 </div>
                                 </div>
@@ -305,9 +305,9 @@ const Dashboard = () => {
                                 </div>
                                 <div className='progress'>
                                     <svg>
-                                        <circle class="circle3" cx={38} cy={38} r={36}></circle>
+                                        <circle className="circle3" cx={38} cy={38} r={36}></circle>
                                     </svg>
-                                    <div class="number2">
+                                    <div className="number2">
                                     <p>67%</p>
                                 </div>
                                 </div>

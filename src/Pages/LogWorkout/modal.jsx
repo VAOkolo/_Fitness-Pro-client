@@ -6,7 +6,6 @@ export default function Modal({ open, onClose, url, id, data, exercise, workoutS
         return null
     }
 
-    (data)
     return (
         <div className="overlay container" id={workoutSetId}>
             <div className="modalContainer row">

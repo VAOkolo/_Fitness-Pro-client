@@ -212,8 +212,8 @@ export default function Workout() {
                 min="2022-01-01" max="2023-12-31"></input>
               <br></br>
               <br></br>
-              <label class="label">
-                                <a href="#" class="label-text-alt link link-hover">                        {isSubmit && (
+              <label className="label">
+                                <a href="#" className="label-text-alt link link-hover">                        {isSubmit && (
                                   <div className="ui message success">Loading...</div>)}</a>
                               </label>
               <br></br>
