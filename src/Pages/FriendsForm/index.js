@@ -75,7 +75,33 @@ export default function FriendsForm() {
     e.preventDefault()
     let name = e.target[0].value
     let email = e.target[1].value
-    console.log(createdWorkoutObject)
+
+    const postEmailForm = async ({createdWorkoutObject},name,email) => {
+      
+      let body = {
+        message_name: `Hey ${name}! Join me in a contest`,
+        message_email: email,
+        message_body: createdWorkoutObject
+      }
+
+      let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body)
+    }
+
+    try{
+      const response = await fetch('http://localhost:8000/api/gym/email',options)
+      const data = await response.json()
+      return data
+    } catch (err){
+      console.error(err)
+    }
+    }
+
+    postEmailForm(createdWorkoutObject,name,email)
   }
 
 
