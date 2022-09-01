@@ -16,6 +16,8 @@ import bench from '../../Assets/bench_press.jpg';
 import dumbbell from '../../Assets/dumbbell2.jpg';
 import treadmill from '../../Assets/treadmill.jpg';
 
+import UserContext from '../../Context/UserContext';
+
 export default function FriendsForm() {
 
   let navigate = useNavigate()
@@ -24,6 +26,7 @@ export default function FriendsForm() {
   let [stats, setStats] = useState(false)
   let [notes, setNotes] = useState([])
   let { authTokens, logoutUser } = useContext(AuthContext)
+  let { createdWorkoutObject } = useContext(UserContext)
 
   // const level = useSelector((state) => state.reducer.level);
 
@@ -73,6 +76,32 @@ export default function FriendsForm() {
     let name = e.target[0].value
     let email = e.target[1].value
 
+    const postEmailForm = async (name,email) => {
+      
+      let body = {
+        message_name: `Hey ! Join me in a contest`,
+        message_email: "uihbkjb",
+        message_body: "yererjkrjkn"
+      }
+
+      let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body)
+    }
+
+    try{
+      const response = await fetch('http://localhost:8000/api/gym/email',options)
+      const data = await response.json()
+      return data
+    } catch (err){
+      console.error(err)
+    }
+    }
+
+    postEmailForm(createdWorkoutObject,name,email)
   }
 
 
