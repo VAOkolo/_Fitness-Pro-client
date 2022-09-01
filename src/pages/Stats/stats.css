@@ -265,6 +265,10 @@ main .outer-card-friend  h3 {
     font-size: 1rem;
 }
 
+.first-button {
+    background-color: #7380ec;
+}
+
 main .outer-card-friend  .progress {
     position: relative;
     width: 92px;
@@ -276,6 +280,10 @@ main .outer-card-friend  .progress {
 main .outer-card-friend  .middle svg {
     width: 7rem;
     height: 7rem;
+}
+
+.main-stats {
+    margin-top: 0;
 }
 
 @media screen and (max-width: 425px) {

@@ -7,6 +7,9 @@ import AuthContext from '../../context/AuthContext'
 import { motion } from 'framer-motion';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import FitnessCenterRoundedIcon from '@mui/icons-material/FitnessCenterRounded';
+import BookmarkAddedRoundedIcon from '@mui/icons-material/BookmarkAddedRounded';
+import PeopleAltRoundedIcon from '@mui/icons-material/PeopleAltRounded';
+import SportsGymnasticsRoundedIcon from '@mui/icons-material/SportsGymnasticsRounded';
 import AutoGraphRoundedIcon from '@mui/icons-material/AutoGraphRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import './stats.css'
@@ -18,6 +21,7 @@ import Stare from '../../assets/workout_friends.jpg'
 export default function Stats() {
 
   let navigate = useNavigate()
+  const [dashWork, setDashWork] = useState(false)
   let [dashboard, setDashboard] = useState(false)
   let [workout, setWorkout] = useState(false)
   let [stats, setStats] = useState(true)
@@ -66,6 +70,12 @@ export default function Stats() {
         logoutUser()
     }
     
+    function dashWorkModal() {
+        setDashWork(true)
+        console.log("I've been clicked")
+    }
+
+    
 
     return (
     <>
@@ -108,29 +118,94 @@ export default function Stats() {
 
         {/* =======================Workout=======================*/}
 
-        <motion.div className="workout-card"
+                <motion.div className="workout-card-stats"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                        default: {
+                            duration: 0.1,
+                        }
+                    }}>
+                    <main class="main-friend">
+                        <h1>See Your Competition!</h1>
+                        <div class="outer-card-friend">
+
+
+                            <div className='recent-order'>
+                                <h2>Multiplayer Stats</h2>
+                                <div style={{ width: '99%' }} className="graph-stats-tab">
+                                    <Graph />
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
+        <motion.main
+        className="main-stats"
         initial={{ opacity: 0}}
         animate={{ opacity: 1}}
         exit={{ opacity: 0}}
         transition={{
             default: {
-                duration: 0.1,
+                duration: 0.3,
             }
         }}>
-            <main class="main-friend">
-              <h1>See Your Competition!</h1>
-              <div class="outer-card-friend">
 
-
-              <div className='recent-order'>
-                        <h2>Multiplayer Stats</h2>
-                        <div style={{width: '99%'}} className="graph-stats-tab">
-                            <Graph />
+            {/* Completion */}
+            
+            <div className='insights'>
+                <div className='sales'>
+                    <PersonRoundedIcon 
+                    sx={{
+                        background: '#7380ec',
+                        borderRadius: '50%',
+                        color: 'white',
+                        padding: '0.5rem',
+                        fontSize: '3rem'
+                    }}/>
+                    <div className='middle'>
+                        <div className='left'>
+                            
+                            <h3>Date Joined: <br></br>1st September 2022</h3>
+                            <br></br>
+                            <h1>Harry</h1>
+                        </div>
+                            <div className='progress-middle-1'>
+                            <label for="my-modal-3" class="btn btn-error modal-button first-button">More Info</label>
                         </div>
                     </div>
+                    <small className='text-cancel'>User Profile</small>
+                </div>
 
-</div>
-</main>
+            {/* Metrics */}
+
+            
+            <div className='expenses' for="my-modal-3" onClick={dashWorkModal}>
+                    <PersonRoundedIcon
+                    sx={{
+                        background: '#ff7782',
+                        borderRadius: '50%',
+                        color: 'white',
+                        padding: '0.5rem',
+                        fontSize: '3rem'
+                    }}/>
+                    <div className='middle middle-btn'>
+                        <div className='left'>
+                        <h3>Date Joined:<br></br> 29th August 2022
+                        </h3>
+                        <h1>Vincent</h1>
+                        </div>
+                            <div className='progress-middle-2'>
+
+                                <label for="my-modal-3" class="btn btn-error modal-button">More Info</label>
+
+                        </div>
+                    </div>
+                    <small className='text-cancel'>User Profile</small>
+                </div>
+            </div>   
+        </motion.main>
         </motion.div>
         </div>
       </>

@@ -79,7 +79,7 @@ const Dashboard = () => {
         setStats(true)
         setDashboard(false)
         setWorkout(false)
-        navigate('/logworkout')
+        navigate('/stats')
     }
     const handleLogout = () => {
         setStats(true)
