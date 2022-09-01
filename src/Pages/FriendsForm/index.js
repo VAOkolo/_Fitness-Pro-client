@@ -25,6 +25,7 @@ export default function FriendsForm() {
   let [workout, setWorkout] = useState(true)
   let [stats, setStats] = useState(false)
   let [notes, setNotes] = useState([])
+  let [isSubmit, setIsSubmit] = useState(false)
   let { authTokens, logoutUser, user } = useContext(AuthContext)
   let { createdWorkoutObject } = useContext(UserContext)
 
@@ -74,10 +75,12 @@ export default function FriendsForm() {
 
 
 
+
   const getFormData = (e) => {
     e.preventDefault()
     let name = e.target[0].value
     let email = e.target[1].value
+    setIsSubmit(true)
 
     const postEmailForm = async (createdWorkoutObject, name, email) => {
 
@@ -112,6 +115,9 @@ export default function FriendsForm() {
     }
 
     postEmailForm(createdWorkoutObject, name, email)
+    setTimeout(() => {
+      navigate('/dashboard')
+    }, 2000)
   }
 
 
@@ -208,6 +214,10 @@ export default function FriendsForm() {
                               <input type="text" id="exampleInputPassword1" placeholder="email"
                                 name="password" className="input input-ghost"
                               />
+                              <label class="label">
+                                <a href="#" class="label-text-alt link link-hover">                        {isSubmit && (
+                                  <div className="ui message success">Email Has Been Sent!</div>)}</a>
+                              </label>
                             </div>
                             <div className="ui divider"></div>
 
