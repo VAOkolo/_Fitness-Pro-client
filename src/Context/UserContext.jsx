@@ -20,7 +20,9 @@ export const UserProvider = ({ children }) => {
     let userWorkoutPaths = async (user_id) => {
         const response = await fetch(`http://localhost:8000/api/gym/profile/workouts/${user_id}/active`)
         const data = await response.json()
-        return data
+        const workout_id = data[0].workout_id
+        console.log(workout_id)
+        return workout_id
     }
 
     // BRINGING LOG WORKOUTS FILTERED BY TODAY
@@ -43,23 +45,28 @@ export const UserProvider = ({ children }) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    "exercise_sets": workout_session_id,
+                    "exercise_sets": workout_session_id_int,
                     "reps": reps,
                     "weights": weights
                 })
             }
             const response = await fetch(`http://localhost:8000/api/gym/sets/post`, options)
             const data = await response.json()
-            await postWorkoutCompletionStatus(workout_session_id_int)
+            const exerciseId = data.pk
+            return exerciseId
+            // await postWorkoutCompletionStatus(workout_session_id_int)
         } catch (err) {
             console.error(err)
         }
     }
 
+
     //patch request to update workout session complete status
-    let postWorkoutCompletionStatus = async (workout_session_id_int) => {
+    let postWorkoutCompletionStatus = async (workout_session_id_int, workout_id, exercise) => {
         try {
             let body = {
+                workout_id: workout_id,
+                exercise: exercise,
                 complete: true,
             }
 
@@ -67,17 +74,19 @@ export const UserProvider = ({ children }) => {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
-                }
+                },
+                body: JSON.stringify(body)
             }
 
             const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/patch/${workout_session_id_int}`, options)
             const data = await response.json()
-
+            console.log(data)
         } catch (err) {
             console.error(err)
         }
 
     }
+
 
     //post new workout
     const postNewWorkout = async (user_profile_id, startDate, endDate) => {
@@ -87,8 +96,8 @@ export const UserProvider = ({ children }) => {
                 unique_str: lobbyCodeGenerator(),
                 goal: "CONSISTENCY",
                 complete: false,
-                start_time: startDate,
-                end_time: endDate
+                // start_time: startDate,
+                // end_time: endDate
             }
 
             let options = {
@@ -110,12 +119,12 @@ export const UserProvider = ({ children }) => {
         }
     }
 
-    //post sessions to new workout
-    const postNewWorkoutSessions = async ({ workout_id, exercise_id, date, date_name }) => {
+    //POST SESSION TO NEW WORKOUT
+    const postNewWorkoutSessions = async ({ workout_id, exercise, date, date_name }) => {
         try {
             let body = {
                 workout_id: workout_id,
-                exercise: exercise_id,
+                exercise: exercise,
                 date: date,
                 date_name: date_name,
                 complete: false
@@ -129,6 +138,7 @@ export const UserProvider = ({ children }) => {
                 body: JSON.stringify(body)
             }
 
+            console.log(body)
             const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/exercise/sets/post`, options)
             console.log(response)
 
@@ -148,6 +158,8 @@ export const UserProvider = ({ children }) => {
         }
         return result;
     }
+
+
 
     let userData = {
         userWorkoutPaths: userWorkoutPaths,

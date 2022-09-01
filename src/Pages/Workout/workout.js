@@ -125,13 +125,7 @@ export default function Workout() {
       })
     }
     console.log(workoutSessions)
-    // if(id){
-    //   await postNewWorkoutSessions(id)
-    // } else {
-    //   console.log("Something went wrong!")
-    // }
-    // console.log(response)
-    // return response
+    navigate('/friends')
   }
 
   function moderateSelect() {

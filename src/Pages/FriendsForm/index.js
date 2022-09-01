@@ -67,6 +67,15 @@ export default function FriendsForm() {
   }
 
 
+
+  const getFormData = (e) => {
+    e.preventDefault()
+    let name = e.target[0].value
+    let email = e.target[1].value
+
+  }
+
+
   return (
     <>
       {/* =======================Sidebar=======================*/}
@@ -140,7 +149,7 @@ export default function FriendsForm() {
                       </div>
 
                       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash">
-                        <form>
+                        <form onSubmit={getFormData}>
                           <div className="card-body">
                             <div className="ui divider"></div>
 
@@ -164,7 +173,7 @@ export default function FriendsForm() {
                             <div className="ui divider"></div>
 
                             <div className="form-control mt-6">
-                              <button className="btn btn-primary">Send Email</button>
+                              <button type="submit" className="btn btn-primary">Send Email</button>
                             </div>
                           </div>
                         </form>

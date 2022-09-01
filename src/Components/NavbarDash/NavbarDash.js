@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { images } from '../../Constants';
 import './NavbarDash.scss';
 
-
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
