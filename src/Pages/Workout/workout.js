@@ -37,6 +37,7 @@ export default function Workout() {
   // ******Vincent
   let [startDate, setStartDate] = useState()
   let [endDate, setEndDate] = useState()
+  let [unique_str, setUniqueStr] = useState('')
 
   let { authTokens,
     logoutUser,
@@ -117,7 +118,7 @@ export default function Workout() {
 
 
   async function beginnerSelect() {
-    const id = await postNewWorkout(user_id, startDate, endDate)
+    const id = await postNewWorkout(user_id, unique_str, startDate, endDate)
     const workoutSessions = workoutSessionSetter(startDate, endDate, beginnerTemplate, id)
     if (id) {
       workoutSessions.forEach((e) => {

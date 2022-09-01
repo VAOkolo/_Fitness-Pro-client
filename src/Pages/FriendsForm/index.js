@@ -81,7 +81,7 @@ export default function FriendsForm() {
       let nameStr = name.toString()
       let emailStr = email.toString()
       let { unique_str } = createdWorkoutObject 
-      
+      console.log(createdWorkoutObject)
       let body = {
         account_id: user.user_id,
         message_name: `Hey ${nameStr}! I'm challenging you to take part in my workout!`,
