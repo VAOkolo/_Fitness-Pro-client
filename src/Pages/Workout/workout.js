@@ -205,7 +205,7 @@ export default function Workout() {
               <label htmlFor="start">Start date:</label>
               <input onChange={updateStartDate} type="date" id="startDate" name=""
                 value={startDate}
-                min="2022-01-01" max="2023-12-31"></input>
+                min="2022-01-01" max="2023-12-31"></input><br></br><br></br>
 
               <label htmlFor="end">End date:</label>
               <input onChange={updateEndDate} type="date" id="endDate" name=""
