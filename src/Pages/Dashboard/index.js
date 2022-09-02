@@ -248,7 +248,7 @@ const Dashboard = () => {
 
                                     <h3>Days Completed</h3>
                                     <br></br>
-                                    <h1>3/14</h1>
+                                    <h1>12/14</h1>
                                 </div>
                                 <div className='progress'>
                                     <svg>
@@ -301,7 +301,7 @@ const Dashboard = () => {
                             <div className='middle'>
                                 <div className='left'>
                                     <h3>Vincent Recently Improved!</h3>
-                                    <h1>3/14</h1>
+                                    <h1>8/14</h1>
                                 </div>
                                 <div className='progress'>
                                     <svg>
