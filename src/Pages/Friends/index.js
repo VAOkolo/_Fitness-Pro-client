@@ -152,18 +152,3 @@ export default function Friends() {
 
     )
 }
-
-{/*<div>
-            <h1>Create a workout</h1>
-            <button onClick={() => pathChange('/addworkout')}>Start a new Workout</button>
-            {/* <button onClick={() => pathChange('/templates')}>Use a template</button> 
-            <h1>Select a template</h1>
-            < Template/>
-            <form onSubmit={handleLevel}>
-                    <select className="">
-                        {level_list.map(item => <option value={item.value}>{item.name}</option>)}
-                    </select>
-                    <input className="" type="submit" />
-                </form>
-                <button className="text-center">Hello</button>
-        </div>*/}

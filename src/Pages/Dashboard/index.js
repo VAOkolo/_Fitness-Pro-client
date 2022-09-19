@@ -179,7 +179,11 @@ const Dashboard = () => {
 
                                     <h3>Days Completed</h3>
                                     <br></br>
+<<<<<<< HEAD
                                     <h1>2/14</h1>
+=======
+                                    <h1>12/14</h1>
+>>>>>>> b098ef71ea593714d6c1aa5415dd2d8b90d19654
                                 </div>
                                 <div className='progress'>
                                     <svg>
@@ -231,8 +235,13 @@ const Dashboard = () => {
                                 }} />
                             <div className='middle'>
                                 <div className='left'>
+<<<<<<< HEAD
                                     <h3>Recently Improved!</h3>
                                     <h1>3/14</h1>
+=======
+                                    <h3>Vincent Recently Improved!</h3>
+                                    <h1>8/14</h1>
+>>>>>>> b098ef71ea593714d6c1aa5415dd2d8b90d19654
                                 </div>
                                 <div className='progress'>
                                     <svg>
