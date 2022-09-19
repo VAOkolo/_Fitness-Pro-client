@@ -63,7 +63,7 @@ export default function Workout() {
 
   const handleLevel = (e) => {
     e.preventDefault()
-    (e.target.value)
+      (e.target.value)
     pathChange('/submitworkout')
   }
 
@@ -78,16 +78,16 @@ export default function Workout() {
     setWorkout(true)
     setDashboard(false)
     setStats(false)
-    ('/workout')
+      ('/workout')
 
   }
   const logWorkout = () => {
     setWorkout(false)
     setDashboard(false)
     setStats(true)
-    navigate('/logworkout')
+    navigate('/history')
 
-}
+  }
   const handleLogout = () => {
     setStats(true)
     setDashboard(true)
@@ -125,6 +125,8 @@ export default function Workout() {
 
   async function beginnerSelect() {
     setIsSubmit(true)
+
+
     const id = await postNewWorkout(user_id, unique_str, startDate, endDate)
     const workoutSessions = workoutSessionSetter(startDate, endDate, beginnerTemplate, id)
     if (id) {
@@ -132,7 +134,7 @@ export default function Workout() {
         postNewWorkoutSessions(e)
       })
     }
-    
+
     navigate('/friends')
   }
 
@@ -204,18 +206,20 @@ export default function Workout() {
               <label htmlFor="start">Start date:</label>
               <input onChange={updateStartDate} type="date" id="startDate" name=""
                 value={startDate}
-                min="2022-01-01" max="2023-12-31"></input><br></br><br></br>
+                min="2022-01-01" max="2023-12-31" className='btn btn-sm btn-outline'></input>
+                <br></br>
+                <br></br>
 
               <label htmlFor="end">End date:</label>
               <input onChange={updateEndDate} type="date" id="endDate" name=""
                 value={endDate}
-                min="2022-01-01" max="2023-12-31"></input>
+                min="2022-01-01" max="2023-12-31" className='btn btn-sm btn-outline'></input>
               <br></br>
               <br></br>
               <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">                        {isSubmit && (
-                                  <div className="ui message success">Loading...</div>)}</a>
-                              </label>
+                <a href="#" className="label-text-alt link link-hover">                        {isSubmit && (
+                  <div className="ui message success">Loading...</div>)}</a>
+              </label>
               <br></br>
               {/* {*******VINCENT**********} */}
               <button onClick={beginnerSelect} className="btn btn-primary">Select This Template</button>
@@ -362,8 +366,8 @@ export default function Workout() {
             </a>
             <a href='#' className={dashboard || workout ? '' : 'active'}
               onClick={logWorkout}>
-                <FitbitRoundedIcon />
-              <h3>Exercise Session</h3>
+              <FitbitRoundedIcon />
+              <h3>Accomplishments</h3>
             </a>
             <a href='#'
               onClick={handleLogout}>

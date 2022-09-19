@@ -11,9 +11,9 @@ export const UserProvider = ({ children }) => {
 
     let beginnerTemplate = [
         { "Monday": [1, 2, 3, 4, 5] },
-        { "Tuesday": [] },
+        { "Tuesday": [1, 2, 3, 4, 5] },
         { "Wednesday": [1, 2, 3, 4, 5] },
-        { "Thursday": [] },
+        { "Thursday": [1, 2, 3, 4, 5] },
         { "Friday": [1, 2, 3, 4, 5] }
     ]
 
@@ -23,7 +23,7 @@ export const UserProvider = ({ children }) => {
         const response = await fetch(`http://localhost:8000/api/gym/profile/workouts/${user_id}/active`)
         const data = await response.json()
         const workout_id = data[0].workout_id
-
+        console.log(workout_id)
         return workout_id
     }
 
@@ -143,17 +143,15 @@ export const UserProvider = ({ children }) => {
                 body: JSON.stringify(body)
             }
 
-            // (body)
             const response = await fetch(`http://localhost:8000/api/gym/sessions/workout/exercise/sets/post`, options)
             const data = await response.json()
-
+              
             return response
 
         } catch (err) {
             console.error(err)
         }
     }
-
 
     const finishedWorkouts = async (user) => {
         try {
@@ -164,7 +162,6 @@ export const UserProvider = ({ children }) => {
             console.log(err)
         }
     }
-
 
 
 
@@ -193,7 +190,7 @@ export const UserProvider = ({ children }) => {
 
 
     return (
-        <UserContext.Provider value={userData}>
+        <UserContext.Provider value={userData} >
             {children}
         </UserContext.Provider>
     )

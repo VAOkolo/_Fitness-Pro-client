@@ -32,7 +32,7 @@ export default function LogWorkout() {
 
     let api_key = process.env.REACT_APP_API_KEY
 
-        
+
     const updateModal = (e) => {
         setUrl(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&order=viewCount&q=${e.target.text + "instructions"}&safeSearch=strict&key=${api_key}`)
         setOpenModal(true)
@@ -49,6 +49,7 @@ export default function LogWorkout() {
         async function getActiveWorkout(user_id) {
             const workout_id = await userWorkoutPaths(user_id)
             const todaysWorkouts = await setTodaysExercises(workout_id)
+            console.log(todaysWorkouts)
             setActiveSession(todaysWorkouts)
 
             setParentWorkoutId(todaysWorkouts[0].workout_id)
@@ -70,12 +71,12 @@ export default function LogWorkout() {
 
     const submitData = (e) => {
         e.preventDefault()
-        
+
         let reps, weights = ''
         const exerciseSets = []
         let exercise_id = document.getElementsByClassName('overlay')[0].id
         let inputs = document.getElementsByClassName('sets')
-        
+
         for (const set of inputs) {
             const tr = set.id
             reps = set.childNodes[1].childNodes[0].value
@@ -99,56 +100,61 @@ export default function LogWorkout() {
     }
 
     return (
-        <div className="hero hero-register min-h-screen info-content">
-            <div className="hero-content flex-col lg:flex-row-reverse" >Today's Exercises</div>
+        <div className="">
+            <div className="text-lg font-bold text-center" >Today's Exercises</div>
+            <br /><br />
             {activeSession ?
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash" >
+                <div>
                     {activeSession.map((data) => (
-                        <div key={data.pk}>
-                            <div className="card-body" id={data.pk}>
-                                <div>
-                                    <div className='ui divider'></div>
-                                    <div className="text-center text-white">{data.exercise_name}</div>
-                                </div>
-                                <div>
-                                    {data.workout_exercise_set ?
-                                        <table className="table table-borderless margin-auto" key={data.pk}>
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Sets</th>
-                                                    <th scope="col">Reps</th>
-                                                    <th scope="col">Weights</th>
-                                                </tr>
-                                            </thead>
-                                            {data.workout_exercise_set.map(({ pk, sets, weights }) => {
-                                                return (
-                                                    <tbody key={pk}>
+                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 card-dash mb-3" >
+                            <div key={data.pk}>
+                                <div className="card-body text-md font-bold" id={data.pk}>
+                                    <div>
+                                        <div className='ui divider'></div>
+                                        <br />
+                                        <div className="text-center text-white">{data.exercise_name}</div>
+                                    </div>
+                                    <div className='row justify-content-center mt-4'>
+                                        {data.workout_exercise_set ?
+                                            <div className='col-auto'>
+                                                <table className="table table-borderless center text-center" key={data.pk}>
+                                                    <thead>
                                                         <tr>
-                                                            <td>{pk}</td>
-                                                            <td>{sets}</td>
-                                                            <td>{weights}</td>
+                                                            <th scope="col">Sets</th>
+                                                            <th scope="col">Reps</th>
+                                                            <th scope="col">Weights</th>
                                                         </tr>
-                                                    </tbody>
-                                                )
-                                            })
-                                            }
-                                        </table>
-                                        : <div>No Sets</div>
-                                    }
+                                                    </thead>
+                                                    {data.workout_exercise_set.map(({ pk, sets, weights }) => {
+                                                        return (
+                                                            <tbody key={pk}>
+                                                                <tr>
+                                                                    <td>{pk}</td>
+                                                                    <td>{sets}</td>
+                                                                    <td>{weights}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        )
+                                                    })
+                                                    }
+                                                </table>
+                                            </div>
+                                            : <div>No Sets</div>
+                                        }
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="form-control">
-                                <Button variant="" name={data.exercise_name} id={data.exercise} className={data.pk} onClick={(e) => {
-                                    updateModal(e);
-                                    setModalData(data.workout_exercise_set);
-                                    setExerciseId(e.target.id);
-                                    workoutSessionID(data.pk)
-                                }}>+</Button>
+                                <div className="form-control">
+                                    <Button variant="" name={data.exercise_name} id={data.exercise} className='btn btn-primary' onClick={(e) => {
+                                        updateModal(e);
+                                        setModalData(data.workout_exercise_set);
+                                        setExerciseId(e.target.id);
+                                        workoutSessionID(data.pk)
+                                    }}>Add Set</Button>
+                                </div>
                             </div>
                         </div>
                     ))}
-                </div> : <div>Nothing to show</div>
-            }
+                </div> : <div>Nothing to show</div>}
             <Modal open={openModal} onClose={() => { setOpenModal(false); setRows([]) }} url={modalUrl} workoutSetId={workoutSetId} data={modalData} exercise={modalTitle} rows={rows} addRow={addRow} submitData={submitData} />
         </div >
 

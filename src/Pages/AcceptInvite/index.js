@@ -32,7 +32,7 @@ const AcceptInvite = () => {
                 const startDate = data[0].startTime
                 const endDate = data[0].endTime
                 const workout_id = await postNewWorkout(user_id, inviteCode, startDate, endDate)
-                    ("this means it works" + workout_id)
+                    console.log("this means it works" + workout_id)
 
                 if (workout_sessions) {
                     let newArray = []

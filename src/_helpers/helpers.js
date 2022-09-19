@@ -1,8 +1,8 @@
 let beginnerTemplate = [
   { "Monday": [1, 2, 3, 4, 5] },
-  { "Tuesday": [] },
+  { "Tuesday": [1, 2, 3, 4, 5] },
   { "Wednesday": [1, 2, 3, 4, 5] },
-  { "Thursday": [] },
+  { "Thursday": [1, 2, 3, 4, 5] },
   { "Friday": [1, 2, 3, 4, 5] }
 ]
 
@@ -11,7 +11,7 @@ function workoutSessionSetter(startDate, endDate, template, workout_id) {
   let d1 = new Date(startDate)
   let d2 = new Date(endDate)
 
-  const date = new Date(d1.getTime() - 1);
+  const date = new Date(d1.getTime());
 
   const dates = [];
 

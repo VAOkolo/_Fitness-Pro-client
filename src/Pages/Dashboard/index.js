@@ -11,10 +11,11 @@ import BookmarkAddedRoundedIcon from '@mui/icons-material/BookmarkAddedRounded';
 import PeopleAltRoundedIcon from '@mui/icons-material/PeopleAltRounded';
 import SportsGymnasticsRoundedIcon from '@mui/icons-material/SportsGymnasticsRounded';
 import FitbitRoundedIcon from '@mui/icons-material/FitbitRounded';
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import { motion } from 'framer-motion'
 import Graph from '../../Components/Graph'
 import './dashboard.css'
-
+import LogWorkout from '../LogWorkout/logworkout'
 // UTILS
 import AuthContext from '../../Context/AuthContext'
 import { useNavigate } from 'react-router-dom';
@@ -23,6 +24,8 @@ const Dashboard = () => {
     let navigate = useNavigate()
     let [dashboard, setDashboard] = useState(true)
     let [workout, setWorkout] = useState(false)
+    let [accompl, setAccompl] = useState(false)
+
     let [stats, setStats] = useState(false)
     let [notes, setNotes] = useState([])
     let { authTokens, logoutUser } = useContext(AuthContext)
@@ -40,7 +43,7 @@ const Dashboard = () => {
     const [field5Rep, setField5Rep] = useState("")
 
     useEffect(() => {
-       
+
     }, [])
 
 
@@ -49,136 +52,64 @@ const Dashboard = () => {
     const handleDash = () => {
         setDashboard(true)
         setWorkout(false)
+        setAccompl(false)
+    
         setStats(false)
     }
     const handleWork = () => {
         setWorkout(true)
         setDashboard(false)
+        setAccompl(false)
+      
         setStats(false)
         navigate('/workout')
 
     }
-    const logWorkout = () => {
-        setWorkout(false)
+   
+    const accWorkout = () => {
+        
+        setAccompl(true)
         setDashboard(false)
-        setStats(true)
-        navigate('/logworkout')
-
+        setWorkout(false)
+        setStats(false)
+        navigate('/history')
     }
+
     const handleLogout = () => {
         setStats(true)
         setDashboard(true)
         setWorkout(true)
+        setAccompl(true)
         logoutUser()
     }
 
     function dashWorkModal() {
         setDashWork(true)
-        ("I've been clicked")
+            ("I've been clicked")
     }
 
     function submitLog(e) {
         e.preventDefault()
-        (field1Set, field1Rep)
+            (field1Set, field1Rep)
         navigate('/workout')
     }
 
     return (
         <>
-        {/* =======================Your Workout Today Modal!=======================*/}
+            {/* =======================Your Workout Today Modal!=======================*/}
 
-{dashWork &&     
-    <div>
-    <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-    <div className="modal">
-      <div className="modal-box relative">
-        <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-        <h3 className="text-lg font-bold">Login Your Workout Here!</h3>
-        <br></br> 
-        <h3 className="text-lg font-bold">Workout A</h3>
-        <p className="py-4"></p>
-
-<form className="form-workout" onSubmit={submitLog} >
-        <h3 className="text-md font-bold">Bench Press: 3x8</h3>
-          <div className="form-control">
-  <label className="input-group input-group-sm">
-    <span>Sets</span>
-    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field1Set} onChange={e => setField1Set(e.target.value)}/>
-  </label>
-</div>
-          <div className="form-control">
-  <label className="input-group input-group-sm">
-    <span>Reps</span>
-    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field1Rep} onChange={e => setField1Rep(e.target.value)}/>
-  </label>
-</div>
-          
-          <br></br>
-          <h3 className="text-md font-bold">Barbell Row: 3x8</h3>
-          <div className="form-control">
-  <label className="input-group input-group-sm">
-    <span>Sets</span>
-    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field2Set} onChange={e => setField2Set(e.target.value)}/>
-  </label>
-</div>
-          <div className="form-control">
-  <label className="input-group input-group-sm">
-    <span>Reps</span>
-    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field2Rep} onChange={e => setField2Rep(e.target.value)}/>
-  </label>
-</div>
-
-          <br></br>
-          <h3 className="text-md font-bold">Squat Variation: 3x8</h3>
-          <div className="form-control">
-  <label className="input-group input-group-sm">
-    <span>Sets</span>
-    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field3Set} onChange={e => setField3Set(e.target.value)}/>
-  </label>
-</div>
-          <div className="form-control">
-  <label className="input-group input-group-sm">
-    <span>Reps</span>
-    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field3Rep} onChange={e => setField3Rep(e.target.value)}/>
-  </label>
-</div>
-
-          <br></br>
-          <h3 className="text-md font-bold">Tricep Extensions: 3x10</h3>
-          <div className="form-control">
-  <label className="input-group input-group-sm">
-    <span>Sets</span>
-    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field4Set} onChange={e => setField4Set(e.target.value)}/>
-  </label>
-</div>
-          <div className="form-control">
-  <label className="input-group input-group-sm">
-    <span>Reps</span>
-    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field4Rep} onChange={e => setField4Rep(e.target.value)}/>
-  </label>
-</div>
-
-          <br></br>
-          <h3 className="text-md font-bold">Bicep Curls: 3x10</h3>
-          <div className="form-control">
-  <label className="input-group input-group-sm">
-    <span>Sets</span>
-    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field5Set} onChange={e => setField5Set(e.target.value)}/>
-  </label>
-</div>
-          <div className="form-control">
-  <label className="input-group input-group-sm">
-    <span>Reps</span>
-    <input type="text" placeholder="Type here" className="input input-bordered input-xs" value={field5Rep} onChange={e => setField5Rep(e.target.value)}/>
-  </label>
-</div>
-        <br></br>
-        <br></br>
-        <button type="submit" className="btn btn-primary">Log Your Workout</button>
-        </form>
-      </div>
-    </div>
-    </div>}
+            {dashWork &&
+                <div>
+                    <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+                    <div className="modal">
+                        <div className="modal-box relative">
+                            <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                            <h3 className="text-lg font-bold text-center">Login Your Workout Here!</h3>
+                            <br></br>
+                            <LogWorkout />
+                        </div>
+                    </div>
+                </div>}
 
 
             {/* =======================Sidebar=======================*/}
@@ -195,19 +126,19 @@ const Dashboard = () => {
 
                     </div>
                     <div className='sidebar'>
-                        <a href='#' className={workout || stats ? '' : 'active'} onClick={handleDash}>
+                        <a href='#' className={dashboard || stats ? '' : 'active'} onClick={handleDash}>
                             <PersonRoundedIcon />
                             <h3>Dashboard</h3>
                         </a>
-                        <a href='#' className={dashboard || stats ? '' : 'active'}
+                        <a href='#' className={dashboard || workout ? '' : 'active'}
                             onClick={handleWork}>
                             <FitnessCenterRoundedIcon />
                             <h3>Create A Workout +</h3>
                         </a>
-                        <a href='#' className={dashboard || workout ? '' : 'active'}
-                            onClick={logWorkout}>
-                            <FitbitRoundedIcon />
-                            <h3>Exercise Session</h3>
+                        <a href='#' className={dashboard || accompl ? '' : 'active'}
+                            onClick={accWorkout}>
+                            <TaskAltIcon />
+                            <h3>Accomplishments</h3>
                         </a>
                         <a href='#'
                             onClick={handleLogout}>
@@ -248,15 +179,15 @@ const Dashboard = () => {
 
                                     <h3>Days Completed</h3>
                                     <br></br>
-                                    <h1>3/14</h1>
+                                    <h1>2/14</h1>
                                 </div>
                                 <div className='progress'>
                                     <svg>
                                         <circle className="circle1" cx={38} cy={38} r={36}></circle>
                                     </svg>
                                     <div className="number1">
-                                    <p>82%</p>
-                                </div>
+                                        <p>82%</p>
+                                    </div>
                                 </div>
                             </div>
                             <small className='text-cancel'>Last 24 Hours</small>
@@ -280,7 +211,7 @@ const Dashboard = () => {
                                     <h1>Upper</h1>
                                 </div>
                                 <div className='progress-middle-2'>
-                                <label htmlFor="my-modal-3" className="btn btn-error modal-button">Open</label>
+                                    <label htmlFor="my-modal-3" className="btn btn-error modal-button">Open</label>
                                 </div>
                             </div>
                             <small className='text-cancel'>Click For More Info</small>
@@ -300,7 +231,7 @@ const Dashboard = () => {
                                 }} />
                             <div className='middle'>
                                 <div className='left'>
-                                    <h3>Vincent Recently Improved!</h3>
+                                    <h3>Recently Improved!</h3>
                                     <h1>3/14</h1>
                                 </div>
                                 <div className='progress'>
@@ -308,8 +239,8 @@ const Dashboard = () => {
                                         <circle className="circle3" cx={38} cy={38} r={36}></circle>
                                     </svg>
                                     <div className="number2">
-                                    <p>67%</p>
-                                </div>
+                                        <p>67%</p>
+                                    </div>
                                 </div>
                             </div>
                             <small className='text-cancel'>Last 24 Hours</small>

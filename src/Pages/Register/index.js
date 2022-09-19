@@ -12,7 +12,7 @@ import AuthContext from "../../Context/AuthContext";
 export default function Register() {
   const navigate = useNavigate()
 
-  const initialValues = { username: "", email: "", password: "", password2: "" };
+  const initialValues = { user_name: "", email: "", password: "", password2: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
@@ -31,9 +31,9 @@ export default function Register() {
   };
 
   useEffect(() => {
-    
+
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      postUser(formValues.username, formValues.email, formValues.password)
+      postUser(formValues.user_name, formValues.email, formValues.password)
     }
   }, [formErrors]);
 
@@ -46,8 +46,8 @@ export default function Register() {
   const validate = (values) => {
     const errors = {};
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!values.username) {
-      errors.username = "Username is required!";
+    if (!values.user_name) {
+      errors.user_name = "username is required!";
     }
     if (!values.email) {
       errors.email = "Email is required!";
@@ -58,7 +58,7 @@ export default function Register() {
       errors.password = "Password is required";
     } else if (values.password.length < 4) {
       errors.password = "Password must be more than 4 characters";
-    } else if (values.password.length > 10) {
+    } else if (values.password.length > 30) {
       errors.password = "Password cannot exceed more than 10 characters";
     }
     if (!values.password2) {
@@ -101,7 +101,7 @@ export default function Register() {
                     <label className="label">
                       <span className="label-text">Username</span>
                     </label>
-                    <input type="text" value={formValues.username} name="username"
+                    <input type="text" value={formValues.user_name} name="user_name"
                       placeholder="username" className="input input-ghost" onChange={handleChange} />
                   </div>
                   <div className="ui divider"></div>
@@ -120,7 +120,7 @@ export default function Register() {
                       <span className="label-text">Password</span>
                     </label>
                     <input type="text" placeholder="password"
-                      name="password" className="input input-ghost"
+                      name="password" className="input input-ghost key"
                       value={formValues.password} onChange={handleChange} />
                   </div>
                   <div className="ui divider"></div>
@@ -130,7 +130,7 @@ export default function Register() {
                       <span className="label-text">Confirm Password</span>
                     </label>
                     <input type="text" placeholder="confirm password"
-                      name="password2" className="input input-ghost" value={formValues.password2} onChange={handleChange} />
+                      name="password2" className="input input-ghost key" value={formValues.password2} onChange={handleChange} />
                     <label className="label">
                       <a href="#" className="label-text-alt link link-hover">                        {Object.keys(formErrors).length === 0 && isSubmit && (
                         <div className="ui message success">Signed in successfully</div>)}</a>

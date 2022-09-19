@@ -12,12 +12,12 @@ export const AuthProvider = ({ children }) => {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(true)
 
-    const localhost = 'http://localhost:3000'
+    const server = 'http://localhost:8000'
     const navigate = useNavigate()
 
     const loginUser = async (e) => {
         e.preventDefault()
-        const response = await fetch('http://localhost:8000/api/token/', {
+        const response = await fetch(`${server}/api/token/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
 
         // PERMISSION TO LOGIN AND REGISTER PAGE AND WARNING USER IN CASE OF A TRY TO BYPASS TO PAGES
         const url = window.location.href
-        const path = '/' + url.substring(url.lastIndexOf("/") + 1, url.length)
+        const path = '/' || '' + url.substring(url.lastIndexOf("/") + 1, url.length)
         if (path == '/') {
             navigate('/landing')
         } else if (path == '/login') {
@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }) => {
             console.log('Login or Register. You dont have any token right now.')
             logoutUser()
         } else {
-            const response = await fetch('http://localhost:8000/api/token/refresh/', {
+            const response = await fetch(`${server}/api/token/refresh/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -97,20 +97,20 @@ export const AuthProvider = ({ children }) => {
 
     }, [authTokens, loading])
 
-    const postUser = async (username, email, password) => {
+    const postUser = async (user_name, email, password) => {
         try {
-            const url = 'http://localhost:8000/api/user/register/';
+            const url = `${server}/api/user/register/`;
             const options = {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     Accept: '*/*'
                 },
-                body: JSON.stringify({ 'email': email, 'user_name': username, 'password': password })
+                body: JSON.stringify({ 'email': email, 'user_name': user_name, 'password': password })
             }
-            (options)
             const response = await fetch(url, options)
-            (response.status)
+            console.log(response)
+            return navigate('/login')
         } catch (err) {
             console.error(err)
         }

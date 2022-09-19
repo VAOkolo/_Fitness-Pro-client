@@ -17,3 +17,15 @@
     border: solid;
     border-radius: 5%;
 }
+
+::placeholder {
+    text-align: center; 
+ }
+
+ input { 
+    text-align: center; 
+}
+
+.buttn {
+    cursor: pointer;
+}

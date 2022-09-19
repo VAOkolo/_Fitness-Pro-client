@@ -77,3 +77,7 @@ form h1 {
         display: block;
     }
 }
+
+input.key {
+    -webkit-text-security: disc;
+  }

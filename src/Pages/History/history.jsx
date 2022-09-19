@@ -22,8 +22,12 @@ export default function History() {
 
   return (
     finishedWorkoutsData ?
-
+      
       <div className='hero hero-register min-h-screen info-content'>
+        <div className='text-center'>
+        <h1 >Workout History</h1>
+        </div>
+       <br /><br /><br /><br />
         <div className='col'>
           <div className='text-center'>
             {finishedWorkoutsData.map(({ active, goal, start_time, end_time, created_at, workout_description, user_workout_session
@@ -31,8 +35,8 @@ export default function History() {
               return (
                 <div className="card mb-3">
                   <div className="card-body">
-                    <h4>{workout_description}</h4>
-                    <h5 className="card-title text-white">Workout {created_at}</h5>
+                    <h2 className='text-white'>{workout_description}</h2>
+                    <h3 className="text-white center">Workout {created_at}</h3>
                     <span>{goal}</span>
                     <p className="card-text"></p>
                     <p className="card-text">
